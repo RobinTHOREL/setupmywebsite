@@ -13,6 +13,8 @@ define("MODELS_PATH", APP_PATH.DS."Models".DS);
 define("VIEWS_PATH", APP_PATH.DS."Views".DS);
 define("LOG_PATH", "Logs".DS);
 
+
+
 /* Base de données */
 define("DB_USER", "root");
 define("DB_PWD", "password");
