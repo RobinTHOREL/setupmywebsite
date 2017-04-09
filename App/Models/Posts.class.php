@@ -3,6 +3,7 @@
 
         protected $id;
         protected $id_pages;
+        protected $id_parent;
         protected $id_author;
         protected $name;
         protected $description;
@@ -11,18 +12,19 @@
         protected $date_created;
         protected $date_updated;
 
-		public function __construct($id=-1, $id_pages=null, $id_author=null, $name=null,
+		public function __construct($id=-1, $id_pages=0, $id_parent=0, $id_author=0, $name=null,
                                         $description=null, $title=null, $content=null,
                                         $date_created="NOW", $date_updated=null) {
 			$this->setId($id);
 			$this->setIdPages($id_pages);
+            $this->setIdParent($id_parent);
             $this->setIdAuthor($id_author);
             $this->setName($name);
 			$this->setDescription($description);
             $this->setTitle($title);
             $this->setContent($content);
-            //$this->setDateCreated($date_created);
-            //$this->setDateUpdated($date_updated);
+            $this->setDateCreated($date_created);
+            $this->setDateUpdated($date_updated);
 
 			parent::__construct();
 		}
@@ -34,6 +36,10 @@
 
         public function setIdPages($id_pages) {
             $this->id_pages=$id_pages;
+        }
+
+        public function setIdParent($id_parent) {
+            $this->id_parent=$id_parent;
         }
 
         public function setIdAuthor($id_author) {
@@ -71,6 +77,10 @@
 
         public function getIdPages() {
             return $this->id_pages;
+        }
+
+        public function getIdParent() {
+            return $this->id_parent;
         }
 
         public function getIdAuthor() {
