@@ -31,11 +31,11 @@
             return $this->id;
         }
 
-        public function setOption() {
+        public function getOption() {
             return $this->option;
         }
 
-        public function setValue() {
+        public function getValue() {
             return $this->value;
         }
     }
