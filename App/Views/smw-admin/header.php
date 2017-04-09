@@ -7,7 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 <!--   Need to change the document root ($server) to a public folder -->
-    <link rel="stylesheet" href="/setupmywebsite/App/Views/smw-admin/css/style.css">
-    <link rel="stylesheet" href="/setupmywebsite/App/Views/smw-admin/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/setupmywebsite/Public/css/style.css">
+    <link rel="stylesheet" href="/setupmywebsite/Public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
 </head>
 <body>
