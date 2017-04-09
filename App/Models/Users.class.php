@@ -9,12 +9,13 @@
 		protected $password;
 		protected $status;
 		protected $permission;
-		//protected $date_inserted;
-		//protected $date_updated;
+        protected $activation_key;
+		protected $date_inserted;
+		protected $date_updated;
 
 		public function __construct($id=-1, $email=null, $lastname=null, $firstname=null,
 										$login=null, $password=null, $status=0, $permission=0,
-                                        $date_inserted="NOW", $date_updated=null) {
+                                        $activation_key=null, $date_inserted="NOW", $date_updated=null) {
 			$this->setId($id);
 			$this->setFirstName($firstname);
 			$this->setLastName($lastname);
@@ -23,8 +24,9 @@
 			$this->setPassword($password);
 			$this->setStatus($status);
 			$this->setPermission($permission);
-            //$this->setDateInserted($date_inserted);
-            //$this->setDateUpdated($date_updated);
+            $this->setActivationKey($activation_key);
+            $this->setDateInserted($date_inserted);
+            $this->setDateUpdated($date_updated);
 
 			parent::__construct();
 		}
@@ -61,6 +63,10 @@
 		public function setPermission($permission) {
 			$this->permission=$permission;
 		}
+
+        public function setActivationKey($activation_key) {
+            $this->activation_key=$activation_key;
+        }
 
         public function setDateInserted($date_inserted) {
             $this->date_inserted=$date_inserted;
@@ -101,6 +107,10 @@
 
         public function getPermission() {
             return $this->permission;
+        }
+
+        public function getActivationKey() {
+            return $this->activation_key;
         }
 
         public function getDateInserted() {
