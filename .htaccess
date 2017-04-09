@@ -10,7 +10,7 @@
     #RewriteCond %{HTTPS} !on
     #RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
  
-    # Allow any files or directories that exist to be displayed directly
+    # Allow any files or directoriese that exist to be displayed directly
     RewriteCond %{REQUEST_FILENAME} !-f
     #RewriteCond %{REQUEST_FILENAME} !-d
  

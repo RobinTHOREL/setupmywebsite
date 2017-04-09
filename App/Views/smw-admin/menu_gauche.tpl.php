@@ -12,7 +12,7 @@
             <label for="section-2"><i class="fa fa-pencil"></i> <span>Articles</span></label>
             <div class="content">
                 <ul>
-                    <li><i class="fa fa-plus"></i><span>Ajouter</span></li>
+                    <li><i class="fa fa-plus"></i><a href="smw-admin/articles/add"><span>Ajouter</span></a></li>
                     <li><i class="fa fa-bars"></i><span>Liste des articles</span></li>
                 </ul>
             </div>

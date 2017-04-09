@@ -8,13 +8,22 @@ class Routing{
 	private $action;
 	private $actionName;
 	private $error;
+	private $smwAdmin = false;
 
 	private $params;
-
 	public function __construct(){
 		$uri = $_SERVER["REQUEST_URI"];
 		$uri = preg_replace("#".BASE_PATH_PATTERN."#i", "", $uri, 1);
 		$this->uriExploded = explode("/",  trim($uri, "/")   );
+//		Check if url contain smw-admin
+        $check = preg_match("/smw-admin/i", $uri);
+        if($check != false)
+        {
+            //Search smw-admin si oui:
+            $this->smwAdmin=true;
+        }
+
+
 		$this->setController();
 		$this->setAction();
 		$this->setParams();
@@ -23,15 +32,20 @@ class Routing{
 	}
 
 	public function setController(){
-		$this->controller = (empty($this->uriExploded[0]))?"Index":ucfirst($this->uriExploded[0]);
-		$this->controllerName = $this->controller."Controller";
-		unset($this->uriExploded[0]);
+	    $indexController = ($this->smwAdmin)?1:0;
+        $this->controller = (empty($this->uriExploded[$indexController]))?"Index":ucfirst($this->uriExploded[$indexController]);
+        $this->controllerName = $this->controller."Controller";
+        unset($this->uriExploded[$indexController]);
+
 	}
 
 	public function setAction(){
-		$this->action =  (empty($this->uriExploded[1]))?"index":$this->uriExploded[1];
-		$this->actionName = $this->action."Action";	
-		unset($this->uriExploded[1]);
+         $indexAction = ($this->smwAdmin)?2:1;
+        $this->action =  (empty($this->uriExploded[$indexAction]))?"index":$this->uriExploded[$indexAction];
+        $this->actionName = $this->action."Action";
+        unset($this->uriExploded[$indexAction]);
+
+
 	}
 
 	public function setParams(){
