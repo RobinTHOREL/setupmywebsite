@@ -4,16 +4,16 @@
     </div>
     <div class="accordion">
         <div class="section">
-            <input type="radio" name="accordion-1" id="section-1" checked="checked"/>
-            <label for="section-1"><i class="fa fa-eye respons_hidden"></i><span class="respons_hidden">Dashboard</span></label>
+            <input type="radio" name="accordion-1" id="section-1" />
+            <label for="section-1"><i class="fa fa-eye respons_hidden"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH . "dashboard";?>">Dashboard</a></span></label>
         </div>
         <div class="section">
-            <input type="radio" name="accordion-1" id="section-2" value="toggle"/>
+            <input type="radio" name="accordion-1" id="section-2" value="toggle" <?php (ABSOLUTE_PATH . "articles/add")? "checked = \"checked\"":"";?>/>
             <label for="section-2"><i class="fa fa-pencil"></i> <span class="respons_hidden">Articles</span></label>
             <div class="content">
                 <ul>
-                    <li><i class="fa fa-plus"></i><span class="respons_hidden">Ajouter</span></li>
-                    <li><i class="fa fa-bars"></i><span class="respons_hidden">Liste des articles</span></li>
+                    <li><i class="fa fa-plus"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH . "articles/add";?>">Ajouter</a></span></li>
+                    <li><i class="fa fa-bars"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH . "articles/view";?>">Liste des articles</a></span></li>
                 </ul>
             </div>
         </div>
@@ -22,8 +22,8 @@
             <label for="section-3"><i class="fa fa-file-o"></i> <span class="respons_hidden">Pages</span></label>
             <div class="content">
                 <ul>
-                    <li><i class="fa fa-plus"></i><span class="respons_hidden">Ajouter</span></li>
-                    <li><i class="fa fa-bars"></i><span class="respons_hidden">Toutes les pages</span></li>
+                    <li><i class="fa fa-plus"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH . "pages/add";?>">Ajouter</a></span></li>
+                    <li><i class="fa fa-bars"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH . "pages/view";?>">Toutes les pages</a></span></li>
                 </ul>
             </div>
         </div>
@@ -32,8 +32,8 @@
             <label for="section-4"><i class="fa fa-camera"></i> <span>Bibliothéque</span></label>
             <div class="content">
                 <ul>
-                    <li><i class="fa fa-plus"></i><span class="respons_hidden">Ajouter un média</span></li>
-                    <li><i class="fa fa-th"></i><span class="respons_hidden">Bibliothéque des médias</span></li>
+                    <li><i class="fa fa-plus"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH . "multimedia/add";?>">Ajouter un média</a></span></li>
+                    <li><i class="fa fa-th"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH . "multimedia/view";?>">Bibliothéque des médias</a></span></li>
                 </ul>
             </div>
         </div>
