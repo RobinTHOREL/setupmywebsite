@@ -1,0 +1,400 @@
+/** Cadrillage **/
+
+
+
+.colonne1, .colonne2, .colonne3, .colonne4, .colonne5, .colonne6, .colonne7, .colonne8, .colonne9, .colonne10, .colonne11, .colonne12 {
+    float: left; /* left ou right */
+}
+
+.deux-colonnes{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+.deux-colonnes .colonne1,
+.deux-colonnes .colonne2{
+    width: 40%;
+    margin-left: 5%;
+    margin-right: 5%;   /*40*2 = 80 + 5*2 = 100*/
+}
+
+.trois-colonnes{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+
+}
+
+
+.trois-colonnes .colonne1,
+.trois-colonnes .colonne2,
+.trois-colonnes .colonne3{
+    width: 31%;
+    margin-left: 1.2%;
+    margin-right: 1.1%;
+    text-align: center;
+}
+
+.quatre-colonnes{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+/*.quatre-colonnes:last-child{
+    margin-right: 0%;
+}*/
+
+.quatre-colonnes .colonne1,
+.quatre-colonnes .colonne2,
+.quatre-colonnes .colonne3,
+.quatre-colonnes .colonne4{
+    width: 23%;
+    margin-left: 1%;
+    margin-right: 1%;
+    text-align: center;
+
+}
+
+.cinq-colonnes{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+.cinq-colonnes .colonne1,
+.cinq-colonnes .colonne2,
+.cinq-colonnes .colonne3,
+.cinq-colonnes .colonne4,
+.cinq-colonnes .colonne5{
+    width: 18%;
+    margin-left: 1%;
+    margin-right: 1%;
+    text-align: center;
+
+}
+
+.six-colonnes{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+.six-colonnes .colonne1,
+.six-colonnes .colonne2,
+.six-colonnes .colonne3,
+.six-colonnes .colonne4,
+.six-colonnes .colonne5,
+.six-colonnes .colonne6 {
+    width: 14%;
+    margin-left: 1.5%;
+    margin-right: 1%;
+    text-align: center;
+}
+
+.sept-colonnes{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+.sept-colonnes .colonne1,
+.sept-colonnes .colonne2,
+.sept-colonnes .colonne3,
+.sept-colonnes .colonne4,
+.sept-colonnes .colonne5,
+.sept-colonnes .colonne6,
+.sept-colonnes .colonne7 {
+    width: 12%;
+    margin-left: 1.2%;
+    margin-right: 1%;
+    text-align: center;
+}
+
+.huit-colonnes{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+.huit-colonnes .colonne1,
+.huit-colonnes .colonne2,
+.huit-colonnes .colonne3,
+.huit-colonnes .colonne4,
+.huit-colonnes .colonne5,
+.huit-colonnes .colonne6,
+.huit-colonnes .colonne7,
+.huit-colonnes .colonne8 {
+    width: 10%;
+    margin-left: 1.4%;
+    margin-right: 1%;
+    text-align: center;
+}
+
+
+.neuf-colonnes{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+.neuf-colonnes .colonne1,
+.neuf-colonnes .colonne2,
+.neuf-colonnes .colonne3,
+.neuf-colonnes .colonne4,
+.neuf-colonnes .colonne5,
+.neuf-colonnes .colonne6,
+.neuf-colonnes .colonne7,
+.neuf-colonnes .colonne8,
+.neuf-colonnes .colonne9 {
+    width: 9%;
+    float: left;
+    margin-right: 1%;
+    margin-left: 1%;
+    text-align: center;
+}
+
+.dix-colonnes{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+.dix-colonnes .colonne1,
+.dix-colonnes .colonne2,
+.dix-colonnes .colonne3,
+.dix-colonnes .colonne4,
+.dix-colonnes .colonne5,
+.dix-colonnes .colonne6,
+.dix-colonnes .colonne7,
+.dix-colonnes .colonne8,
+.dix-colonnes .colonne9,
+.dix-colonnes .colonne10 {
+    width: 8%;
+    margin-left: 1%;
+    margin-right: 1%;
+    text-align: center;
+}
+
+.onze-colonnes{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+.onze-colonnes .colonne1,
+.onze-colonnes .colonne2,
+.onze-colonnes .colonne3,
+.onze-colonnes .colonne4,
+.onze-colonnes .colonne5,
+.onze-colonnes .colonne6,
+.onze-colonnes .colonne7,
+.onze-colonnes .colonne8,
+.onze-colonnes .colonne9,
+.onze-colonnes .colonne10,
+.onze-colonnes .colonne11 {
+    width: 7%;
+    margin-left: 1%;
+    margin-right: 1%;
+    text-align: center;
+}
+
+.douze-colonnes{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+}
+
+.douze-colonnes .colonne1,
+.douze-colonnes .colonne2,
+.douze-colonnes .colonne3,
+.douze-colonnes .colonne4,
+.douze-colonnes .colonne5,
+.douze-colonnes .colonne6,
+.douze-colonnes .colonne7,
+.douze-colonnes .colonne8,
+.douze-colonnes .colonne9,
+.douze-colonnes .colonne10,
+.douze-colonnes .colonne11,
+.douze-colonnes .colonne12 {
+    width: 6%;
+    margin-left: 1.3%;
+    margin-right: 1%;
+    text-align: center;
+}
+
+
+
+
+/* Responsive de width : 400 a 900px */
+@media(max-width: 900px) /** Optimisation iPad **/
+{
+
+    .trois-colonnes .colonne1,
+    .trois-colonnes .colonne2,
+    .trois-colonnes .colonne3,
+    .quatre-colonnes .colonne1,
+    .quatre-colonnes .colonne2,
+    .quatre-colonnes .colonne3,
+    .quatre-colonnes .colonne4,
+    .cinq-colonnes .colonne1,
+    .cinq-colonnes .colonne2,
+    .cinq-colonnes .colonne3,
+    .cinq-colonnes .colonne4,
+    .cinq-colonnes .colonne5,
+    .six-colonnes .colonne1,
+    .six-colonnes .colonne2,
+    .six-colonnes .colonne3,
+    .six-colonnes .colonne4,
+    .six-colonnes .colonne5,
+    .six-colonnes .colonne6,
+    .sept-colonnes .colonne1,
+    .sept-colonnes .colonne2,
+    .sept-colonnes .colonne3,
+    .sept-colonnes .colonne4,
+    .sept-colonnes .colonne5,
+    .sept-colonnes .colonne6,
+    .sept-colonnes .colonne7,
+    .huit-colonnes .colonne1,
+    .huit-colonnes .colonne2,
+    .huit-colonnes .colonne3,
+    .huit-colonnes .colonne4,
+    .huit-colonnes .colonne5,
+    .huit-colonnes .colonne6,
+    .huit-colonnes .colonne7,
+    .huit-colonnes .colonne8,
+    .neuf-colonnes .colonne1,
+    .neuf-colonnes .colonne2,
+    .neuf-colonnes .colonne3,
+    .neuf-colonnes .colonne4,
+    .neuf-colonnes .colonne5,
+    .neuf-colonnes .colonne6,
+    .neuf-colonnes .colonne7,
+    .neuf-colonnes .colonne8,
+    .neuf-colonnes .colonne9,
+    .dix-colonnes .colonne1,
+    .dix-colonnes .colonne2,
+    .dix-colonnes .colonne3,
+    .dix-colonnes .colonne4,
+    .dix-colonnes .colonne5,
+    .dix-colonnes .colonne6,
+    .dix-colonnes .colonne7,
+    .dix-colonnes .colonne8,
+    .dix-colonnes .colonne9,
+    .dix-colonnes .colonne10
+    .onze-colonnes .colonne1,
+    .onze-colonnes .colonne2,
+    .onze-colonnes .colonne3,
+    .onze-colonnes .colonne4,
+    .onze-colonnes .colonne5,
+    .onze-colonnes .colonne6,
+    .onze-colonnes .colonne7,
+    .onze-colonnes .colonne8,
+    .onze-colonnes .colonne9,
+    .onze-colonnes .colonne10,
+    .onze-colonnes .colonne11,
+    .douze-colonnes .colonne1,
+    .douze-colonnes .colonne2,
+    .douze-colonnes .colonne3,
+    .douze-colonnes .colonne4,
+    .douze-colonnes .colonne5,
+    .douze-colonnes .colonne6,
+    .douze-colonnes .colonne7,
+    .douze-colonnes .colonne8,
+    .douze-colonnes .colonne9,
+    .douze-colonnes .colonne10,
+    .douze-colonnes .colonne11,
+    .douze-colonnes .colonne12{
+        width: 80%;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+    }
+
+    footer.trois-colonnes .colonne1,
+    footer.trois-colonnes .colonne2,
+    footer.trois-colonnes .colonne3 {
+        width: 30%;
+        display: inline-block;
+    }
+
+}
+
+/* Responsive de width : 0 a 480px */
+@media(max-width: 480px) /** Optimisation iPhone 6 **/
+{
+
+    .deux-colonnes .colonne1,
+    .deux-colonnes .colonne2,
+    .trois-colonnes .colonne1,
+    .trois-colonnes .colonne2,
+    .trois-colonnes .colonne3,
+    .quatre-colonnes .colonne1,
+    .quatre-colonnes .colonne2,
+    .quatre-colonnes .colonne3,
+    .quatre-colonnes .colonne4,
+    .cinq-colonnes .colonne1,
+    .cinq-colonnes .colonne2,
+    .cinq-colonnes .colonne3,
+    .cinq-colonnes .colonne4,
+    .cinq-colonnes .colonne5,
+    .six-colonnes .colonne1,
+    .six-colonnes .colonne2,
+    .six-colonnes .colonne3,
+    .six-colonnes .colonne4,
+    .six-colonnes .colonne5,
+    .six-colonnes .colonne6,
+    .sept-colonnes .colonne1,
+    .sept-colonnes .colonne2,
+    .sept-colonnes .colonne3,
+    .sept-colonnes .colonne4,
+    .sept-colonnes .colonne5,
+    .sept-colonnes .colonne6,
+    .huit-colonnes .colonne1,
+    .huit-colonnes .colonne2,
+    .huit-colonnes .colonne3,
+    .huit-colonnes .colonne4,
+    .huit-colonnes .colonne5,
+    .huit-colonnes .colonne6,
+    .huit-colonnes .colonne7,
+    .huit-colonnes .colonne8,
+    .neuf-colonnes .colonne1,
+    .neuf-colonnes .colonne2,
+    .neuf-colonnes .colonne3,
+    .neuf-colonnes .colonne4,
+    .neuf-colonnes .colonne5,
+    .neuf-colonnes .colonne6,
+    .neuf-colonnes .colonne7,
+    .neuf-colonnes .colonne8,
+    .neuf-colonnes .colonne9,
+    .dix-colonnes .colonne1,
+    .dix-colonnes .colonne2,
+    .dix-colonnes .colonne3,
+    .dix-colonnes .colonne4,
+    .dix-colonnes .colonne5,
+    .dix-colonnes .colonne6,
+    .dix-colonnes .colonne7,
+    .dix-colonnes .colonne8,
+    .dix-colonnes .colonne9,
+    .dix-colonnes .colonne10
+    .onze-colonnes .colonne1,
+    .douze-colonnes .colonne2,
+    .douze-colonnes .colonne3,
+    .douze-colonnes .colonne4,
+    .douze-colonnes .colonne5,
+    .douze-colonnes .colonne6,
+    .douze-colonnes .colonne7,
+    .douze-colonnes .colonne8,
+    .douze-colonnes .colonne9,
+    .douze-colonnes .colonne10,
+    .douze-colonnes .colonne11,
+    .douze-colonnes .colonne12{
+        width:80%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+
+}
