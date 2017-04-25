@@ -15,8 +15,11 @@
 .deux-colonnes .colonne1,
 .deux-colonnes .colonne2{
     width: 40%;
-    margin-left: 5%;
-    margin-right: 5%;   /*40*2 = 80 + 5*2 = 100*/
+    margin-left: 5%;   /*40*2 = 80 + 5*2 = 100*/
+}
+
+.deux-colonnes .colonne1:first-child {
+    margin-left: 0%;
 }
 
 .trois-colonnes{

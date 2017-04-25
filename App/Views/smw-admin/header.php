@@ -8,7 +8,9 @@
     <title>Document</title>
 <!--   Need to change the document root ($server) to a public folder -->
     <link rel="stylesheet" href="/setupmywebsite/Public/css/style.css">
+    <link rel="stylesheet" href="/setupmywebsite/Public/css/grid.css">
     <link rel="stylesheet" href="/setupmywebsite/Public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="/setupmywebsite/Public/img/favicon.ico" />
 
 </head>
 <body>

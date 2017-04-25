@@ -1,4 +1,4 @@
-<D<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
     <link rel="stylesheet" href="/setupmywebsite/Public/css/grid.css">
