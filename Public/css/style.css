@@ -9,8 +9,8 @@ body {
 .container {
     margin-right: auto;
     margin-left: 210px;
-    padding: 15px;
-    border: 2px solid white;
+    padding: 25px;
+    /*border: 2px solid white;*/
 }
 
 /* Accordeon menu gauche */
@@ -184,6 +184,22 @@ input[type=submit]:hover {
     background-color: #45a049;
 }
 
+input[type=reset] {
+    background-color: #af0a17;
+    border: none;
+    color: white;
+    text-decoration: none;
+    width: 100px;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+input[type=reset]:hover {
+    background-color: #d10a18;
+}
+
 textarea.form-group {
     width: 100%;
     height: 150px;
@@ -196,7 +212,8 @@ textarea.form-group {
     font-family: 'Quicksand', sans-serif;
 }
 
-input[type=button], input[type=submit], input[type=reset] {
+/* type=button pas encore testé */
+input[type=button] {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -204,6 +221,13 @@ input[type=button], input[type=submit], input[type=reset] {
     text-decoration: none;
     margin: 4px 2px;
     cursor: pointer;
+}
+
+
+/* Composants pages */
+.title {
+    font-size: 2em;
+    font-weight: bold;
 }
 
 /* Responsive de width : 480 a 900px */
