@@ -2,11 +2,15 @@
     class Helpers {
 
 
-        //Cette fonction génère, sauvegarde et retourne un token
-        //Vous pouvez lui passer en paramètre optionnel un nom pour différencier les formulaires
-        function generer_token($nom = '')
+        //create token
+        //with name
+        //with time
+        static function generer_token($nom = '')
         {
-            session_start();
+            //on verifie que la session est initialisée
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
             $token = uniqid(rand(), true);
             $_SESSION[$nom.'_token'] = $token;
             $_SESSION[$nom.'_token_time'] = time();
@@ -14,13 +18,14 @@
         }
 
 
-        //Cette fonction vérifie le token
-        //Vous passez en argument le temps de validité (en secondes)
-        //Le referer attendu (adresse absolue, rappelez-vous :D)
-        //Le nom optionnel si vous en avez défini un lors de la création du token
-        function verifier_token($temps, $referer, $nom = '')
+        //time lapse max (300?)
+        //referer
+        //form name
+        static function verifier_token($temps, $referer, $nom = '')
         {
-            session_start();
+            if (session_status() == PHP_SESSION_NONE) {
+                session_start();
+            }
             if(isset($_SESSION[$nom.'_token']) && isset($_SESSION[$nom.'_token_time']) && isset($_POST['token']))
                 if($_SESSION[$nom.'_token'] == $_POST['token'])
                     if($_SESSION[$nom.'_token_time'] >= (time() - $temps))
