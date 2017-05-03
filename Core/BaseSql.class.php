@@ -72,7 +72,7 @@
             $i = 1;
             $count = count($condition);
             foreach( $condition as $key => $val) {
-                $req .= $key. " = " .$val. "";
+                $req .= $key. " = '" .$val. "'";
                 if ($count > 1 && $i < $count) {
                     $req .= " AND ";
                 }

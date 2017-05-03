@@ -9,27 +9,12 @@ class LoginController {
                 $login = trim($_POST['login']);
                 $password = $_POST['password'];
 
-                // On se connecte à la base pour récupéré le login du user et son mot de passe hashé
-                $db=null;
-                try {
-                    $db = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME.";port=".DB_PORT, DB_USER, DB_PWD);
-                } catch(Exception $e) {
-                    die("Erreur SQL : " .$e->getMessage());
-                }
+                $user = new Users();
+                $user->Populate(["login" => $login]);
 
-                // On effectue une requête pour vérifié si le login existe et récupéré le mot de passe hashé
-                $req = "SELECT password FROM users WHERE login='".$login."'";
-                $query = $db->prepare($req );
-                $query->execute();
-                $results = $query->fetch(PDO::FETCH_ASSOC);
-
-                /*$user = new Users();
-                $user = $user->Populate(["login" => $login]);
-                print_r($user);*/
-
-                if(!empty($results)) {
+                if(!empty($user->getLogin())) {
                     // On compare le hash au password saisie
-                    if(!empty($_POST['password']) && password_verify( $password, $results['password'])) {
+                    if(!empty($_POST['password']) && password_verify( $password, $user->getPassword())) {
                         session_start();
                         $_SESSION['login'] = $login;
                         header('Location: dashboard');
