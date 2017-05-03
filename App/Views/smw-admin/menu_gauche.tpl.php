@@ -1,3 +1,5 @@
+<!-- Retirer la mise en forme du <a> -->
+<link rel="stylesheet" href="/setupmywebsite/Public/css/sidebarStyle.css">
 <div class="left-menu">
     <div class="logo"><i class="fa fa-cog"></i>
         <p>Setup My Website</p>
@@ -42,8 +44,8 @@
             <label for="section-5"><i class="fa fa-font"></i> <span class="respons_hidden">Apparence</span></label>
             <div class="content">
                 <ul>
-                    <li><i class="fa fa-desktop"></i><span class="respons_hidden">Thémes</span></li>
-                    <li><i class="fa fa-eyedropper"></i><span class="respons_hidden">Personnaliser</span></li>
+                    <li><i class="fa fa-desktop"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH . "themes/view";?>">Thémes</a></span></li>
+                    <li><i class="fa fa-eyedropper"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH . "themes/view";?>">Personnaliser</a></span></li>
                     <li><i class="fa fa-level-up"></i><span class="respons_hidden">Widget</span></li>
                 </ul>
             </div>
@@ -53,21 +55,21 @@
             <label for="section-6"><i class="fa fa-user-circle"></i> <span class="respons_hidden">Utilisateurs</span></label>
             <div class="content">
                 <ul>
-                    <li><i class="fa fa-user-plus"></i><span class="respons_hidden">Ajouter</span></li>
-                    <li><i class="fa fa-users"></i><span class="respons_hidden">Tous les utilisateurs</span></li>
+                    <li><i class="fa fa-user-plus"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH . "users/add";?>">Ajouter</a></span></li>
+                    <li><i class="fa fa-users"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH . "users/view";?>">Tous les utilisateurs</a></span></li>
                     <li><i class="fa fa-user-o"></i><span class="respons_hidden">Votre profil</span></li>
                 </ul>
             </div>
         </div>
         <div class="section">
             <input type="radio" name="accordion-1" id="section-7" value="toggle"/>
-            <label for="section-7"><i class="fa fa-wrench"></i> <span class="respons_hidden">Outils</span></label>
+            <label for="section-7"><i class="fa fa-wrench"></i> <span class="respons_hidden">Outils</a></span></label>
             <!--<div class="content">
             </div>-->
         </div>
         <div class="section">
             <input type="radio" name="accordion-1" id="section-8" value="toggle"/>
-            <label for="section-8"><i class="fa fa-gears"></i> <span class="respons_hidden">Réglages</span></label>
+            <label for="section-8"><i class="fa fa-gears"></i> <span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH . "settings/view";?>">Réglages</a></span></label>
             <!--  <div class="content">
               </div> -->
         </div>
