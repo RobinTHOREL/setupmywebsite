@@ -6,9 +6,9 @@
 body{
     font-family: 'Open Sans', sans-serif;
 /*background-color: #333333;*/
-    background:
-            -moz-linear-gradient(top, rgba(57,173,219,.25), rgba(42,60,87,.4)),
-            -moz-linear-gradient(-45deg, #670d10, #092756);
+    background: -moz-linear-gradient(top, rgba(57,173,219,.25), rgba(42,60,87,.4)), -moz-linear-gradient(-45deg, #670d10, #092756);
+    background: -webkit-linear-gradient(top, rgba(57,173,219,.25), rgba(42,60,87,.4)), -webkit-linear-gradient(-45deg, #670d10, #092756);
+    background: linear-gradient(top, rgba(57,173,219,.25), rgba(42,60,87,.4)), linear-gradient(-45deg, #670d10, #092756);
 
 }
 
