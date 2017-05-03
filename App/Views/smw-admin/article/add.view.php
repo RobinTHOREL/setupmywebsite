@@ -4,15 +4,15 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
 ?>
 
 <div class="container">
-    <h2>Ajouter un article</h2>
-                <div class="deux-colonnes" style="border: 2px solid red;">
-                    <div class="colonne1" style="border: 2px solid green;">
-y
-                    </div>
-                    <div class="colonne2" style="border: 2px solid green;">
-a
-                    </div>
-                </div>
+    <div class="row"> <!-- exemple - ligne 1 -->
+        <div class="col-10 col-offset-1 bordureRouge" style="border: 2px solid red; padding: 10px;"></div>
+    </div>
+    <div class="row"> <!-- exemple - ligne 2 -->
+        <div class="col-6 col-offset-3 bordureVerte" style="border: 2px solid green; padding: 10px;"></div>
+    </div>
+    <div class="row"> <!-- exercice - ligne 3 -->
+        <div class="col-2 col-offset-2 bordureBleue" style="border: 2px solid blue; padding: 10px;"></div>
+    </div>
 </div>
 
 
