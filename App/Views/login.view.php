@@ -22,7 +22,7 @@
                     </div>
 
                     <div class="colonne2">
-                        <input type="submit" name="login" value="Login" class="form-group">
+                        <input type="submit" name="submit" value="Login" class="form-group">
                     </div>
                 </div>
                     <a href="#">Forgot password?</a>
