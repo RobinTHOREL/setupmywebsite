@@ -7,9 +7,10 @@ body {
 
 /* Elements principaux */
 .container {
-   /* margin-left: 15vw; */
-    margin-left: 225px;
+    margin-right: auto;
+    margin-left: 210px;
     padding: 15px;
+    border: 2px solid white;
 }
 
 /* Accordeon menu gauche */
@@ -230,7 +231,7 @@ input[type=button], input[type=submit], input[type=reset] {
     }
 
     .container {
-        margin-left: 95px;
+        margin-left: 80px;
     }
 }
 
