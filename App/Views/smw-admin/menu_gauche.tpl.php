@@ -1,5 +1,4 @@
 <!-- Retirer la mise en forme du <a> -->
-<link rel="stylesheet" href="/setupmywebsite/Public/css/sidebarStyle.css">
 <div class="left-menu">
     <div class="logo"><i class="fa fa-cog"></i>
         <p>Setup My Website</p>
