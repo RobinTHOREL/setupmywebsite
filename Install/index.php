@@ -9,7 +9,7 @@
 <body>
     <header>
 	    Bienvenue sur Setup-My Website<br>
-	    <a href="">Commencer l'installation<a/>
+	    <a href="Configuration.php">Commencer l'installation<a/>
     </header>
 </body>
 </html>   
