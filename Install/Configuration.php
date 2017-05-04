@@ -12,7 +12,7 @@
 	<section>
 		Veuillez indiquer les informations de la base de données : 
 		<br>
-		<form action="" method="post">
+		<form action="Validation-configuration.php" method="post">
 			<label>
 				Adresse :<br>
 				<input type="text" name="host" value="localhost" required="required">
