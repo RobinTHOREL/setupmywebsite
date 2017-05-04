@@ -12,7 +12,7 @@ if( !empty($_POST['host']) && !empty($_POST['port']) && !empty($_POST['user'])
 	try {
         $pdo = new PDO("mysql:host=".$host.";dbname=".$databaseName.";port=".$port, $user, $password);
 	} catch(Exception $e) {
-		echo "Erreur de connexion.";
+		require "./ErreurConnexionBDD.php";
 		die();
 	}
 
