@@ -17,7 +17,7 @@ if( !empty($_POST['host']) && !empty($_POST['port']) && !empty($_POST['user'])
 	}
 
 	// Si la connexion à fonctionné, on charge le fichier SQL et on execute le contenu
-	$sqlFile = "../setupmyweb.sql";
+	$sqlFile = "./setupmyweb.sql";
     $req="";
     $req=file_get_contents ($sqlFile);
     $pdo->query($req);
