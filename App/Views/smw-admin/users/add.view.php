@@ -20,7 +20,7 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
             <option>Abonné</option>
             <option>Administrateur</option>
         </select>
-        <input type="submit" value="Ajouter">
+        <input type="submit">
     </form>
 
 </div>
