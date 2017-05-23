@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="/setupmywebsite/Public/css/grid.css">
     <link rel="stylesheet" href="/setupmywebsite/Public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="icon" href="/setupmywebsite/Public/img/favicon.ico" />
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    <script>tinymce.init({ selector:'textarea' });</script>
 
 </head>
 <body>
