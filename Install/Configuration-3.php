@@ -10,5 +10,10 @@
     <header>
 	    Configuration 3
     </header>
+	<section>
+		Création du compte Administrateur
+	</section>
+	<footer>
+	</footer>
 </body>
 </html>   

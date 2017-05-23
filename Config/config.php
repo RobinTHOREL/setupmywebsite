@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 /* Constante de l'application */
 define("DS", DIRECTORY_SEPARATOR);
@@ -23,8 +23,8 @@ define("LOG_PATH", "Logs".DS);
 
 
 /* Base de données */
-define("DB_USER", "younes");
-define("DB_PWD", "diouriyouri");
+define("DB_USER", "root");
+define("DB_PWD", "");
 define("DB_HOST", "localhost");
-define("DB_NAME", "setupmyweb");
+define("DB_NAME", "setupmywebsite");
 define("DB_PORT", "3306");
