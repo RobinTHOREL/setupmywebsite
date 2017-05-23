@@ -1,4 +1,5 @@
-﻿<?php
+﻿
+<?php
 if( $_SERVER["REQUEST_METHOD"]=="POST" && !empty($_POST['host']) && !empty($_POST['port']) && !empty($_POST['user']) 
 		&& isset($_POST['password']) && !empty($_POST['database_name']) ) {
 	
@@ -74,6 +75,11 @@ if( $_SERVER["REQUEST_METHOD"]=="POST" && !empty($_POST['host']) && !empty($_POS
 	
 	// Si la création a bien fonctionné, on continue à la page suivante
 	if($is_table->rowCount()>0) {
+        $_SESSION["host"] = $host;
+        $_SESSION["port"] = $port;
+        $_SESSION["user"] = $user;
+        $_SESSION["password"] = $password;
+        $_SESSION["database_name"] = $database_name;
 		header("Location: Configuration-3.php");
 		die();
 	} else {

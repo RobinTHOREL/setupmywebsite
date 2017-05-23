@@ -8,12 +8,39 @@
 </head>
 <body>
     <header>
-	    Configuration 3
+        <?php
+        session_start();
+        if(isset($_SESSION["error_form"])){
+            foreach ($_SESSION["error_form"] as $error) {
+                echo "<li>".$error;
+            }
+            unset($_SESSION["error_form"]);
+        }
+        ?>
+        Création du compte Administrateur
     </header>
-	<section>
-		Création du compte Administrateur
-	</section>
-	<footer>
-	</footer>
+    <section>
+        <br><br>
+        <form action="Validation-administrateur.php" method="post">
+            <label>
+                Utilisateur :<br>
+                <input type="text" name="user" value="" required="required">
+            </label>
+            <br>
+            <label>
+                Mot de passe :<br>
+                <input type="text" name="password" value="" required="required">
+            </label>
+            <br>
+            <label>
+                Email :<br>
+                <input type="email" name="email" value="" required="required">
+            </label>
+            <br><br>
+            <input type="submit" value="Envoyer">
+        </form>
+    </section>
+    <footer>
+    </footer>
 </body>
 </html>   
