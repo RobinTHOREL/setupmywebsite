@@ -169,6 +169,51 @@ input.form-group, select.form-group {
     box-sizing: border-box;
 }
 
+input[type=radio].form-group, input[type=checkbox].form-group {
+    display:none;
+}
+
+input[type=radio].form-group + label:before {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    vertical-align:middle;
+    margin-right: 8px;
+    background-color: #aaa;
+    box-shadow: inset 0px 2px 2px rgba(0, 0, 0, .3);
+    border-radius: 8px;
+}
+input[type=checkbox].form-group + label:before {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    vertical-align:middle;
+    margin-right: 8px;
+    background-color: #aaa;
+    box-shadow: inset 0px 2px 2px rgba(0, 0, 0, .3);
+    border-radius: 4px;
+}
+
+input[type=radio].form-group:checked + label:before {
+    content: "\2022"; /* Point */
+    color: #21CCFC;
+    background-color: #666;
+    font-size:1.8em;
+    text-align:center;
+    line-height:14px;
+    text-shadow:0px 0px 3px #eee;
+}
+input[type=checkbox].form-group:checked + label:before {
+    content:"\2714"; /* Coche */
+    color: #21CCFC;
+    background-color: #666;
+    text-align:center;
+    line-height:15px;
+    text-shadow:0px 0px 3px #eee;
+}
+
 input[type=submit] {
     width: 100px;
     background-color: #4CAF50;
