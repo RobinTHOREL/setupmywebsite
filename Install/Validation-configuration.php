@@ -79,7 +79,7 @@ if( $_SERVER["REQUEST_METHOD"]=="POST" && !empty($_POST['host']) && !empty($_POS
         $_SESSION["port"] = $port;
         $_SESSION["user"] = $user;
         $_SESSION["password"] = $password;
-        $_SESSION["database_name"] = $database_name;
+        $_SESSION["database_name"] = $databaseName;
 		header("Location: Configuration-3.php");
 		die();
 	} else {

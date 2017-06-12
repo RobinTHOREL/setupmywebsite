@@ -1,7 +1,6 @@
 <?php
 	session_start();
-	require "config/config.php";
-
+	require "config/config_inc.php";
 
 	spl_autoload_register(function ($class){
 		if(file_exists(CORE_PATH.$class.".class.php")){
@@ -12,6 +11,10 @@
 
 	});
 
+	if(file_exists("config/config_perso_inc.php")) {
+        $route = new Routing();
+    } else {
+        header("Location: install/index.php");
+    }
 
-	$route = new Routing();
 
