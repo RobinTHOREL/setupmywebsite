@@ -1,5 +1,5 @@
 <?php 
-	class BaseSql {
+	class BaseSql extends Helpers {
 
 		private $db; 
 		private $table;
@@ -35,12 +35,12 @@
                 }
                 $sqlCol = ltrim($sqlCol, ",");
                 $sqlKey = ltrim($sqlKey, ",");
-
                 $query = $this->db->prepare(
                     "INSERT INTO " . $this->table . " (" . $sqlCol . ")
 							VALUES (" . $sqlKey . ") ;"
                 );
                 $query->execute($data);
+
             } else {
                 // Sinon faire un update dynamique
                 $sqlSet = null;
@@ -79,13 +79,14 @@
                 $i = $i + 1;
             }
 
-            $query = $this->db->prepare($req );
+            $query = $this->db->prepare($req);
             $query->execute();
             $results = $query->fetch(PDO::FETCH_ASSOC);
 
             // Vérification
             if (count($results) <= 1) {
                 return;
+
             }
 
             // Alimentation de l'objet
@@ -94,5 +95,78 @@
             }
 
         }
+
+        /**
+         * @param array $condition
+         *
+         * simple alimentation de l'objet user sans test
+         * (= populate)
+         */
+        public function alimenter( $condition = ["id"=>1]) {
+            foreach($condition as $key => $val) {
+                $this->{$key} = $val;
+            }
+            return;
+        }
+        /**
+         * getAllby
+         *
+         * Finding in the database a match for tuples (2->n)
+         * PHP version 5.6
+         *
+         * @search[[]] 2 arrays, OR or AND,  specifiying what between OR or AND
+         * the $request will have (you can do OR and AND to check both). Inside these two arrays, the parameters used to fetch the dataResult
+         * @key define "AND" or "OR" for the search[[]] array
+         * @array2 is the array which contains the data tested (ex : "login"=>"john")
+         */
+        public function getAllBy ($search = [[]])
+        {
+            $i = 1;
+            $req ="";
+
+           foreach ($search as $key=>$array2)
+           {
+               if($key == "OR")
+               {
+                   $req = "SELECT * FROM " .$this->table. " WHERE ";
+                   $count = count($array2);
+                   foreach($array2 as $key2=>$value2)
+                   {
+                       $req .= $key2. " = '" .$value2. "'";
+                       if ($count > 1 && $i < $count) {
+                           $req .= " OR ";
+                       }
+                       $i = $i + 1;
+                   }
+               }
+               else{
+                   $req = "SELECT * FROM " .$this->table. " WHERE ";
+                   $count = count($array2);
+                   foreach($array2 as $key2=>$value2)
+                   {
+                       $req .= $key2. " = '" .$value2. "'";
+                       if ($count > 1 && $i < $count) {
+                           $req .= " AND ";
+                       }
+                       $i = $i + 1;
+                   }
+               }
+           }
+            $query = $this->db->prepare($req);
+            $query->execute();
+            /* $results is the results table from the query executed */
+            $results = $query->fetch(PDO::FETCH_ASSOC);
+
+            if (count($results) <= 1) {
+                return false;
+                }
+
+            foreach($results as $key => $val) {
+                $this->{$key} = $val;
+            }
+            return $results;
+
+        }
+
 
 	}

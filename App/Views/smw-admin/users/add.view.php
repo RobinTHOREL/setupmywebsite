@@ -8,29 +8,25 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
 </div>
 <div class="container col-5">
     <form action="" method="POST">
-        <?php $token = Helpers::generer_token('user add');?>
+        <?php $token = Helpers::generer_token('useradd');?>
         <input type="hidden" name="token" value="<?php echo $token; ?>">
         <input type="text" name="lastname" placeholder="Nom">
         <input type="text" name="firstname" placeholder="Prénom">
         <input type="email" name="email" placeholder="Email">
+        <br> <br>
         <input type="text" name="login" placeholder="Identifiant">
         <input type="password" name="password" placeholder="Mot de passe">
+        <input type="password" name="passwordConfirm" placeholder="Confirmation">
         <select name="permission">
-            <option>Editeur</option>
-            <option>Abonné</option>
-            <option>Administrateur</option>
+            <option value = "1">Abonné</option>
+            <option value = "2">Editeur</option>
+            <option value = "3">Administrateur</option>
         </select>
+        <br> <br>
         <input type="submit">
     </form>
 
 </div>
-    <div class="container col-5">
-        <form>
-            <input type="text" name="object" placeholder="Objet"><br><br>
-            <textarea name="corps"></textarea><br><br>
-            <input type="email" name="email" placeholder="Email">
-        </form>
-    </div>
 
 
 <?php

@@ -2,9 +2,13 @@
     class Helpers {
 
 
-        //create token
-        //with name
-        //with time
+        /**
+         * CSRF Validation Generate Token
+         *
+         * PHP version 5.6
+         *
+         * @nom Name for the uniq session
+         */
         static function generer_token($nom = '')
         {
             //on verifie que la session est initialisée
@@ -18,9 +22,15 @@
         }
 
 
-        //time lapse max (300?)
-        //referer
-        //form name
+        /**
+         * CSRF Validation Verify Token
+         *
+         * PHP version 5.6
+         *
+         * @temps Time for the living token
+         * @referer The referer
+         * @nom Name for the uniq session
+         */
         static function verifier_token($temps, $referer, $nom = '')
         {
             if (session_status() == PHP_SESSION_NONE) {
@@ -33,4 +43,6 @@
                             return true;
             return false;
         }
+
+
     }
