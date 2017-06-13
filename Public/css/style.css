@@ -175,6 +175,13 @@ ul li:hover i {
     color: #FFF;
     font-size: 20px;
 }
+
+.fa.logo-upload {
+    padding: 30px 10px;
+    text-align: center;
+    color: #21CCFC;
+    font-size: 6em;
+}
 .logo i {
     font-size: 70px;
     color: #21CCFC ;
@@ -202,6 +209,17 @@ ul li:hover i {
 
 
 /* Style formulaire class="form-group" */
+
+#dropfile{
+    margin-top: 30px;
+    height: 40vh;
+    border: 3px dashed #BBBBBB;
+    text-align: center;
+}
+
+p.dropper {
+    font-size: 14px;
+}
 
 .form-group table, th, td {
     height: 50px;
@@ -346,7 +364,6 @@ input[type=reset]:hover {
 }
 
 textarea.form-group {
-    margin: 20px;
     height: 45vh;
     display: inline-block;
 }
