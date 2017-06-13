@@ -7,6 +7,7 @@ body {
 
 h2 {
     font-size: 1em;
+    padding-bottom: 15px;
 }
 
 /* Elements principaux */
@@ -18,7 +19,7 @@ h2 {
 }
 
 .right-content {
-    background: #424242;
+    background: #757575;
     padding: 15px;
     margin-bottom: 60px;
     margin-top: -30px;
@@ -30,7 +31,6 @@ h2 {
 label.right-content {
     color: white;
 }
-
 /* Accordeon menu gauche */
 .accordion {
     color: #FFF;
@@ -122,7 +122,7 @@ label.right-content {
 
 .left-menu  a{
     text-decoration: none;
-	color: white;
+    color: white;
 }
 
 .accordion {
@@ -136,6 +136,15 @@ label.right-content {
 }
 .accordion .section input[type='radio']:checked ~ .content {
     padding: 15px;
+}
+
+table {
+    width: 100%;
+    background: #E0E0E0;
+}
+
+.table_container {
+    overflow-x:auto;
 }
 
 ul {
@@ -171,8 +180,47 @@ ul li:hover i {
     color: #21CCFC ;
 }
 
+#user_inactive {
+    width: 10px;
+    height: 10px;
+    background: #D32F2F;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    margin-left:45%;
+}
+
+#user_active {
+    width: 10px;
+    height: 10px;
+    background: #2E7D32;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    margin-left:45%;
+}
+
 
 /* Style formulaire class="form-group" */
+
+.form-group table, th, td {
+    height: 50px;
+    padding: 6px;
+    text-align: center;
+}
+
+.form-group tr:nth-child(even) {
+    background-color: #9E9E9E;
+}
+
+.form-group th {
+    background: #424242;
+    color: white;
+}
+
+.form-group tr:hover {
+    background-color: #BDBDBD;
+}
 
 input {
     font-family: 'Quicksand', sans-serif;
@@ -231,6 +279,39 @@ input[type=checkbox].form-group:checked + label:before {
     text-align:center;
     line-height:15px;
     text-shadow:0px 0px 3px #eee;
+}
+
+.edit {
+    box-shadow: #212121;
+    background-color: #EEEEEE;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    color: #A1887F;
+    font-size: 17px;
+    padding: 10px 10px;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.edit:hover {
+    background-color: #F5F5F5;
+}
+
+.delete {
+    box-shadow: #d10a18;
+    background-color: #af0a17;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+    color: #EEEEEE;
+    font-size: 18px;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+.delete:hover {
+    background-color: #d10a18;
 }
 
 input[type=submit] {

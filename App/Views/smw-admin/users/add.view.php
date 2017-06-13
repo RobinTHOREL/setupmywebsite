@@ -2,31 +2,31 @@
 include(dirname(__DIR__).'/header.php');
 include(dirname(__DIR__).'/menu_gauche.tpl.php');
 ?>
-<div class="container col-12">
-    <div class="col-6"><h1>Ajout d'un utilisateur : test csrf / testmail</h1></div>
 
-</div>
-<div class="container col-5">
-    <form action="" method="POST">
-        <?php $token = Helpers::generer_token('useradd');?>
-        <input type="hidden" name="token" value="<?php echo $token; ?>">
-        <input type="text" name="lastname" placeholder="Nom">
-        <input type="text" name="firstname" placeholder="Prénom">
-        <input type="email" name="email" placeholder="Email">
-        <br> <br>
-        <input type="text" name="login" placeholder="Identifiant">
-        <input type="password" name="password" placeholder="Mot de passe">
-        <input type="password" name="passwordConfirm" placeholder="Confirmation">
-        <select name="permission">
-            <option value = "1">Abonné</option>
-            <option value = "2">Editeur</option>
-            <option value = "3">Administrateur</option>
-        </select>
-        <br> <br>
-        <input type="submit">
-    </form>
-
-</div>
+    <div class="container">
+        <div class="row"> <!-- exemple - ligne 1 -->
+            <div class="col-10 title">
+                <h2>Ajouter un utilisateur</h2>
+            </div>
+            <div class="row"> <!-- exemple - ligne 2 -->
+                <div class="col-6 col-offset-3">
+                    <input type="text" class="form-group" placeholder="Login">
+                    <input type="text" class="form-group" placeholder="Nom">
+                    <input type="text" class="form-group" placeholder="Prénom">
+                    <input type="email" class="form-group" placeholder="exemple@exemple.com">
+                    <!-- envoyer un mail a l'utilisateur pour qu'il set son password ??? -->
+                    <select name="" id="role" class="form-group">
+                        <option>Membre</option>
+                    </select>
+                    <div class="col-8 col-offset-2" style="text-align: center">
+                        <input type="checkbox" id="notif" name="cb" value="" class="form-group">
+                        <label for="notif">Notifier le nouveau membre par mail !</label><br>
+                    </div>
+                    <input type="submit" class="">
+                </div> <!-- exemple - ligne 2 -->
+            </div>
+        </div>
+    </div>
 
 
 <?php
