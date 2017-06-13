@@ -1,4 +1,0 @@
-<IfModule mod_rewrite.c>
-    # Allow any files or directories that exist to be displayed directly
-    RewriteCond %{REQUEST_FILENAME} !-f
-</IfModule>

@@ -12,9 +12,18 @@
 	});
 
 	if(file_exists("config/config_perso_inc.php")) {
+        require "config/config_perso_inc.php";
         $route = new Routing();
     } else {
-        header("Location: install/index.php");
+        // Lancement de l'installation si la configuration personnalisé n'existe pas
+        $uri = $_SERVER["REQUEST_URI"];
+        $uri = preg_replace("#".BASE_PATH_PATTERN."#i", "", $uri, 1);
+        $uriExploded = explode("/",  trim($uri, "/")   );
+        if($uriExploded[0]=="install") {
+            $route = new Routing();
+        } else {
+            header("Location: install");
+        }
     }
 
 
