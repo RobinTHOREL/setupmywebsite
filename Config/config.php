@@ -11,7 +11,7 @@ define("ABSOLUTE_PATH", "http://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN.BA
 //
 
 define("DEBUG_MODE", true);
-define("BASE_BACK_OFFICE", "smw-admin\/");
+define("BASE_BACK_OFFICE", "smw-admin".DS);
 /* Liens des dossiers */
 define("CORE_PATH", "Core".DS);
 define("APP_PATH", "App");
