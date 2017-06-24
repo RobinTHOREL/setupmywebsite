@@ -2,8 +2,10 @@
 
     include 'header.php';
     include 'menu_gauche.tpl.php';
-    include 'footer.php';
+
 
 ?>
 
-test
+
+<?php
+include 'footer.php';

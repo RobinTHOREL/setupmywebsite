@@ -13,7 +13,7 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
             <div class="col-10 col-offset-1">
                 <table class="form-group">
                     <tr>
-                        <th>#id</th>
+                        <th>id</th>
                         <th>Nom de la page</th>
                         <th>Créer le</th>
                         <th>Modifier le</th>

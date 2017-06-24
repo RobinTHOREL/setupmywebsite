@@ -33,6 +33,7 @@
 }
 .col-4 {
     width: 33.33333333%;
+    margin-top: -48px;
 }
 .col-3 {
     width: 25%;
@@ -79,4 +80,52 @@
 }
 .col-offset-0 {
     margin-left: 0;
+}
+
+@media (max-width:900px)/* Optimisation IPad*/ {
+    .row .col-10{
+        margin-left: 2%;
+        width: 100%;
+    }
+
+    .row .col-7{
+        width: 100%;
+    }
+
+    .row .col-4{
+        width: 100%;
+        margin-right: 2%;
+    }
+
+    .col-offset-1{
+        margin-left: auto;
+    }
+
+    
+}
+
+@media (max-width: 480px) /*Optimisation iphone6*/ {
+    .row .col-10{
+        margin-left: 2%;
+        width: 100%;
+    }
+
+    .row .col-7{
+        width: 100%;
+    }
+
+    .row .col-4{
+        width: 100%;
+        margin-right: 2%;
+        margin-top: 2%;
+        margin-bottom: 2%;
+    }
+
+    .col-offset-1{
+        margin-left: auto;
+    }
+
+    .row .col .form-group{
+        width: 100%;
+    }
 }
