@@ -76,7 +76,7 @@ class InstallController{
                 }
 
                 // Si la connexion à fonctionné, on charge le fichier SQL et on éxécute le contenu
-                $sqlFile = "./File/setupmyweb.sql";
+                $sqlFile = INSTALL_DATABASE_FILE;
                 $req = "";
                 $req = file_get_contents($sqlFile);
                 $pdo->query($req);

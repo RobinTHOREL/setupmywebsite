@@ -16,13 +16,12 @@
         $route = new Routing();
     } else {
         // Lancement de l'installation si la configuration personnalisé n'existe pas
-        $uri = $_SERVER["REQUEST_URI"];
-        $uri = preg_replace("#".BASE_PATH_PATTERN."#i", "", $uri, 1);
-        $uriExploded = explode("/",  trim($uri, "/")   );
-        if($uriExploded[0]=="install") {
+        $uriInstall = preg_replace("#".BASE_PATH_PATTERN."#i", "", $_SERVER["REQUEST_URI"], 1);
+        $uriInstallExp = explode("/",  trim($uriInstall, "/")   );
+        if($uriInstallExp[0]=="install") {
             $route = new Routing();
         } else {
-            header("Location: install");
+            header("Location: install/");
         }
     }
 

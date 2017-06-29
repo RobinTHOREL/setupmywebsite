@@ -19,3 +19,6 @@ define("CONTROLLERS_PATH", APP_PATH.DS."Controllers".DS);
 define("MODELS_PATH", APP_PATH.DS."Models".DS);
 define("VIEWS_PATH", APP_PATH.DS."Views".DS);
 define("LOG_PATH", "Logs".DS);
+
+/* Lien du fichier d'installation de la base de données */
+define("INSTALL_DATABASE_FILE", "Install".DS."setupmyweb.sql");
