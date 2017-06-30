@@ -17,6 +17,8 @@ class ArticlesController{
 	}
 
     public function viewAction($params){
+		$posts = new Posts();
+		$res = $posts->getAllBy([[]], 20, 0);
         require VIEWS_PATH.BASE_BACK_OFFICE."article/index.view.php";
     }
 

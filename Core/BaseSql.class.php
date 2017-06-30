@@ -56,10 +56,6 @@
 						WHERE id=:id;"
 				);
 
-				echo "UPDATE " . $this->table . "
-						SET date_updated = sysdate(), 
-						" . implode(",", $sqlSet) . "
-						WHERE id=:id;";
 				$query->execute($data);
 			}
 		}
@@ -184,9 +180,9 @@
 			}
 
 			// TODO: A adapter suite au fetch -> fetchAll ?
-			foreach($results as $key => $val) {
+			/*foreach($results as $key => $val) {
 				$this->{$key} = $val;
-			}
+			}*/
 			
 			return $results;
 		}
