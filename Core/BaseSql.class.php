@@ -81,14 +81,15 @@
 
 			// Vérification
 			if (count($results) <= 1) {
-				return;
-
+				return false;
 			}
 
 			// Alimentation de l'objet
 			foreach($results as $key => $val) {
 				$this->{$key} = $val;
 			}
+
+			return true;
 		}
 
 		/**
@@ -98,10 +99,10 @@
 		* (= populate)
 		*/
 		public function alimenter( $condition = ["id"=>1]) {
-				foreach($condition as $key => $val) {
-					$this->{$key} = $val;
-				}
-				return;
+            foreach($condition as $key => $val) {
+                $this->{$key} = $val;
+            }
+            return;
 		}
 		
 		/**
@@ -152,11 +153,11 @@
 			}
 			// On ajoute limite et offset si ils sont passés en paramètres
 			if($limit != null && is_int($limit)) {
-			$req .= " LIMIT :limit";
+			    $req .= " LIMIT :limit";
 			}
 			
 			if($offset != null && is_int($offset)) {
-			$req .= " OFFSET :offset";
+			    $req .= " OFFSET :offset";
 			}
 			
 			// Prépare la requête
@@ -186,4 +187,36 @@
 			
 			return $results;
 		}
+
+        /**
+         * delete
+         *
+         * Delete an element by id
+         *
+         * @id Use the id set in parameter or take the one from the object
+         *
+         * return true if the delete is successful or else false
+         */
+        public function deleteById ($id=null) {
+            if($id==null) {
+                $id = $this->id;
+            }
+
+            if ($id != -1) {
+                $query = $this->db->prepare(
+                    "DELETE FROM " . $this->table . " WHERE id=:id");
+                $query->execute(array("id" => $this->id));
+
+                $query = $this->db->prepare(
+                    "SELECT COUNT(*) FROM " . $this->table . " WHERE id=:id");
+                $query->execute(array("id" => $id));
+                $results = $query->fetch(PDO::FETCH_ASSOC);
+                if($results["COUNT(*)"] <= 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            return false;
+        }
 	}

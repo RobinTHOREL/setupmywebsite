@@ -22,15 +22,15 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
                     </tr>
 
 					<?php 
-						if(isset($res)) {
-							foreach($res as $post) {
+						if(isset($results) && $results!==false) {
+							foreach($results as $post) {
 								$row = "<tr><td>".$post['id']."</td>";
 								$row .= "<td>".$post['title']."</td>";
 								$row .= "<td>".$post['date_created']."</td>";
 								$row .= "<td>".$post['date_updated']."</td>";
 								$row .= "<td>".$post['pages_id']."</td>";
 								$row .= "<td>	<a class='edit' title='Editer l'article'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>
-												<a class='delete' title='Supprimer l'article'><i class='fa fa-trash-o' aria-hidden='true'></i></a>
+												<a href='".ABSOLUTE_PATH."articles/delete/".$post['id']."' class='delete' title='Supprimer l'article'><i class='fa fa-trash-o' aria-hidden='true'></i></a>
 										</td></tr>";
 								echo $row;
 							}

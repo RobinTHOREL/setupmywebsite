@@ -18,7 +18,7 @@ class ArticlesController{
 
     public function viewAction($params){
 		$posts = new Posts();
-		$res = $posts->getAllBy([[]], 20, 0);
+		$results = $posts->getAllBy([[]], 20, 0);
         require VIEWS_PATH.BASE_BACK_OFFICE."article/index.view.php";
     }
 
@@ -27,6 +27,16 @@ class ArticlesController{
     }
 
     public function deleteAction($params){
+        // Get and verify if the article exist
+        $post = new Posts();
+        $postExist = $post->populate(["id"=>$params[0]]);
+
+        if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirm']) && $_POST['confirm'] == "true") {
+
+            if($postExist !== false) {
+                $delete = $post->deleteById();
+            }
+        }
         require VIEWS_PATH.BASE_BACK_OFFICE."article/delete.view.php";
     }
 }
