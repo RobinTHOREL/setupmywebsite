@@ -2,6 +2,7 @@
  * Created by Kush on 13/06/2017.
  */
 
+/* Drag and drop */
 $(document).on('dragenter', '#dropfile', function () {
     $(this).css('border', '3px dashed red');
     return false;
@@ -69,3 +70,66 @@ function handleReaderLoad(evt) {
         }
     });
 }
+
+/* Chart on dashboard page */
+
+new Chart(document.getElementById("bar-chart").getContext("2d"), {
+    type: 'bar',
+    data: {
+        labels: ["Janvier", "Fevrier", "Mars", "Avril", "Mai"],
+        datasets: [
+            {
+                label: "Nombre de visiteurs",
+                backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                data: [200,198,249,299,236],
+                fontColor: 'white'
+            }
+        ]
+    },
+    options: {
+        legend: {display: false},
+        title: {
+            display: true,
+            text: 'Nombre de connexion mensuel',
+            fontColor: 'white'
+        },
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        fontColor: "white",
+                        fontSize: 14,
+                        stepSize: 1,
+                        beginAtZero: true
+                    }
+                }],
+                yAxes: [{
+                    ticks: {
+                        fontColor: 'white'
+                    }
+                }]
+            }
+        }
+});
+
+new Chart(document.getElementById("doughnut-chart").getContext("2d"), {
+    type: 'doughnut',
+    data: {
+        labels: ["Robin", "Sinicha", "Younes", "Onesie", "Chen"],
+        datasets: [{
+            label: "",
+            backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+            data: [2478,5267,734,784,433],
+            fontColor: 'white'
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Nombre de publication sur le site (article+page/utilisateur)',
+            fontColor: 'white'
+        },
+        legend: {
+                display: false
+        }
+    }
+});
