@@ -15,6 +15,7 @@ define("BASE_BACK_OFFICE", "smw-admin".DS);
 /* Liens des dossiers */
 define("CORE_PATH", "Core".DS);
 define("APP_PATH", "App");
+define("PUBLIC_PATH", "Public");
 define("CONTROLLERS_PATH", APP_PATH.DS."Controllers".DS);
 define("MODELS_PATH", APP_PATH.DS."Models".DS);
 define("VIEWS_PATH", APP_PATH.DS."Views".DS);
