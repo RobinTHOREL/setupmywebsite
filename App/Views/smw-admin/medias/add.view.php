@@ -14,7 +14,7 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
                 </div> <!-- exemple - ligne 2 -->
                 <div class="col-10 col-offset-1">
                     <div id="dropfile">
-                        <div id="dropper" class="col-8 col-offset-2">
+                        <div id="dropper" class="col-8 col-offset-2" class="col-1">
                             <i class="fa fa-cloud-upload logo-upload" aria-hidden="true"></i>
                             <p>Glissez un média dans cette zone pour l'uploader</p>
                             <p>Formats acceptés : (png, ..,..,..)</p>

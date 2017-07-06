@@ -1,1 +1,5 @@
 .idea/
+.DS_Store
+App/.DS_Store
+App/Views/.DS_Store
+App/Views/smw-admin/.DS_Store
