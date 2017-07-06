@@ -10,7 +10,7 @@
     <header>
 	    Bienvenue sur Setup-My Website<br>
         <?php "http://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN."install/databaseConfiguration" ?>
-	    <a href=<?php echo "http://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN."install/databaseConfiguration" ?>>Commencer l'installation<a/>
+	    <a href=<?php echo "http://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN."smw-admin/install/databaseConfiguration" ?>>Commencer l'installation<a/>
     </header>
 </body>
 </html>   

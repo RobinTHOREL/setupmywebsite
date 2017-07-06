@@ -1,7 +1,7 @@
 <?php
 class InstallController{
     public function indexAction($params){
-        if(file_exists("config/config_perso_inc.php")) {
+        if(file_exists(CONFIG_PERSO_FILE)) {
             header("Location: http://".$_SERVER['HTTP_HOST'].BASE_ABSOLUTE_PATTERN);
         } else {
             require VIEWS_PATH . "install/index.view.php";
@@ -9,7 +9,7 @@ class InstallController{
     }
 
     public function databaseConfigurationAction($params){
-        if(file_exists("config/config_perso_inc.php")) {
+        if(file_exists(CONFIG_PERSO_FILE)) {
             header("Location: http://".$_SERVER['HTTP_HOST'].BASE_ABSOLUTE_PATTERN);
         } else {
             if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['host']) && !empty($_POST['port']) && !empty($_POST['user'])
@@ -107,7 +107,7 @@ class InstallController{
     }
 
     public function administratorConfigurationAction($params){
-        if(file_exists("config/config_perso_inc.php")) {
+        if(file_exists(CONFIG_PERSO_FILE)) {
             header("Location: http://".$_SERVER['HTTP_HOST'].BASE_ABSOLUTE_PATTERN);
         } else {
             // On charge les classes
@@ -197,7 +197,7 @@ class InstallController{
     }
 
     public function installConfigurationAction($params){
-        if(file_exists("config/config_perso_inc.php")) {
+        if(file_exists(CONFIG_PERSO_FILE)) {
             header("Location: http://".$_SERVER['HTTP_HOST'].BASE_ABSOLUTE_PATTERN);
         } else {
             if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['start'])) {
