@@ -5,17 +5,12 @@
         protected $name;
         protected $description;
         protected $friendly_url;
-        //protected $date_created;
-        //protected $date_modified;
 
-		public function __construct($id=-1, $name=null, $description=null, $friendly_url=null,
-                                        $date_created="NOW", $date_modified=null) {
+		public function __construct($id=-1, $name=null, $description=null, $friendly_url=null) {
 			$this->setId($id);
 			$this->setName($name);
 			$this->setDescription($description);
 			$this->setFriendlyUrl($friendly_url);
-            //$this->setDateCreated($date_created);
-            //$this->setDateModified($date_modified);
 
 			parent::__construct();
 		}
@@ -37,14 +32,6 @@
 			$this->friendly_url=trim($friendly_url);
 		}
 
-        public function setDateCreated($date_created) {
-            $this->date_created=$date_created;
-        }
-
-        public function setDateModified($date_modified) {
-            $this->date_modified=$date_modified;
-        }
-
         /* Getters */
         public function getId() {
             return $this->id;
@@ -60,13 +47,5 @@
 
         public function getFriendly_url() {
             return $this->friendly_url;
-        }
-
-        public function getDateCreated() {
-            return $this->date_created;
-        }
-
-        public function getDateModified() {
-            return $this->date_modified;
         }
 	}

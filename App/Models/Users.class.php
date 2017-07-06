@@ -64,7 +64,6 @@
             $this->activation_key=$activation_key;
         }
 
-
         /* Getters */
         public function getId() {
             return $this->id;
@@ -96,10 +95,6 @@
 
         public function getPermission() {
             return $this->permission;
-        }
-
-        public function getDateUpdated() {
-            return $this->date_updated;
         }
 
 	}

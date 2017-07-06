@@ -7,17 +7,15 @@
         protected $author;
         protected $format;
         protected $link;
-        //protected $date_published;
 
 		public function __construct($id=-1, $name=null, $description=null, $author=null,
-                                        $format=null, $link=null, $date_published=null) {
+                                        $format=null, $link=null) {
 			$this->setId($id);
             $this->setName($name);
             $this->setDescription($description);
             $this->setAuthor($author);
             $this->setFormat($format);
             $this->setLink($link);
-            //$this->setDatePublished($date_published);
 
 			parent::__construct();
 		}
@@ -47,10 +45,6 @@
             $this->link=$link;
         }
 
-        public function setDatePublished($date_published) {
-            $this->date_published=$date_published;
-        }
-
         /* Getters */
         public function getId() {
             return $this->id;
@@ -74,9 +68,5 @@
 
         public function getLink() {
             return $this->link;
-        }
-
-        public function getDatePublished() {
-            return $this->date_published;
         }
 	}

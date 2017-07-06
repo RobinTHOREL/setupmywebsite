@@ -3,13 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Configuration de Setup-My Website</title>
-	<meta name="description" content="Page d'installation de Setup-My Website, étape 2">
+	<meta name="description" content="Page d'installation de Setup-My Website, étape 1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 	<header>
 		<?php
-			session_start();
 			if(isset($_SESSION["error_form"])){
 				foreach ($_SESSION["error_form"] as $error) {
 					echo "<li>".$error;
@@ -17,11 +16,12 @@
 				unset($_SESSION["error_form"]);
 			}
 		?>
+        <h1>Création de la base de données</h1>
 	</header>
 	<section>
 		Veuillez indiquer les informations de la base de données : 
 		<br>
-		<form action="Validation-configuration.php" method="post">
+		<form action="" method="post">
 			<label>
 				Adresse :<br>
 				<input type="text" name="host" value="localhost" required="required">

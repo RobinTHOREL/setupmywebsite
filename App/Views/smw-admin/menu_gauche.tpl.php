@@ -1,6 +1,6 @@
 <!-- Retirer la mise en forme du <a> -->
 <div class="left-menu">
-    <div class="logo"><i class="fa fa-cog"></i>
+    <div class="logo"><a href="<?php echo ABSOLUTE_PATH . "dashboard";?>"><i class="fa fa-cog"></i></a>
         <p>Setup My Website</p>
     </div>
     <div class="accordion">
@@ -13,7 +13,7 @@
             <label for="section-2"><i class="fa fa-pencil"></i> <span class="respons_hidden">Articles</span></label>
             <div class="content">
                 <ul>
-                    <li><i class="fa fa-plus"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH . "articles/add";?>">Ajouter</a></span></li>
+                    <li><i class="fa fa-plus"></i><span class="respons_hidden"><a id="art_add" href="<?php echo ABSOLUTE_PATH . "articles/add";?>">Ajouter</a></span></li>
                     <li><i class="fa fa-bars"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH . "articles/view";?>">Liste des articles</a></span></li>
                 </ul>
             </div>

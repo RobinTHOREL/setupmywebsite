@@ -6,18 +6,14 @@
         protected $id_author;
         protected $title;
         protected $content;
-        protected $date_created;
-        protected $date_modified;
 
         public function __construct($id=-1, $id_post=0, $id_author=0, $title=null,
-                                        $content=null, $date_created="NOW", $date_modified=null) {
+                                        $content=null) {
 			$this->setId($id);
             $this->setIdPost($id_post);
             $this->setIdAuthor($id_author);
             $this->setTitle($title);
             $this->setContent($content);
-            $this->setDateCreated($date_created);
-            $this->setDateModified($date_modified);
 
 			parent::__construct();
 		}
@@ -43,14 +39,6 @@
             $this->content=$content;
         }
 
-        public function setDateCreated($date_created) {
-            $this->date_created=$date_created;
-        }
-
-        public function setDateModified($date_modified) {
-            $this->date_modified=$date_modified;
-        }
-
         /* Getters */
         public function getId() {
             return $this->id;
@@ -70,13 +58,5 @@
 
         public function getContent() {
             return $this->content;
-        }
-
-        public function getDateCreated() {
-            return $this->date_created;
-        }
-
-        public function getDateModified() {
-            return $this->date_modified;
         }
 	}
