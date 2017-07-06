@@ -96,6 +96,7 @@
     .row .col-4{
         width: 100%;
         margin-right: 10%;
+        margin-top: 50px;
     }
 
     .col-offset-1{
@@ -129,7 +130,7 @@
     .row .col-4{
         width: 100%;
         margin-right: 2%;
-        margin-top: 2%;
+        margin-top: 5%;
         margin-bottom: 2%;
     }
 

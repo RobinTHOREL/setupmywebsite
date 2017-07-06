@@ -408,7 +408,8 @@ input[type=button] {
 @media(max-width: 900px) /** Optimisation iPad **/
 {
     .left-menu {
-        height: 200%;
+        height: 155%;
+        width: 70px;
     }
 
     #dropfile{
@@ -442,6 +443,9 @@ input[type=button] {
     .form-group table, th{
         font-size: 0.70em;
     }
+    input[type=submit]{
+        width: 100%;
+    }
 
 
 }
@@ -456,7 +460,7 @@ input[type=button] {
 
     .left-menu {
         width: 70px;
-        height: 193%;
+        height: 142%;
     }
 
     #dropfile{
@@ -469,6 +473,10 @@ input[type=button] {
         width: 140px;
         margin-right: 39px;
         height: 35px;
+    }
+
+    input[type=submit]{
+        width: 100%;
     }
 
 
