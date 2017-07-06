@@ -2,15 +2,14 @@
 class Routing{
 
 	private $uriExploded;
-
 	private $controller;
 	private $controllerName;
 	private $action;
 	private $actionName;
 	private $error;
 	private $smwAdmin = false;
-
 	private $params;
+
 	public function __construct(){
 		$uri = $_SERVER["REQUEST_URI"];
 		$uri = preg_replace("#".BASE_PATH_PATTERN."#i", "", $uri, 1);
@@ -55,7 +54,8 @@ class Routing{
 
 
 	public function checkRoute(){
-		$pathController = CONTROLLERS_PATH.$this->controllerName.".class.php";
+        $pathToCheck = ($this->smwAdmin)?CONTROLLERS_PATH_BACK:CONTROLLERS_PATH_FRONT;
+		$pathController = $pathToCheck.$this->controllerName.".class.php";
 		if( !file_exists($pathController) ){
             $this->error = "Le fichier du controller n'existe pas.<br>";
 			return false;
