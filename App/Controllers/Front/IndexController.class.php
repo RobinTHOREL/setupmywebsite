@@ -8,6 +8,9 @@
 
 class IndexController{
     public function indexAction($params){
-        require VIEWS_PATH."index.view.php";
+        $view = new View("index", "frontend");
+        $view->assign("page_title", "Page d'accueil");
+        $view->assign("page_description", "Page d'accueil");
+        //require VIEWS_PATH."index.view.php";
     }
 }

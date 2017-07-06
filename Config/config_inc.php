@@ -21,6 +21,7 @@ define("CONTROLLERS_PATH_BACK", APP_PATH.DS."Controllers".DS."Back".DS );
 define("CONTROLLERS_PATH_FRONT", APP_PATH.DS."Controllers".DS."Front".DS );
 define("MODELS_PATH", APP_PATH.DS."Models".DS);
 define("VIEWS_PATH", APP_PATH.DS."Views".DS);
+define("TEMPLATES_PATH", APP_PATH.DS."Views".DS."templates".DS."Default".DS);
 define("LOG_PATH", "Logs".DS);
 
 /* Lien du fichier d'installation de la base de données */
