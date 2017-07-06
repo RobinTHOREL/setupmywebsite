@@ -30,7 +30,7 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
 								$row .= "<td>".$post['date_updated']."</td>";
 								$row .= "<td>".$post['pages_id']."</td>";
 								$row .= "<td>	<a class='edit' title='Editer l'article'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>
-												<a href='".ABSOLUTE_PATH."articles/delete/".$post['id']."' class='delete' title='Supprimer l'article'><i class='fa fa-trash-o' aria-hidden='true'></i></a>
+												<a href='".ABSOLUTE_PATH_BACK."articles/delete/".$post['id']."' class='delete' title='Supprimer l'article'><i class='fa fa-trash-o' aria-hidden='true'></i></a>
 										</td></tr>";
 								echo $row;
 							}

@@ -12,13 +12,14 @@
 	});
 
 	if(file_exists("config/config_perso_inc.php")) {
-        require "config/config_perso_inc.php";
+        require CONFIG_PERSO_FILE;
         $route = new Routing();
     } else {
         // Lancement de l'installation si la configuration personnalisé n'existe pas
         $uriInstall = preg_replace("#".BASE_PATH_PATTERN."#i", "", $_SERVER["REQUEST_URI"], 1);
         $uriInstallExp = explode("/",  trim($uriInstall, "/")   );
-        if($uriInstallExp[1]=="install") {
+
+        if($uriInstallExp[0]=="smw-admin" && $uriInstallExp[1]=="install") {
             $route = new Routing();
         } else {
             header("Location: smw-admin/install/");
