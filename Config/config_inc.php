@@ -7,7 +7,8 @@ define("BASE_PATH_PATTERN", "\/setupmywebsite\/");
 //Absolute Paths Constants
 define("BASE_ABSOLUTE_PATTERN", "/setupmywebsite/");
 define("BASE_ABSOLUTE_BACKOFFICE", "smw-admin/");
-define("ABSOLUTE_PATH", "http://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN.BASE_ABSOLUTE_BACKOFFICE);
+define("ABSOLUTE_PATH_BACK", "http://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN.BASE_ABSOLUTE_BACKOFFICE);
+define("ABSOLUTE_PATH_FRONT", "http://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN);
 
 define("DEBUG_MODE", true);
 define("BASE_BACK_OFFICE", "smw-admin".DS);

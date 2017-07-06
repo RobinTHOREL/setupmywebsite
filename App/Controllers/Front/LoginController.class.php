@@ -17,7 +17,7 @@ class LoginController {
                     if(!empty($_POST['password']) && password_verify( $password, $user->getPassword())) {
                         session_start();
                         $_SESSION['login'] = $login;
-                        header('Location: dashboard');
+                        header('Location: smw-admin/dashboard');
                         exit();
                     } else {
                         $error = "Les identifiants n'existent pas.";

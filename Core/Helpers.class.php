@@ -44,5 +44,10 @@
             return false;
         }
 
+        static function logout()
+        {
+            session_destroy();
+        }
+
 
     }
