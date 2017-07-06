@@ -72,7 +72,6 @@
             <!--  <div class="content">
               </div> -->
         </div>
-        <br><br>
         <div class="section">
             <label for="section-8"><i class="fa fa-sign-out"></i> <span class="respons_hidden"><a onclick="<?php Helpers::logout(); ?>" href="<?php echo ABSOLUTE_PATH_FRONT . "index";?>">Logout</a></span></label>
 
