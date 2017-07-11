@@ -57,6 +57,8 @@ class UsersController{
 
     public function viewAction($params)
     {
+        $user = new Users();
+        $results = $user->getAllBy([[]], 20, 0);
         require VIEWS_PATH.BASE_BACK_OFFICE."users/index.view.php";
     }
 

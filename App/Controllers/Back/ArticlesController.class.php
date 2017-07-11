@@ -12,6 +12,7 @@ class ArticlesController{
             $post->setName("");
             $post->setDescription("");
             $post->Save();
+            header('Location: view');
         }
         require VIEWS_PATH.BASE_BACK_OFFICE."article/add.view.php";
 	}
@@ -23,6 +24,8 @@ class ArticlesController{
     }
 
     public function editAction($params){
+        $posts = new Posts();
+        $post = $posts->populate(["id"=>$params[1]]);
         require VIEWS_PATH.BASE_BACK_OFFICE."article/edit.view.php";
     }
 

@@ -19,10 +19,28 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
                         <th>Modifier le</th>
                         <th>Pages attachées</th>
                         <th>Auteur</th>
-                        <th>En ligne</th>
+                        <!--<th>En ligne</th>-->
                         <th>Action</th>
                     </tr>
-                    <tr>
+
+                    <?php
+                    if(isset($results) && $results!==false) {
+                        foreach($results as $page) {
+                            $row = "<tr><td>".$page['id']."</td>";
+                            $row .= "<td>".$page['name']."</td>";
+                            $row .= "<td>".$page['date_created']."</td>";
+                            $row .= "<td>".$page['date_updated']."</td>";
+                            $row .= "<td>0</td>";
+                            $row .= "<td>0</td>";
+                            $row .= "<td>	<a class='edit' title='Editer la page'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>
+												<a href='".ABSOLUTE_PATH_BACK."pages/delete/".$page['id']."' class='delete' title='Supprimer l\'article'><i class='fa fa-trash-o' aria-hidden='true'></i></a>
+										</td></tr>";
+                            echo $row;
+                        }
+                    }
+                    ?>
+
+                    <!-- <tr>
                         <td>1</td>
                         <td>Test</td>
                         <td>Yesterday</td>
@@ -69,7 +87,7 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
                         <td><a class="edit" title="Editer la page"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                             <a class="delete" title="Supprimer la page"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                         </td>
-                    </tr>
+                    </tr> -->
 
 
                 </table>

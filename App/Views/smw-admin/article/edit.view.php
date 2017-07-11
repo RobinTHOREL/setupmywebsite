@@ -6,7 +6,7 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
     <div class="container">
         <div class="row"> <!-- exemple - ligne 1 -->
             <div class="col-10 title">
-                <h2>Ajouter un article</h2>
+                <h2>Editer un article</h2>
             </div>
         </div>
         <div class="row"> <!-- exemple - ligne 2 -->
@@ -30,7 +30,15 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
                 <input type="checkbox" id="cb1" name="cb" value="" class="form-group">
                 <label for="cb1">base</label><br>
             </div>
+            <pre>
+                <?php
+
+                    var_dump($posts);
+
+                ?>
+            </pre>
         </div>
     </div>
+
 <?php
 include(dirname(__DIR__).'/footer.php');

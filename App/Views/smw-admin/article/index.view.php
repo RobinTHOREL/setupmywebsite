@@ -23,72 +23,20 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
 
 					<?php 
 						if(isset($results) && $results!==false) {
-							foreach($results as $post) {
-								$row = "<tr><td>".$post['id']."</td>";
-								$row .= "<td>".$post['title']."</td>";
-								$row .= "<td>".$post['date_created']."</td>";
-								$row .= "<td>".$post['date_updated']."</td>";
-								$row .= "<td>".$post['pages_id']."</td>";
-								$row .= "<td>	<a class='edit' title='Editer l'article'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>
-												<a href='".ABSOLUTE_PATH_BACK."articles/delete/".$post['id']."' class='delete' title='Supprimer l'article'><i class='fa fa-trash-o' aria-hidden='true'></i></a>
+							foreach($results as $posts) {
+								$row = "<tr><td>".$posts['id']."</td>";
+								$row .= "<td>".$posts['title']."</td>";
+								$row .= "<td>".$posts['date_created']."</td>";
+								$row .= "<td>".$posts['date_updated']."</td>";
+								$row .= "<td>".$posts['pages_id']."</td>";
+								$row .= "<td>	<a href='".ABSOLUTE_PATH_BACK."articles/edit/".$posts['id']."' class='edit' title='Editer l'article'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>
+												<a href='".ABSOLUTE_PATH_BACK."articles/delete/".$posts['id']."' class='delete' title='Supprimer l'article'><i class='fa fa-trash-o' aria-hidden='true'></i></a>
 										</td></tr>";
 								echo $row;
 							}
 						}
 					?>
 
-                    <!-- Exemple :
-						<tr>
-							<td>1</td>
-							<td>Test</td>
-							<td>Yesterday</td>
-							<td>Today</td>
-							<td>Aucune</td>
-							<td><a class="edit" title="Editer l'article"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-								<a class="delete" title="Supprimer l'article"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<td>2</td>
-							<td>Slt</td>
-							<td>Yesterday</td>
-							<td>Today</td>
-							<td>Aucune</td>
-							<td><a class="edit" title="Editer l'article"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-								<a class="delete" title="Supprimer l'article"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<td>3</td>
-							<td>C'est cool</td>
-							<td>Yesterday</td>
-							<td>Today</td>
-							<td>Aucune</td>
-							<td><a class="edit" title="Editer l'article"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-								<a class="delete" title="Supprimer l'article"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<td>4</td>
-							<td>C'est cool</td>
-							<td>Yesterday</td>
-							<td>Today</td>
-							<td>Aucune</td>
-							<td><a class="edit" title="Editer l'article"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-								<a class="delete" title="Supprimer l'article"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<td>5</td>
-							<td>C'est cool</td>
-							<td>Yesterday</td>
-							<td>Today</td>
-							<td>Aucune</td>
-							<td><a class="edit" title="Editer l'article"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-								<a class="delete" title="Supprimer l'article"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-							</td>
-						</tr> 
-					-->
                 </table>
             </div> <!-- exemple - ligne 2 -->
         </div>

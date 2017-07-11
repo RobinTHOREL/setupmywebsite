@@ -23,7 +23,26 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
                         <th>Status</th>
                         <th>Action</th>
                     </tr>
-                    <tr>
+
+                    <?php
+                    if(isset($results) && $results!==false) {
+                        foreach($results as $user) {
+                            $row = "<tr><td>".$user['id']."</td>";
+                            $row .= "<td>".$user['lastname']."</td>";
+                            $row .= "<td>".$user['firstname']."</td>";
+                            $row .= "<td>".$user['login']."</td>";
+                            $row .= "<td>".$user['email']."</td>";
+                            $row .= "<td>".$user['permission']."</td>";
+                            $row .= "<td>".$user['date_inserted']."</td>";
+                            $row .= "<td>".$user['status']."</td>";
+                            $row .= "<td>	<a href='".ABSOLUTE_PATH_BACK."articles/edit/".$user['id']."' class='edit' title='Editer l'article'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>
+												<a href='".ABSOLUTE_PATH_BACK."articles/delete/".$user['id']."' class='delete' title='Supprimer l'article'><i class='fa fa-trash-o' aria-hidden='true'></i></a>
+										</td></tr>";
+                            echo $row;
+                        }
+                    }
+                    ?>
+                    <!--<tr>
                         <td>1</td>
                         <td>THOREL</td>
                         <td>Robin</td>
@@ -74,7 +93,7 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
                         <td><a class="edit" title="Edition de l'utilisateur"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
                             <a class="delete" title="Bannir l'utilisateur"><i class="fa fa-times" aria-hidden="true"></i></a>
                         </td>
-                    </tr>
+                    </tr>-->
 
                 </table>
             </div> <!-- exemple - ligne 2 -->
