@@ -1,12 +1,4 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="/setupmywebsite/Public/css/grid.css">
-    <link rel="stylesheet" href="/setupmywebsite/Public/css/styleLogin.css">
-    <meta charset="UTF-8">
-    <title>Page de connexion</title>
-</head>
-    <body>
+
         <div class="back_glob">
             <div class="back_header">
                 <h1>LOGIN</h1>
