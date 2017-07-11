@@ -198,6 +198,8 @@ ul li:hover i {
     text-align: center;
     color: #21CCFC;
     font-size: 6em;
+    background-color: transparent;
+    border: none;
 }
 .logo i {
     font-size: 70px;
@@ -408,14 +410,14 @@ input[type=button] {
 @media(max-width: 900px) /** Optimisation iPad **/
 {
     .left-menu {
-        height: 155%;
+        height: 160%;
         width: 70px;
     }
 
-    #dropfile{
+
+    .fa.logo-upload{
         font-size: 0.60em;
         display: none;
-
     }
 
     .logo {
@@ -444,7 +446,16 @@ input[type=button] {
         font-size: 0.70em;
     }
     input[type=submit]{
-        width: 100%;
+        width: 50%;
+    }
+
+    input[type=reset]{
+        width: 50%;
+
+    }
+
+    #dropfile{
+        border:none;
     }
 
 
@@ -460,23 +471,34 @@ input[type=button] {
 
     .left-menu {
         width: 70px;
-        height: 142%;
+        height: 199%;
+    }
+
+    .fa.logo-upload{
+        font-size: 0.60em;
+        display: none;
     }
 
     #dropfile{
-        font-size: 0.60em;
-        display: none;
-
+        border-right:none;
     }
 
     input.form-group{
-        width: 140px;
-        margin-right: 39px;
-        height: 35px;
+        width: 100%;
     }
 
     input[type=submit]{
         width: 100%;
+    }
+
+    .hide{
+        display: block;
+        padding: 30px 10px;
+        width: 70px;
+        text-align: center;
+        color: #21CCFC;
+        font-size: 6em;
+        background-color: transparent;
     }
 
 
