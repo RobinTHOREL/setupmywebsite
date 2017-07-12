@@ -52,23 +52,33 @@ class UsersController{
                 }
             }// close verifier_token
         }//close $_POST
-        require VIEWS_PATH.BASE_BACK_OFFICE."users/add.view.php";
+        $view = new View(BASE_BACK_OFFICE."users/add", "smw-admin");
+        $view->assign("page_title", "Ajouter des utilisateurs");
+        $view->assign("page_description", "Page d'ajout d'un utilisateur");
     }
 
     public function viewAction($params)
     {
         $user = new Users();
         $results = $user->getAllBy([[]], 20, 0);
-        require VIEWS_PATH.BASE_BACK_OFFICE."users/index.view.php";
+
+        $view = new View(BASE_BACK_OFFICE."users/index", "smw-admin");
+        $view->assign("results", $results);
+        $view->assign("page_title", "Voir les utilisateurs");
+        $view->assign("page_description", "Page listant les utilisateurs");
     }
 
     public function editAction($params)
     {
-        require VIEWS_PATH.BASE_BACK_OFFICE."users/edit.view.php";
+        $view = new View(BASE_BACK_OFFICE."users/edit", "smw-admin");
+        $view->assign("page_title", "Editer un utilisateur");
+        $view->assign("page_description", "Page d'édition d'un utilisateur");
     }
 
     public function deleteAction($params)
     {
-        require VIEWS_PATH.BASE_BACK_OFFICE."users/delete.view.php";
+        $view = new View(BASE_BACK_OFFICE."users/delete", "smw-admin");
+        $view->assign("page_title", "Supprimer un utilisateur");
+        $view->assign("page_description", "Page de suppression d'un utilisateur");
     }
 }

@@ -4,7 +4,9 @@ class InstallController{
         if(file_exists(CONFIG_PERSO_FILE)) {
             header("Location: http://".$_SERVER['HTTP_HOST'].BASE_ABSOLUTE_PATTERN);
         } else {
-            require VIEWS_PATH . "install/index.view.php";
+            $view = new View("install/index", "install");
+            $view->assign("page_title", "Installation de Setup My Website");
+            $view->assign("page_description", "Page d'installation de Setup My Website");
         }
     }
 
@@ -101,7 +103,9 @@ class InstallController{
                     die();
                 }
             } else {
-                require VIEWS_PATH . "install/databaseConfiguration.view.php";
+                $view = new View("install/databaseConfiguration", "install");
+                $view->assign("page_title", "Installation de la base de données Setup My Website");
+                $view->assign("page_description", "Page d'installation de la base de données Setup My Website");
             }
         }
     }
@@ -191,7 +195,9 @@ class InstallController{
                 header("Location: installConfiguration");
                 die();
             } else {
-                require VIEWS_PATH . "install/administratorConfiguration.view.php";
+                $view = new View("install/administratorConfiguration", "install");
+                $view->assign("page_title", "Configuration du compte administrateur Setup My Website");
+                $view->assign("page_description", "Page de configuration du compte administrateur Setup My Website");
             }
         }
     }
@@ -227,7 +233,9 @@ class InstallController{
                 file_put_contents($file, $configuration, FILE_APPEND | LOCK_EX);
                 header("Location: http://" . $_SERVER['HTTP_HOST'] . BASE_ABSOLUTE_PATTERN);
             } else {
-                require VIEWS_PATH . "install/installConfiguration.view.php";
+                $view = new View("install/installConfiguration", "install");
+                $view->assign("page_title", "Finalisation de l'installation de Setup My Website");
+                $view->assign("page_description", "Page de finalisation de l'installation de Setup My Website");
             }
         }
     }

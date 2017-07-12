@@ -1,8 +1,3 @@
-<?php
-include(dirname(__DIR__).'/header.php');
-include(dirname(__DIR__).'/menu_gauche.tpl.php');
-?>
-
 <div class="container">
         <div class="row"> <!-- exemple - ligne 1 -->
             <div class="col-12 title">
@@ -44,5 +39,3 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
                 echo $text;
             }
         ?>
-<?php
-include(dirname(__DIR__).'/footer.php');

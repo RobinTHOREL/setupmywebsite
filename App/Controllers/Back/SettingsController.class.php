@@ -1,10 +1,14 @@
 <?php
 class SettingsController{
     public function viewAction($params){
-        require VIEWS_PATH.BASE_BACK_OFFICE."settings/index.view.php";
+        $view = new View(BASE_BACK_OFFICE."settings/index", "smw-admin");
+        $view->assign("page_title", "Voir les réglages");
+        $view->assign("page_description", "Page listant les réglages");
     }
 
     public function editAction($params){
-        require VIEWS_PATH.BASE_BACK_OFFICE."settings/edit.view.php";
+        $view = new View(BASE_BACK_OFFICE."settings/edit", "smw-admin");
+        $view->assign("page_title", "Editer les réglages");
+        $view->assign("page_description", "Page d'édition des réglages");
     }
 }

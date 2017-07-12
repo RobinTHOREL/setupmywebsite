@@ -1,9 +1,3 @@
-<?php
-
-    include 'header.php';
-    include 'menu_gauche.tpl.php';
-?>
-
 <div class="container">
     <div class="row"> <!-- exemple - ligne 1 -->
         <div class="col-10 title">
@@ -23,9 +17,3 @@
         </div>
     </div>
 </div>
-
-<?php
-
-    include 'footer.php';
-
-?>
