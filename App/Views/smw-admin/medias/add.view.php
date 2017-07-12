@@ -15,13 +15,14 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
                 <div class="col-10 col-offset-1">
                     <div id="dropfile">
                         <div id="dropper" class="col-8 col-offset-2" class="col-1">
-                            <button class="fa fa-cloud-upload logo-upload" aria-hidden="hide"></button>
+                            <i class="fa fa-cloud-upload logo-upload" aria-hidden="false"></i>
                             <p>Glissez un média dans cette zone pour l'uploader</p>
                             <p>Formats acceptés : (png, ..,..,..)</p>
                         </div>
                     </div>
-
-                    <button class="fa fa-cloud-upload logo-upload" aria-hidden="true"></button>
+                    <div id='hide'>
+                        <input type='button' name='upload' value='télécharger un fichier' />
+                    </div>
                 </div>
             </div>
         </div>
