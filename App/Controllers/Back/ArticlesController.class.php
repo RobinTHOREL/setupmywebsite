@@ -13,20 +13,29 @@ class ArticlesController{
             $post->setDescription("");
             $post->Save();
         }
-        require VIEWS_PATH.BASE_BACK_OFFICE."article/add.view.php";
+        $view = new View(BASE_BACK_OFFICE."article/add", "smw-admin");
+        $view->assign("page_title", "Ajouter un nouvel article");
+        $view->assign("page_description", "Page d'ajout de nouveaux articles");
 	}
 
     public function viewAction($params){
 		$posts = new Posts();
 		$results = $posts->getAllBy([[]], 20, 0);
-        require VIEWS_PATH.BASE_BACK_OFFICE."article/index.view.php";
+        $view = new View(BASE_BACK_OFFICE."article/index", "smw-admin");
+        $view->assign("results", $results);
+        $view->assign("page_title", "Voir les articles");
+        $view->assign("page_description", "Page listant les articles");
     }
 
     public function editAction($params){
-        require VIEWS_PATH.BASE_BACK_OFFICE."article/edit.view.php";
+        $view = new View(BASE_BACK_OFFICE."article/edit", "smw-admin");
+        $view->assign("page_title", "Edition d'un article");
+        $view->assign("page_description", "Page d'édition d'un article");
     }
 
     public function deleteAction($params){
+        $view = new View(BASE_BACK_OFFICE."article/delete", "smw-admin");
+
         // Get and verify if the article exist
         $post = new Posts();
         $postExist = $post->populate(["id"=>$params[0]]);
@@ -34,9 +43,12 @@ class ArticlesController{
         if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirm']) && $_POST['confirm'] == "true") {
 
             if($postExist !== false) {
-                $delete = $post->deleteById();
+                $view->assign("delete", $post->deleteById());
             }
         }
-        require VIEWS_PATH.BASE_BACK_OFFICE."article/delete.view.php";
+
+        $view->assign("postExist", $postExist);
+        $view->assign("page_title", "Suppression d'un article");
+        $view->assign("page_description", "Page de suppression d'un article");
     }
 }
