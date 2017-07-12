@@ -34,6 +34,7 @@ class ArticlesController{
         $view = new View(BASE_BACK_OFFICE."article/edit", "smw-admin");
         $view->assign("post", $post);
         $view->assign("posts", $posts);
+
         $view->assign("page_title", "Edition d'un article");
         $view->assign("page_description", "Page d'édition d'un article");
     }
