@@ -9,6 +9,8 @@ class PagesController{
             $page = new Pages();
             $page->setName($title);
             $page->setDescription($content);
+            $page->setFriendlyUrl("");
+            $page->setPostsId("0");
             $page->Save();
             header('Location: view');
         }

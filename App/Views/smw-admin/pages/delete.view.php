@@ -11,7 +11,7 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
         </div>
 
         <?php // Cas ou l'article existe et la suppression n'est pas confirmé
-            if(isset($postExist) && $postExist===true && !isset($delete)) {
+            if(isset($pageExist) && $pageExist===true && !isset($delete)) {
                 $text = "<div class=\"row\">
                     <form action=\"\" method=\"post\">
                         <div class=\"col-12\">
@@ -26,7 +26,7 @@ include(dirname(__DIR__).'/menu_gauche.tpl.php');
                 echo $text;
             }
             // Cas ou l'article existe et la suppression est confirmé
-            else if (isset($postExist) && $postExist && isset($delete) && $delete) {
+            else if (isset($pageExist) && $pageExist && isset($delete) && $delete) {
                 $text = "<div class=\"row\">
                     <div class=\"col-12\">
                         La page a été supprimé.
