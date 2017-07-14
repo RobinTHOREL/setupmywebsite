@@ -17,11 +17,17 @@
                     </div>
                 </div>
             </form>
-            <?php  } else { 
-            	echo $message;
-            }
-            ?>
-            
+            <?php  } else { ?>
+            	<div class="trois-colonnes form-group">
+            		 <div class="colonne2">
+                		<?php echo $message; ?>
+            		</div>
+            		<br>
+            		<div class="colonne2">
+            			<a href="<?php echo ABSOLUTE_PATH_FRONT."login" ?>">Retourner sur la page de connexion</a>
+            		</div>
+            	</div>
+            <?php } ?>
         </div>
 	</section>
     <footer>

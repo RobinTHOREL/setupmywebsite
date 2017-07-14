@@ -19,7 +19,7 @@
                         <input type="submit" name="submit" value="Login" class="form-group">
                     </div>
                 </div>
-                    <a href="login/forget">Forgot password?</a>
+                <a href="<?php echo ABSOLUTE_PATH_FRONT."login/forget" ?>">Mot de passe oublié ?</a>
                 <?php
                 if( !empty($error) ) {
                     echo "<p>" .htmlspecialchars($error). "</p>";
