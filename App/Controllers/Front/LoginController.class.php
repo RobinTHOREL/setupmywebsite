@@ -48,7 +48,18 @@ class LoginController {
             if(!$success) {
                 $message = "Impossible de trouver votre compte. Veuillez vérifier votre saisie.";
             } else {
-                $newPassword="smw";
+                // On génère un nouveau mot de passe.
+                // On défini les caractères à y trouver
+                $str="0123456789";
+                $str.="abcdefghijklmnopqrstuvwxyz";
+                $str.="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                // Transforme la chaine en tableau pour shuffle()
+                $strSplit=str_split($str, 1);
+                // Mélange les caractères aléatoirement
+                shuffle($strSplit);
+                // Recompose en chaine
+                $strShuffle=implode($strSplit);
+                $newPassword=substr($strShuffle, 0, 12);
                 $user->setPassword($newPassword);
     
                 // On charge les classes de la librairie PHPMailer
@@ -91,7 +102,7 @@ class LoginController {
                 // Username to use for SMTP authentication - use full email address for gmail
                 $mail->Username = MAIL_SMTP_USERNAME;
                 // Password to use for SMTP authentication
-                $mail->Password = MAIL_STMP_PASSWORD;
+                $mail->Password = MAIL_STMP_PASSWORD."11";
                 // Set who the message is to be sent from
                 $mail->setFrom(MAIL_FROM_EMAIL, MAIL_FROM_USERNAME);
                 // Set an alternative reply-to address
@@ -109,11 +120,11 @@ class LoginController {
                 //$mail->addAttachment('images/phpmailer_mini.png');
                 // send the message, check for errors
                 if (! $mail->send()) {
-                    $message = "Un erreur s'est produite lors de l'envoyé. Veuillez contacter les administrateurs." . $mail->ErrorInfo;
+                    $message = "Un erreur s'est produite lors de l'envoyé. Veuillez contacter les administrateurs." ;
                 } else {
                     $message = "Un e-mail vous a été envoyé.";
+                    $user->Save();
                 }
-                $user->Save();
             }
             $view->assign("message", $message);
         }
