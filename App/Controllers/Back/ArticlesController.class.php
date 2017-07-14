@@ -31,9 +31,23 @@ class ArticlesController{
     public function editAction($params){
         $posts = new Posts();
         $post = $posts->populate(["id"=>$params[0]]);
+
         $view = new View(BASE_BACK_OFFICE."article/edit", "smw-admin");
         $view->assign("post", $post);
         $view->assign("posts", $posts);
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title']) && isset($_POST['content'])) {
+            $title = $_POST['title'];
+            $content = $_POST['content'];
+
+            $post = $posts->populate(["id"=>$params[0]]);
+            $post->setTitle($title);
+            $post->setContent($content);
+            $post->setName("");
+            $post->setDescription("");
+            $post->Save();
+            header('Location: edit');
+        }
 
         $view->assign("page_title", "Edition d'un article");
         $view->assign("page_description", "Page d'édition d'un article");
