@@ -22,7 +22,7 @@
         if($uriInstallExp[0]=="smw-admin" && $uriInstallExp[1]=="install") {
             $route = new Routing();
         } else {
-            header("Location: smw-admin/install/");
+            header('Location: '.ABSOLUTE_PATH_BACK.'install/');
         }
     }
 
