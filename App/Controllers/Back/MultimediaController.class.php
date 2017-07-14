@@ -5,6 +5,21 @@ class MultimediaController{
         $view->assign("page_title", "Ajouter un contenu multimedia");
         $view->assign("page_description", "Page d'ajout de contenu multimedia");
 	}
+	
+	public function uploadAction($params){
+	    if(isset($_POST['file'])) {
+	        if(isset($_POST['fileName'])) {
+	            $name = bin2hex(mcrypt_create_iv(8, MCRYPT_DEV_URANDOM))."_".$_POST['fileName'];
+	        } else {
+	            $name = bin2hex(mcrypt_create_iv(12, MCRYPT_DEV_URANDOM)).".txt";
+	        }
+	        $file = UPLOAD_PATH.$name;
+	        $encodedData = str_replace(' ', '+', $_POST['file']);
+	        $current = base64_decode($encodedData);
+	        // Écrit le résultat dans le fichier
+	        file_put_contents($file, $current);
+	    }
+	}
 
     public function viewAction($params){
         $view = new View(BASE_BACK_OFFICE."medias/index", "smw-admin");
