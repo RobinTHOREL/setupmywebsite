@@ -49,17 +49,8 @@ class LoginController {
                 $message = "Impossible de trouver votre compte. Veuillez vérifier votre saisie.";
             } else {
                 // On génère un nouveau mot de passe.
-                // On défini les caractères à y trouver
-                $str="0123456789";
-                $str.="abcdefghijklmnopqrstuvwxyz";
-                $str.="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-                // Transforme la chaine en tableau pour shuffle()
-                $strSplit=str_split($str, 1);
-                // Mélange les caractères aléatoirement
-                shuffle($strSplit);
-                // Recompose en chaine
-                $strShuffle=implode($strSplit);
-                $newPassword=substr($strShuffle, 0, 12);
+                $password = new Password(true, true, true, true, 12, 16);
+                $newPassword = $password->generatePassword();
                 $user->setPassword($newPassword);
     
                 // On charge les classes de la librairie PHPMailer
@@ -102,7 +93,7 @@ class LoginController {
                 // Username to use for SMTP authentication - use full email address for gmail
                 $mail->Username = MAIL_SMTP_USERNAME;
                 // Password to use for SMTP authentication
-                $mail->Password = MAIL_STMP_PASSWORD."11";
+                $mail->Password = MAIL_STMP_PASSWORD;
                 // Set who the message is to be sent from
                 $mail->setFrom(MAIL_FROM_EMAIL, MAIL_FROM_USERNAME);
                 // Set an alternative reply-to address
