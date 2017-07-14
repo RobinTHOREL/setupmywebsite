@@ -10,7 +10,8 @@
         <header></header>
 			<?php include $this->view; ?>
         <footer>
-            <script src="/setupmywebsite/Public/js/index_front.js"></script>
+            
         </footer>
+        <script src="/setupmywebsite/Public/js/index_front.js"></script>
 	</body>
 </html>
