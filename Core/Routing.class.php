@@ -14,7 +14,7 @@ class Routing{
 		$uri = $_SERVER["REQUEST_URI"];
 		$uri = preg_replace("#".BASE_PATH_PATTERN."#i", "", $uri, 1);
 		$this->uriExploded = explode("/",  trim($uri, "/")   );
-//		Check if url contain smw-admin
+        // Check if url contain smw-admin
         $check = preg_match("/smw-admin/i", $uri);
         if($check != false)
         {
@@ -40,7 +40,7 @@ class Routing{
 	}
 
 	public function setAction(){
-         $indexAction = ($this->smwAdmin)?2:1;
+        $indexAction = ($this->smwAdmin)?2:1;
         $this->action =  (empty($this->uriExploded[$indexAction]))?"index":$this->uriExploded[$indexAction];
         $this->actionName = $this->action."Action";
         unset($this->uriExploded[$indexAction]);
@@ -77,9 +77,7 @@ class Routing{
 
 	public function runRoute(){
 		if($this->checkRoute()){
-			//$this->controllerName = IndexController
 			$controller = new $this->controllerName();
-			//$this->actionName = indexAction
 			$controller->{$this->actionName}($this->params);
 		}else{
 			$this->page404($this->error);
@@ -87,8 +85,16 @@ class Routing{
 	}
 
 	public function page404($error){
-        require VIEWS_PATH."errors/404.view.php";
-        die();
+	    $view = null;
+	    // Charge une vue différente en fonction de l'environnement utilisé
+	    if($this->smwAdmin) {
+	        $view = new View("errors/404", "smw-admin");
+	    } else {
+	        $view = new View("errors/404", "frontend");
+	    }
+	    $view->assign("error", $error);
+	    $view->assign("page_title", "Erreur 404 - La page demandé n'existe pas");
+	    $view->assign("page_description", "La page est introuvable");
 	}
 
 

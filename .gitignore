@@ -4,3 +4,5 @@ App/.DS_Store
 App/Views/.DS_Store
 App/Views/smw-admin/.DS_Store
 Config/config_perso_inc.php
+/.buildpath
+/.project

@@ -2,7 +2,7 @@
 class InstallController{
     public function indexAction($params){
         if(file_exists(CONFIG_PERSO_FILE)) {
-            header("Location: http://".$_SERVER['HTTP_HOST'].BASE_ABSOLUTE_PATTERN);
+            header('Location: '.ABSOLUTE_PATH_FRONT);
         } else {
             $view = new View("install/index", "install");
             $view->assign("page_title", "Installation de Setup My Website");
@@ -12,7 +12,7 @@ class InstallController{
 
     public function databaseConfigurationAction($params){
         if(file_exists(CONFIG_PERSO_FILE)) {
-            header("Location: http://".$_SERVER['HTTP_HOST'].BASE_ABSOLUTE_PATTERN);
+            header('Location: '.ABSOLUTE_PATH_FRONT);
         } else {
             if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['host']) && !empty($_POST['port']) && !empty($_POST['user'])
                 && isset($_POST['password']) && !empty($_POST['database_name'])
@@ -112,7 +112,7 @@ class InstallController{
 
     public function administratorConfigurationAction($params){
         if(file_exists(CONFIG_PERSO_FILE)) {
-            header("Location: http://".$_SERVER['HTTP_HOST'].BASE_ABSOLUTE_PATTERN);
+            header('Location: '.ABSOLUTE_PATH_FRONT);
         } else {
             // On charge les classes
             if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['user'])
@@ -204,7 +204,7 @@ class InstallController{
 
     public function installConfigurationAction($params){
         if(file_exists(CONFIG_PERSO_FILE)) {
-            header("Location: http://".$_SERVER['HTTP_HOST'].BASE_ABSOLUTE_PATTERN);
+            header('Location: '.ABSOLUTE_PATH_FRONT);
         } else {
             if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['start'])) {
                 // On vérifie que les informations de connexion à la base de données sont bien présentent

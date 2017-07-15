@@ -22,6 +22,7 @@ $(document).on('dragleave', '#dropfile', function (e) {
     return false;
 });
 
+var fileName = null;
 $(document).on('drop', '#dropfile', function (e) {
     if (e.originalEvent.dataTransfer) {
         if (e.originalEvent.dataTransfer.files.length) {
@@ -30,6 +31,7 @@ $(document).on('drop', '#dropfile', function (e) {
             e.stopPropagation();
             $(this).css('border', '3px dashed green');
             // Main function to upload
+            fileName = e.originalEvent.dataTransfer.files[0].name;
             upload(e.originalEvent.dataTransfer.files);
         }
     } else {
@@ -42,7 +44,7 @@ function upload(files) {
     var f = files[0];
 
     if (!f.type.match('image/png')) {
-        alert('image dosnt match');
+        alert('image doesn\'t match');
         return false;
     }
     var reader = new FileReader();
@@ -57,16 +59,17 @@ function upload(files) {
 
 function handleReaderLoad(evt) {
     var pic = {};
+    pic.fileName = fileName;
     pic.file = evt.target.result.split(',')[1];
-
+    
     var str = jQuery.param(pic);
 
     $.ajax({
         type: 'POST',
-        url: 'upload.php',
+        url: 'upload',
         data: str,
         success: function (data) {
-            console.log(data);
+            //console.log(data);
         }
     });
 }
