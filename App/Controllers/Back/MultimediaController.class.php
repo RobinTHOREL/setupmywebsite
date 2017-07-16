@@ -30,10 +30,7 @@ class MultimediaController{
         $dir    = 'C:\wamp64\www\setupmywebsite\Public\upload';
         $files1 = scandir($dir);
 
-        echo"<center><pre>";
-        print_r($files1);
-        echo"</pre>";
-        echo "</center>";
+        $view->assign("files", $files1);
     }
 
     public function editAction($params){

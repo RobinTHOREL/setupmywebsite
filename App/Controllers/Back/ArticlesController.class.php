@@ -46,7 +46,7 @@ class ArticlesController{
             $post->setName("");
             $post->setDescription("");
             $post->Save();
-            header('Location: edit');
+            header('Location: view');
         }
 
         $view->assign("page_title", "Edition d'un article");

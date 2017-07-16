@@ -74,6 +74,10 @@ function handleReaderLoad(evt) {
     });
 }
 
+$('#cancel-btn').click(function() {
+    window.history.back();
+});
+
 /* Chart on dashboard page */
 
 new Chart(document.getElementById("bar-chart").getContext("2d"), {

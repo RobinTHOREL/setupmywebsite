@@ -11,7 +11,7 @@ class PagesController{
             $page->setFriendlyUrl("0");
             $page->setPostsId("0");
             $page->Save();
-            //header('Location: view');
+            header('Location: view');
         }
 
         $view = new View(BASE_BACK_OFFICE."pages/add", "smw-admin");
@@ -30,7 +30,13 @@ class PagesController{
     }
 
     public function editAction($params){
+        $pages = new Pages();
+        $page = $pages->populate(["id"=>$params[0]]);
+
         $view = new View(BASE_BACK_OFFICE."pages/edit", "smw-admin");
+        $view->assign("page", $page);
+        $view->assign("pages", $pages);
+
         $view->assign("page_title", "Editer une page");
         $view->assign("page_description", "Page d'édition d'une page");
     }

@@ -27,7 +27,7 @@
                             $row .= "<td>".$page['date_updated']."</td>";
                             $row .= "<td>0</td>";
                             $row .= "<td>0</td>";
-                            $row .= "<td>	<a class='edit' title='Editer la page'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>
+                            $row .= "<td>	<a href='".ABSOLUTE_PATH_BACK."pages/edit/".$page['id']."' class='edit' title='Editer la page'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>
 												<a href='".ABSOLUTE_PATH_BACK."pages/delete/".$page['id']."' class='delete' title='Supprimer l\'article'><i class='fa fa-trash-o' aria-hidden='true'></i></a>
 										</td></tr>";
                             echo $row;

@@ -10,7 +10,7 @@
                     <input type="text" class="form-group col-4 col-offset-1" value="<?php echo $posts->getTitle(); ?>">
                 </div> <!-- exemple - ligne 2 -->
                 <div class="col-7">
-                    <textarea name="content" class="form-group"><?php echo $posts->getContent(); ?></textarea>
+                    <textarea name="content" class="form-group"><?php echo $posts->getDescription(); ?></textarea>
                 </div>
                 <div class="col-4 col-offset-1 right-content">
                     <h2>Actions sur l'article</h2>
@@ -19,7 +19,7 @@
                     <input type="checkbox" id="cb3" name="cb" value="" class="form-group">
                     <label for="cb3">Indiqué le statut modifié ainsi date et l'heure de la modification</label><br><br>
                     <input type="submit" class="form-group" value="Editer">
-                    <input type="reset" class="form-group" value="Annuler">
+                    <input type="reset" class="form-group" id="cancel-btn" value="Annuler">
                 </div>
                 <div class="col-4 col-offset-1 right-content">
                     <h2>Catégorise de l'article</h2>

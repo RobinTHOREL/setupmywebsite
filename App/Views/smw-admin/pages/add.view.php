@@ -16,7 +16,7 @@
                         <input type="checkbox" id="cb1" name="cb" value="" class="form-group">
                         <label for="cb1">Rendre le contenu public</label><br><br>
                         <input type="submit" class="form-group" value="Publier">
-                        <input type="reset" class="form-group" value="Annuler">
+                        <input type="reset" class="form-group" id="cancel-btn" value="Annuler">
                     </div>
                     <div class="col-4 col-offset-1 right-content">
                         <h2>Propriétés de la page</h2>

@@ -30,8 +30,8 @@
                             $row .= "<td>".$user['permission']."</td>";
                             $row .= "<td>".$user['date_inserted']."</td>";
                             $row .= "<td>".$user['status']."</td>";
-                            $row .= "<td>	<a href='".ABSOLUTE_PATH_BACK."articles/edit/".$user['id']."' class='edit' title='Editer l'article'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>
-												<a href='".ABSOLUTE_PATH_BACK."articles/delete/".$user['id']."' class='delete' title='Supprimer l'article'><i class='fa fa-trash-o' aria-hidden='true'></i></a>
+                            $row .= "<td>	<a href='".ABSOLUTE_PATH_BACK."users/edit/".$user['id']."' class='edit' title='Editer l'article'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>
+												<a href='".ABSOLUTE_PATH_BACK."users/delete/".$user['id']."' class='delete' title='Supprimer l'article'><i class='fa fa-trash-o' aria-hidden='true'></i></a>
 										</td></tr>";
                             echo $row;
                         }

@@ -21,7 +21,7 @@
                 <input type="checkbox" id="cb3" name="cb" value="" class="form-group">
                 <label for="cb3">Indiqué la date et l'heure de la publication</label><br><br>
                 <input type="submit" class="form-group" value="Publier">
-                <input type="reset" class="form-group" value="Annuler">
+                <input type="reset" class="form-group" id="cancel-btn" value="Annuler">
             </div>
             <div class="col-4 col-offset-1 right-content">
                 <h2>Catégoriser l'article</h2>
