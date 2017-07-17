@@ -1,5 +1,6 @@
 <?php
-    class Helpers {
+    class Helpers
+    {
 
 
         /**
@@ -16,8 +17,8 @@
                 session_start();
             }
             $token = uniqid(rand(), true);
-            $_SESSION[$nom.'_token'] = $token;
-            $_SESSION[$nom.'_token_time'] = time();
+            $_SESSION[$nom . '_token'] = $token;
+            $_SESSION[$nom . '_token_time'] = time();
             return $token;
         }
 
@@ -36,10 +37,10 @@
             if (session_status() == PHP_SESSION_NONE) {
                 session_start();
             }
-            if(isset($_SESSION[$nom.'_token']) && isset($_SESSION[$nom.'_token_time']) && isset($_POST['token']))
-                if($_SESSION[$nom.'_token'] == $_POST['token'])
-                    if($_SESSION[$nom.'_token_time'] >= (time() - $temps))
-                        if($_SERVER['HTTP_REFERER'] == $referer)
+            if (isset($_SESSION[$nom . '_token']) && isset($_SESSION[$nom . '_token_time']) && isset($_POST['token']))
+                if ($_SESSION[$nom . '_token'] == $_POST['token'])
+                    if ($_SESSION[$nom . '_token_time'] >= (time() - $temps))
+                        if ($_SERVER['HTTP_REFERER'] == $referer)
                             return true;
             return false;
         }
@@ -49,5 +50,12 @@
             session_destroy();
         }
 
+        static function get_menu()
+        {
+                $menu = new Pages();
+
+                $menus =$menu->getAllBy($search = [[]]);
+                return $menus;
+        }
 
     }
