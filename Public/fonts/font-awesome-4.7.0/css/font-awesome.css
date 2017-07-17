@@ -91,7 +91,7 @@
 }
 .fa-spin {
   -webkit-animation: fa-spin 2s infinite linear;
-  animation: fa-spin 2s infinite linear;
+  animation: fa-spin 4s infinite linear;
 }
 .fa-pulse {
   -webkit-animation: fa-spin 1s infinite steps(8);

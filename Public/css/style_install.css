@@ -1,0 +1,126 @@
+h1{
+    font-size: 40px;
+    text-shadow: 0px 0px 9px #777;
+    color: #000000;
+    /* style du titre et zoom
+    filter:progid:DXImageTransform.Microsoft.Shadow(color='#999999', Direction=135, Strength=4);
+    zoom: 2;
+    text-shadow: 3px 3px #eee, #21ccfc -3px 3px 2px, 3px -3px;
+    */
+}
+
+.col-12{
+    margin-top: 100px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 20px;
+}
+
+.logo {
+    margin-left: 44.3%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.smw{
+    color: #21CCFC;
+}
+
+.logo i {
+     color: #21CCFC;
+ }
+.btn{
+    background-color: #4CAF50; /* Green */
+    border-radius: 10px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    border:1px solid white;
+}
+label{
+    font-weight: 600;
+}
+a{
+    text-decoration: none;
+}
+
+
+/* Responsive de width : 480 a 900px */
+@media(max-width: 900px) /** Optimisation iPad **/
+{
+    .btn{
+        background-color: #4CAF50; /* Green */
+        border-radius: 10px;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 25px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+    }
+    .smw{
+        font-weight: 900;
+        font-size:40px;
+    }
+
+    .h1{
+        font-weight: 900;
+        font-size:40px;
+    }
+    label{
+        font-size: 29px;
+    }
+    a{
+        text-decoration: none;
+    }
+    input.form-group{
+        font-size: 20px;
+    }
+
+}
+
+/* Responsive de width : 0 a 480px */
+@media(max-width: 480px) /** Optimisation iPhone 6 **/
+{
+    label{
+        font-size: 5%;
+    }
+
+    .logo{
+        margin-left: 40%;
+    }
+    .btn{
+        background-color: #4CAF50; /* Green */
+        border-radius: 10px;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+        margin-bottom: 10px;
+    }
+
+    .col-12{
+        margin-bottom: 30px;
+        margin-top:25px;
+    }
+
+    .smw{
+        font-weight: 900;
+        font-size:25px;
+    }
+
+   h1{
+       font-size: 25px;
+       font-weight: 900;
+   }
+
+
+}

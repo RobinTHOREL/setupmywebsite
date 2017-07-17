@@ -1,12 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8"> 
+	<meta charset="UTF-8">
 	<title>Configuration 3</title>
 	<meta name="description" content="Page d'installation de Setup-My Website, étape 2">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/setupmywebsite/Public/css/grid.css">
 </head>
 <body>
+
+<div class="row">
+    <div class="col-12">
+        <h2>ccccc</h2>
+    </div>
+</div>
     <header>
         <?php
         if(isset($_SESSION["error_form"])){
@@ -42,4 +49,4 @@
     <footer>
     </footer>
 </body>
-</html>   
+</html>

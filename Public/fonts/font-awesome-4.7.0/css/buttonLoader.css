@@ -1,0 +1,22 @@
+.spinner {
+    display: inline-block;
+    opacity: 0;
+    width: 0;
+    -webkit-transition: opacity 2s, width 2s;
+    -moz-transition: opacity 2s, width 2s;
+    -o-transition: opacity 2s, width 2s;
+    transition: opacity 2s, width 2s;
+}
+
+.has-spinner.active {
+    cursor:pointer;
+}
+
+.has-spinner.active .spinner {
+    opacity: 5;
+    width: 10%;
+}
+
+.has-spinner.btn.active .spinner {
+    min-width: 10%;
+}

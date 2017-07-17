@@ -9,6 +9,8 @@
 
 .col-12 {
     width: 100%;
+    text-align: center;
+   /* border: 1px solid black;*/
 }
 .col-11 {
     width: 91.66666667%;
@@ -56,6 +58,7 @@
 }
 .col-offset-8 {
     margin-left: 66.66666667%;
+    border:1px solid black;
 }
 .col-offset-7 {
     margin-left: 58.33333333%;
@@ -65,7 +68,7 @@
 }
 .col-offset-5 {
     margin-left: 41.66666667%;
-    border:1px solid red;
+   /* border:1px solid red;*/
 }
 .col-offset-4 {
     margin-left: 33.33333333%;
