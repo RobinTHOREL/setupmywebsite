@@ -30,7 +30,23 @@ class PagesController{
     }
 
     public function editAction($params){
+        $page = new Pages();
+        $pageExist = $page->populate(["id"=>$params[0]]);
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title']) && isset($_POST['content'])) {
+            if($pageExist) {
+                $title = $_POST['title'];
+                $content = $_POST['content'];
+                $page->setName($title);
+                $page->setDescription($content);
+                $page->setFriendlyUrl("0");
+                $page->setPostsId("0");
+                $page->Save();
+            }
+        }
+        
         $view = new View(BASE_BACK_OFFICE."pages/edit", "smw-admin");
+        $view->assign("page", $page);
+        $view->assign("pageExist", $pageExist);
         $view->assign("page_title", "Editer une page");
         $view->assign("page_description", "Page d'édition d'une page");
     }

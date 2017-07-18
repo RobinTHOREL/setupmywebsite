@@ -3,10 +3,9 @@ class ArticlesController{
 	public function addAction($params){
 	    /* Basic add to database */
         if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title']) && isset($_POST['content'])) {
+            $post = new Posts();
             $title = $_POST['title'];
             $content = $_POST['content'];
-
-            $post = new Posts();
             $post->setTitle($title);
             $post->setContent($content);
             $post->setName("");
@@ -29,12 +28,23 @@ class ArticlesController{
     }
 
     public function editAction($params){
-        $posts = new Posts();
-        $post = $posts->populate(["id"=>$params[0]]);
+        $post = new Posts();
+        $postExist = $post->populate(["id"=>$params[0]]);
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title']) && isset($_POST['content'])) {
+            if($postExist) {
+                $title = $_POST['title'];
+                $content = $_POST['content'];
+                $post->setTitle($title);
+                $post->setContent($content);
+                $post->setName("");
+                $post->setDescription("");
+                $post->Save();
+            }
+        }
+
         $view = new View(BASE_BACK_OFFICE."article/edit", "smw-admin");
         $view->assign("post", $post);
-        $view->assign("posts", $posts);
-
+        $view->assign("postExist", $postExist);
         $view->assign("page_title", "Edition d'un article");
         $view->assign("page_description", "Page d'édition d'un article");
     }
