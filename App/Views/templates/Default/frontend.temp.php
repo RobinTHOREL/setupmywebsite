@@ -51,18 +51,36 @@
                             <a class="toc item">
                                 <i class="sidebar icon"></i>
                             </a>
+<!--                            Insert Menu from Page titles. If is empty, show HomePage as default-->
                             <?php $listMenu = Helpers::get_menu();
                             $first = true;
-                            foreach ($listMenu as $menu)
+                            if ($listMenu != 0)
                             {
-                                echo ($first)?"<a class=\"active item\">":"<a class=\"item\">";
-                                $first = false;
-                                echo $menu["name"]."</a>";
+                                foreach ($listMenu as $menu)
+                                {
+                                    echo ($first)?"<a class=\"active item\">":"<a class=\"item\">";
+                                    $first = false;
+                                    echo $menu["name"]."</a>";
+                                }
+                            }
+
+                            else
+                            {
+                                echo "<a class=\"active item\">Accueil</a>";
                             }
                             ?>
                             <div class="right item">
-                                <a class="ui inverted button" href="login">Log in</a>
-                                <a class="ui inverted button">Sign Up</a>
+                                <?php
+                                    if(Helpers::is_logged())
+                                    {
+                                        echo "<a class=\"ui inverted button\" href=\"smw-admin\">Back</a>";
+                                    }
+                                    else{
+                                        echo " <a class=\"ui inverted button\" href=\"login\">Log in</a>
+                                <a class=\"ui inverted button\">Sign Up</a>";
+                                    }
+                                ?>
+
                             </div>
                         </div>
                     </div>

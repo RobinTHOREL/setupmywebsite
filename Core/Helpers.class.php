@@ -45,11 +45,25 @@
             return false;
         }
 
-        static function logout()
-        {
-            session_destroy();
-        }
+        /**
+         * Simple Logout function
+         * PHP version 5.6
+         *
+         * destroying current session.
+         */
+//        NOT WORKING. (younes)
+//        static function logout()
+//        {
+//            session_destroy();
+//        }
 
+        /**
+         * get_menu() function
+         * PHP version 5.6
+         *
+         * populating var $menu with Page model vars from DB.
+         * @return array|bool
+         */
         static function get_menu()
         {
                 $menu = new Pages();
@@ -58,4 +72,20 @@
                 return $menus;
         }
 
+        /**
+         * is_logged function
+         * PHP version 5.6
+         *
+         * check is the user is authentificated.
+         * @return bool
+         */
+        static function is_logged()
+        {
+            if(!empty($_SESSION['login'])) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
     }

@@ -5,7 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo $page_title ?></title>
+    <title><?php echo $page_title;
+        ?></title>
     <meta name="description" content="<?php echo $page_description ?>">
     <!--   Need to change the document root ($server) to a public folder -->
     <link rel="stylesheet" href="/setupmywebsite/Public/css/style.css">
@@ -93,7 +94,11 @@
                       </div> -->
                 </div>
                 <div class="section">
-                    <label for="section-8"><i class="fa fa-sign-out"></i> <span class="respons_hidden"><a onclick="<?php Helpers::logout(); ?>" href="<?php echo ABSOLUTE_PATH_FRONT . "index";?>">Logout</a></span></label>
+                    <label for="section-8"><i class="fa  fa-paper-plane-o"></i> <span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH_FRONT . "index";?>">Visionner le site</a></span></label>
+
+                </div>
+                <div class="section">
+                    <label for="section-8"><i class="fa fa-sign-out"></i> <span class="respons_hidden"><a onclick="<?php ?>" href="<?php echo ABSOLUTE_PATH_FRONT . "logout";?>">Logout</a></span></label>
 
                 </div>
             </div>
