@@ -11,7 +11,7 @@ define("ABSOLUTE_PATH_BACK", "http://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTE
 define("ABSOLUTE_PATH_FRONT", "http://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN);
 
 define("DEBUG_MODE", true);
-define("PRODUCTION_MODE", false);
+define("PRODUCTION_MODE", true);
 define("BASE_BACK_OFFICE", "smw-admin".DS);
 
 /* Liens des dossiers */
