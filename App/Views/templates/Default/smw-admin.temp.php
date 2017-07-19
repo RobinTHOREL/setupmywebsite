@@ -94,7 +94,7 @@
                 </div>
                 <div class="section">
                     <input type="radio" name="accordion-1" id="section-8" value="toggle"/>
-                    <label for="section-8"><i class="fa fa-gears"></i> <span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH_BACK . "settings/view";?>">Réglages</a></span></label>
+                    <label for="section-8"><i class="fa fa-gears"></i> <span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH_BACK . "settings/index";?>">Réglages</a></span></label>
                     <!--  <div class="content">
                       </div> -->
                 </div>
