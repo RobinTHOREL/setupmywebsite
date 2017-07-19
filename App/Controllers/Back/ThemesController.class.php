@@ -1,4 +1,4 @@
-²   <?php
+  <?php
 class ThemesController{
     public function addAction($params)
     {
@@ -10,6 +10,7 @@ class ThemesController{
     public function viewAction($params)
     {
         $view = new View(BASE_BACK_OFFICE."themes/index", "smw-admin");
+        $view->assign("theme_actuel", CHOSEN_TEMPLATE);
         $view->assign("page_title", "Voir les thèmes");
         $view->assign("page_description", "Page listant les thèmes");
     }
