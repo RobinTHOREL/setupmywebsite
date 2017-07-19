@@ -13,6 +13,7 @@
 
 	if(file_exists("config/config_perso_inc.php")) {
         require CONFIG_PERSO_FILE;
+        Helpers::loadOptionsFromDatabase();
         $route = new Routing();
     } else {
         // Lancement de l'installation si la configuration personnalisé n'existe pas
