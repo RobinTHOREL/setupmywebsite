@@ -131,7 +131,7 @@ label.right-content {
 .left-menu {
     background: #222;
     width: 200px;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     /*height: 100%;*/
