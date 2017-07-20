@@ -1,52 +1,43 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Configuration 3</title>
-	<meta name="description" content="Page d'installation de Setup-My Website, étape 2">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/setupmywebsite/Public/css/grid.css">
-</head>
-<body>
-
-<div class="row">
+<div class="row"> <!-- exemple - ligne 1 -->
+    <div class="col-12 title">
+        <header>
+            <?php
+            if(isset($_SESSION["error_form"])){
+                foreach ($_SESSION["error_form"] as $error) {
+                    echo "<li>".$error;
+                }
+                unset($_SESSION["error_form"]);
+            }
+            ?>
+        </header>
+    </div>
     <div class="col-12">
-        <h2>ccccc</h2>
+
+        <div class="logo">
+            <i class="fa fa-cog"></i>
+        </div>
+        <p class="smw">SMW-ADMIN</p>
+    </div>
+    <div class="col-12">
+        <h1>Création du compte Admin</h1>
+    </div>
+    <div class="row"> <!-- exemple - ligne 2 -->
+        <div class="col-6 col-offset-3">
+            <form action="" method="POST">
+                <label for="utilisateur"> Utilisateur :<br>
+                    <input type="text" class="form-group" name="user" value="" required="required">
+                </label>
+                <label for="password"> Password :<br>
+                    <input type="text" class="form-group" name="password" value="" required="required">
+                </label>
+                <label for="email">Email :<br>
+                    <input type="text" class="form-group" name="email" value="" required="required">
+                </label>
+                <div class="col-12">
+                    <input type="submit" value="Envoyer">
+                </div>
+
+            </form>
+        </div> <!-- exemple - ligne 2 -->
     </div>
 </div>
-    <header>
-        <?php
-        if(isset($_SESSION["error_form"])){
-            foreach ($_SESSION["error_form"] as $error) {
-                echo "<li>".$error;
-            }
-            unset($_SESSION["error_form"]);
-        }
-        ?>
-        <h1>Création du compte Administrateur</h1>
-    </header>
-    <section>
-        <br><br>
-        <form action="" method="post">
-            <label>
-                Utilisateur :<br>
-                <input type="text" name="user" value="" required="required">
-            </label>
-            <br>
-            <label>
-                Mot de passe :<br>
-                <input type="text" name="password" value="" required="required">
-            </label>
-            <br>
-            <label>
-                Email :<br>
-                <input type="email" name="email" value="" required="required">
-            </label>
-            <br><br>
-            <input type="submit" value="Envoyer">
-        </form>
-    </section>
-    <footer>
-    </footer>
-</body>
-</html>

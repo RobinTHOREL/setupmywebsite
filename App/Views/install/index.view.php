@@ -1,14 +1,17 @@
+<div class="row">
 	<div class="col-12">
 		<div class="logo">
 			<i class="fa fa-cog"></i>
 		</div>
 		<p class="smw">SMW-ADMIN</p>
 	</div>
-
+</div>
+<div class="row">
 	<div class="col-12">
 		<h1>Bienvenue sur Setup-My Website</h1>
 	</div>
-
+</div>
+<div class="row">
 	<div class="col-12">
 		<button class="btn btn-default has-spinner" id="one">
 			<?php "http://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN."install/databaseConfiguration" ?>
@@ -31,4 +34,6 @@
 			});
 		</script>
 	</div>
+</div>
+
 
