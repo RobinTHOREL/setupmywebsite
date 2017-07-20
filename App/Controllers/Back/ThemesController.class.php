@@ -37,4 +37,24 @@ class ThemesController{
         $view->assign("page_description", "Page listant les thèmes");
         // Download redirect towards index. DL instructions Here.
     }
+    public function editAction($params)
+    {
+        if(!empty($_POST) && $_SERVER["REQUEST_METHOD"] == "POST") {
+            $set = new Options();
+            $main_title = $_POST["titre_main"];
+            $footer = $_POST["footer"];
+            $sidebar = $_POST["sidebar"];
+            $set->setId("1");
+            $set->setTitle($main_title);
+            $set->setFooter($footer);
+            $set->setSidebar($sidebar);
+            $set->Save();
+
+        }
+        $view = new View(BASE_BACK_OFFICE."themes/edit", "smw-admin");
+        $view->assign("theme_actuel", CHOSEN_TEMPLATE);
+        $view->assign("page_title", "Voir les thèmes");
+        $view->assign("page_description", "Page listant les thèmes");
+        $view->assign("error", "Noting to say");
+    }
 }

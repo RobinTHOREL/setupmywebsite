@@ -2,14 +2,16 @@
 	class Options extends BaseSql{
 
         protected $id;
-        protected $option;
-        protected $value;
+        protected $title;
+        protected $footer;
+        protected $sidebar;
 
-        public function __construct($id=-1, $option=null, $value=null) {
+
+        public function __construct($id=-1, $title=null, $footer=null, $sidebar=null) {
             $this->setId($id);
-            $this->setOption($option);
-            $this->setValue($value);
-
+            $this->setTitle($title);
+            $this->setFooter($footer);
+            $this->setSidebar($sidebar);
             parent::__construct();
         }
 
@@ -18,24 +20,32 @@
             $this->id=$id;
         }
 
-        public function setOption($option) {
-            $this->option=$option;
+
+        public function setTitle($title) {
+            $this->title=$title;
         }
 
-        public function setValue($value) {
-            $this->value=$value;
+        public function setFooter($footer) {
+            $this->footer=$footer;
         }
 
+        public function setSidebar($sidebar) {
+            $this->sidebar=$sidebar;
+        }
         /* Getters */
         public function getId() {
             return $this->id;
         }
 
-        public function getOption() {
-            return $this->option;
+        public function getTitle() {
+            return $this->title;
         }
 
-        public function getValue() {
-            return $this->value;
+        public function getFooter() {
+            return $this->footer;
+        }
+
+        public function getSidebar() {
+            return $this->sidebar;
         }
     }
