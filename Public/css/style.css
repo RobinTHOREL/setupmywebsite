@@ -135,7 +135,7 @@ label.right-content {
 .left-menu {
     background: #222;
     width: 200px;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     /*height: 100%;*/
@@ -494,16 +494,5 @@ input[type=button] {
     input[type=submit]{
         width: 100%;
     }
-
-    .hide{
-        display: block;
-        padding: 30px 10px;
-        width: 70px;
-        text-align: center;
-        color: #21CCFC;
-        font-size: 6em;
-        background-color: transparent;
-    }
-
 
 }

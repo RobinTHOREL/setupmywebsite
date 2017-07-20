@@ -24,3 +24,12 @@ $(document)
 
     })
 ;
+
+/*bouton loader*/
+$('.button-class').click(function () {
+    var btn = $(this);
+    $(btn).buttonLoader('start');
+    setTimeout(function () {
+        $(btn).buttonLoader('stop');
+    }, 5000);
+});
