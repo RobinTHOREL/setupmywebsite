@@ -47,6 +47,26 @@ class MultimediaController{
         $view = new View(BASE_BACK_OFFICE."medias/edit", "smw-admin");
         $view->assign("page_title", "Editer un contenu multimedia");
         $view->assign("page_description", "Page d'édition d'un contenu multimedia");
+
+        $dir    = 'C:\wamp64\www\setupmywebsite\Public\upload';
+        $files1 = scandir($dir);
+        $fileRequested = $params[0];
+
+        if(isset($files1[$fileRequested+2])) {
+
+        }
+
+        $i = 0;
+        $j = 0;
+        foreach ($files1 as $value) {
+            if($files1[$i] != "." && $files1[$i] != ".."){
+                $filesClean[$j] = $files1[$i];
+                $j++;
+            }
+            $i++;
+        }
+
+        $view->assign("file", $filesClean[$fileRequested]);
     }
 
     public function deleteAction($params){

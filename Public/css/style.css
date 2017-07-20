@@ -360,6 +360,15 @@ ul li:hover i {
     height:150px;
 }
 
+.image_container {
+    height: 100vh; /* Change to 100% for full container */
+    width: 100vw; /* Change to 100% for full container */
+    float: left;
+    display: inline-block;
+    background-size: cover;
+    background: no-repeat center;
+}
+
 .table_media {
     height:200px;
     width: 100%;
