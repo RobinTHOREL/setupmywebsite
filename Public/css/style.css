@@ -135,7 +135,7 @@ label.right-content {
 .left-menu {
     background: #222;
     width: 200px;
-    position: absolute;
+    position: fixed;
     top: 0;
     bottom: 0;
     /*height: 100%;*/
@@ -466,9 +466,8 @@ input[type=button] {
 }
 
 /* Responsive de width : 0 a 480px */
-@media(max-width: 480px) /** Optimisation iPhone 6 **/
-{
-    h2, label{
+@media(max-width: 480px) /** Optimisation iPhone 6 **/ {
+    h2, label {
         font-size: 0.70em;
         text-align: center;
     }
@@ -478,32 +477,20 @@ input[type=button] {
         height: 199%;
     }
 
-    .fa.logo-upload{
+    .fa.logo-upload {
         font-size: 0.60em;
         display: none;
     }
 
-    #dropfile{
-        border-right:none;
+    #dropfile {
+        border-right: none;
     }
 
-    input.form-group{
+    input.form-group {
         width: 100%;
     }
 
-    input[type=submit]{
+    input[type=submit] {
         width: 100%;
     }
-
-    .hide{
-        display: block;
-        padding: 30px 10px;
-        width: 70px;
-        text-align: center;
-        color: #21CCFC;
-        font-size: 6em;
-        background-color: transparent;
-    }
-
-
 }

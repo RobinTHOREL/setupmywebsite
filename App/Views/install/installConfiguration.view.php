@@ -1,21 +1,34 @@
-<header>
-    <?php
-    if(isset($_SESSION["error_form"])){
-        foreach ($_SESSION["error_form"] as $error) {
-            echo "<li>".$error;
+<div class="row">
+    <div class="col-12">
+        <?php
+        if(isset($_SESSION["error_form"])){
+            foreach ($_SESSION["error_form"] as $error) {
+                echo "<li>".$error;
+            }
+            unset($_SESSION["error_form"]);
         }
-        unset($_SESSION["error_form"]);
-    }
-    ?>
-    <h1>Finalisation de l'installation</h1>
-</header>
-<section>
-    <br><br>
-    <form action="" method="post">
-        <input type="hidden" name="start" value="true">
-        <br><br>
-        <input type="submit" value="Commencer">
-    </form>
-</section>
-<footer>
-</footer>
+        ?>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <div class="logo">
+            <i class="fa fa-cog"></i>
+        </div>
+        <p class="smw">SMW-ADMIN</p>
+    </div>
+</div>
+<div class="row">
+        <div class="col-12">
+            <h1>Terminer de l'installation</h1>
+        </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <form action="" method="post">
+            <input type="hidden" name="start" value="true">
+            <input type="submit" value="Commencer">
+        </form>
+    </div>
+</div>
+
