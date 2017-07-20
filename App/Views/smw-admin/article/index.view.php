@@ -1,38 +1,49 @@
     <div class="container">
         <div class="row"> <!-- exemple - ligne 1 -->
             <div class="col-10 col-offset-1 title">
-                <h2>Tous mes articles</h2>
+                <h2>Tous les articles</h2>
             </div>
         </div>
         <div class="row"> <!-- exemple - ligne 2 -->
-            <div class="col-10 col-offset-1">
-                <table class="form-group">
-                    <tr>
-                        <th>#id</th>
-                        <th>Nom de l'article</th>
-                        <th>Créer le</th>
-                        <th>Modifier le</th>
-                        <th>Page attaché</th>
-                        <th>Action</th>
-                    </tr>
-
+            <div class="col-12">
 					<?php 
 						if(isset($results) && $results!==false) {
-							foreach($results as $posts) {
-								$row = "<tr><td>".$posts['id']."</td>";
-								$row .= "<td>".$posts['title']."</td>";
-								$row .= "<td>".$posts['date_created']."</td>";
-								$row .= "<td>".$posts['date_updated']."</td>";
-								$row .= "<td>".$posts['pages_id']."</td>";
-								$row .= "<td>	<a href='".ABSOLUTE_PATH_BACK."articles/edit/".$posts['id']."' class='edit' title='Editer l'article'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>
-												<a href='".ABSOLUTE_PATH_BACK."articles/delete/".$posts['id']."' class='delete' title='Supprimer l'article'><i class='fa fa-trash-o' aria-hidden='true'></i></a>
-										</td></tr>";
-								echo $row;
-							}
-						}
-					?>
+                            $i = 0;
+                            foreach ($results as $posts) {
+                                ?>
 
-                </table>
-            </div> <!-- exemple - ligne 2 -->
-        </div>
+                                <a href="<?php echo ABSOLUTE_PATH_BACK . "articles/edit/" . $posts['id'] ?>">
+                                    <div class="<?php echo ($i % 4 == 0) ? 'col-2' : 'col-2 col-offset-1'; ?> article">
+                                        <div class="article_logo"> <!-- TODO : Mettre un href sur la vue front -->
+                                            <i class="fa fa-file-text" aria-hidden="true"></i>
+                                        </div>
+                                        <div class="article_title">
+                                            <h3><?php echo $posts['title']; ?></h3>
+                                        </div>
+                                        <div class="article_button">
+                                            <div class="row">
+                                                <div class="col-4 article_action">
+                                                    <a href="<?php echo ABSOLUTE_PATH_BACK . "articles/edit/" . $posts['id'] ?>">
+                                                        <i class="fa fa-pencil-square-o i_action"
+                                                           aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                                <div class="col-4 article_action">
+                                                    <i class="fa fa-share i_action" aria-hidden="true"></i>
+                                                </div>
+                                                <div class="col-4 article_action">
+                                                    <a href="<?php echo ABSOLUTE_PATH_BACK . "articles/delete/" . $posts['id'] ?>">
+                                                        <i class="fa fa-trash-o i_action" aria-hidden="true"></i>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <?php
+                            }
+                        }
+					?>
+            </div>
+        </div> <!-- exemple - ligne 2 -->
     </div>

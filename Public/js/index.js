@@ -2,9 +2,10 @@
  * Created by Kush on 13/06/2017.
  */
 
+
 /* Drag and drop */
 $(document).on('dragenter', '#dropfile', function () {
-    $(this).css('border', '3px dashed red');
+    $(this).css('border', '3px dashed red', 'opacity', '1');
     return false;
 });
 

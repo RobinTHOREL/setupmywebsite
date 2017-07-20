@@ -19,12 +19,12 @@
                         <label for="cb1">Activer les commentaires</label><br>
                         <input type="checkbox" id="cb3" name="cb" value="" class="form-group">
                         <label for="cb3">Indiqué le statut modifié ainsi date et l'heure de la modification</label><br><br>
-                        <input type="submit" class="form-group" value="Publier">
+                        <input type="submit" class="form-group" value="Editer">
                         <input type="reset" class="form-group" value="Annuler">
                     </div>
             	</form>
                 <div class="col-4 col-offset-1 right-content">
-                    <h2>Catégorise de l'article</h2>
+                    <h2>Catégorie de l'article</h2>
                     <input type="checkbox" id="cb1" name="cb" value="" class="form-group">
                     <label for="cb1">base</label><br>
                 </div>

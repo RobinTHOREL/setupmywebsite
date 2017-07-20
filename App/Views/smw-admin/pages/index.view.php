@@ -1,91 +1,49 @@
-    <div class="container">
-        <div class="row"> <!-- exemple - ligne 1 -->
-            <div class="col-10 col-offset-1 title">
-                <h2>Toutes les pages</h2>
-            </div>
+<div class="container">
+    <div class="row"> <!-- exemple - ligne 1 -->
+        <div class="col-10 col-offset-1 title">
+            <h2>Toutes les pages</h2>
         </div>
-        <div class="row"> <!-- exemple - ligne 2 -->
-            <div class="col-10 col-offset-1">
-                <table class="form-group">
-                    <tr>
-                        <th>id</th>
-                        <th>Nom de la page</th>
-                        <th>Créer le</th>
-                        <th>Modifier le</th>
-                        <th>Pages attachées</th>
-                        <th>Auteur</th>
-                        <!--<th>En ligne</th>-->
-                        <th>Action</th>
-                    </tr>
-
+    </div>
+    <div class="row"> <!-- exemple - ligne 2 -->
+        <div class="col-12">
                     <?php
                     if(isset($results) && $results!==false) {
-                        foreach($results as $page) {
-                            $row = "<tr><td>".$page['id']."</td>";
-                            $row .= "<td>".$page['name']."</td>";
-                            $row .= "<td>".$page['date_created']."</td>";
-                            $row .= "<td>".$page['date_updated']."</td>";
-                            $row .= "<td>0</td>";
-                            $row .= "<td>0</td>";
-                            $row .= "<td>	<a href='".ABSOLUTE_PATH_BACK."pages/edit/".$page['id']."' class='edit' title='Editer la page'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>
-											<a href='".ABSOLUTE_PATH_BACK."pages/delete/".$page['id']."' class='delete' title='Supprimer l\'article'><i class='fa fa-trash-o' aria-hidden='true'></i></a>
-										</td></tr>";
-                            echo $row;
+                        $i = 0;
+                        foreach ($results as $page) {
+                            ?>
+                            <a href="<?php echo ABSOLUTE_PATH_BACK . "pages/edit/" . $page['id'] ?>">
+                                <div class="<?php echo ($i % 4 == 0) ? 'col-2' : 'col-2 col-offset-1'; ?> page">
+                                    <div class="page_logo"> <!-- TODO : Mettre un href sur la vue front -->
+                                        <i class="fa fa-file-text" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="page_title">
+                                        <h3><?php echo $page['name']; ?></h3>
+                                    </div>
+                                    <div class="page_button">
+                                        <div class="row">
+                                            <div class="col-4 page_action">
+                                                <a href="<?php echo ABSOLUTE_PATH_BACK . "pages/edit/" . $page['id'] ?>">
+                                                    <i class="fa fa-pencil-square-o i_action"
+                                                       aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                            <div class="col-4 page_action">
+                                                <i class="fa fa-share i_action" aria-hidden="true"></i>
+                                            </div>
+                                            <div class="col-4 page_action">
+                                                <a href="<?php echo ABSOLUTE_PATH_BACK . "pages/delete/" . $page['id'] ?>">
+                                                    <i class="fa fa-trash-o i_action" aria-hidden="true"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                            <?php
+                            $i++;
                         }
                     }
                     ?>
-
-                    <!-- <tr>
-                        <td>1</td>
-                        <td>Test</td>
-                        <td>Yesterday</td>
-                        <td>Today</td>
-                        <td>Aucune</td>
-                        <td>Brixton</td>
-                        <td title="Etat : non-publié, vous êtes la seule personne a voir cette page"><div id="user_inactive"></div></td>
-                        <td><a class="edit" title="Editer la page"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            <a class="delete" title="Supprimer la page"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Accueil</td>
-                        <td>Yesterday</td>
-                        <td>Today</td>
-                        <td>Accueil</td>
-                        <td>jumk</td>
-                        <td title="Etat : publié"><div id="user_active"></div></td>
-                        <td><a class="edit" title="Editer la page"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            <a class="delete" title="Supprimer la page"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>bootstrap</td>
-                        <td>Yesterday</td>
-                        <td>Today</td>
-                        <td>Aucune</td>
-                        <td>onesie</td>
-                        <td title="Etat : publié"><div id="user_active"></div></td>
-                        <td><a class="edit" title="Editer la page"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            <a class="delete" title="Supprimer la page"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>ça marche</td>
-                        <td>Yesterday</td>
-                        <td>Today</td>
-                        <td>Aucune</td>
-                        <td>sinicha</td>
-                        <td title="Etat : publié"><div id="user_active"></div></td>
-                        <td><a class="edit" title="Editer la page"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            <a class="delete" title="Supprimer la page"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                        </td>
-                    </tr> -->
-
-
-                </table>
-            </div> <!-- exemple - ligne 2 -->
+            </div>
         </div>
     </div>

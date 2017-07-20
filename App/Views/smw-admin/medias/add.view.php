@@ -16,7 +16,9 @@
                     </div>
                 </div>
                 <div id='hide'>
+                    <!--
                     <input type='button' name='upload' value='télécharger un fichier' />
+                    -->
                 </div>
             </div>
         </div>

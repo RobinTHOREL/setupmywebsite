@@ -34,6 +34,124 @@ h2 {
     transition: all .2s ease;
 }
 
+/* Pages */
+
+.page {
+    height:33%;
+    overflow:hidden;
+    box-shadow:0px 4px 7px rgba(0, 0, 0, 0.3);
+    margin: 15px;
+    background-color: #009688;
+}
+
+.page:hover {
+    box-shadow:0px 21px 34px rgba(0, 0, 0, 0.3);
+    opacity: 0.99;
+    cursor: pointer;
+}
+
+.page_title {
+    color: white;
+}
+
+.page_title h3 {
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.page_logo {
+    margin: 20px;
+}
+
+.page_logo i {
+    font-size: 5.7em;
+    color: white;
+}
+
+.page_button {
+    height: 42px;
+}
+
+.page_action {
+    height: 42px;
+    background-color: #00897B;
+}
+
+.page_action:hover {
+    background-color: #00695C;
+    box-shadow:0px 2px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+}
+
+.page_action i {
+    margin-top: 10px;
+    font-size: 20px;
+    color:  #004D40;
+}
+
+.i_action:hover {
+    color: white;
+}
+
+/* Articles */
+
+.article {
+    height:33%;
+    overflow:hidden;
+    box-shadow:0px 4px 7px rgba(0, 0, 0, 0.3);
+    margin: 15px;
+    background-color: #607D8B;
+}
+
+.article:hover {
+    box-shadow:0px 21px 34px rgba(0, 0, 0, 0.3);
+    opacity: 0.99;
+    cursor: pointer;
+}
+
+.article_title {
+    color: white;
+}
+
+.article_title h3 {
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px;
+    font-size: 12px;
+}
+
+.article_logo {
+    margin: 20px;
+}
+
+.article_logo i {
+    font-size: 5.7em;
+    color: white;
+}
+
+.article_button {
+    height: 42px;
+}
+
+.article_action {
+    height: 42px;
+    background-color: #546E7A;
+}
+
+.article_action:hover {
+    background-color: #37474F;
+    box-shadow:0px 2px 3px rgba(0, 0, 0, 0.3);
+    border-radius: 2px;
+}
+
+.article_action i {
+    margin-top: 10px;
+    font-size: 20px;
+    color:  #263238;
+}
+
 /* Elements principaux */
 .container {
     margin-right: auto;
@@ -283,7 +401,12 @@ ul li:hover i {
 
 #response_media {
     display: none;
-    border: 2px solid red;
+    padding: 20px;
+    text-align: center;
+}
+
+a #response_media {
+    text-decoration: none;
 }
 
 /* Style formulaire class="form-group" */
@@ -293,6 +416,7 @@ ul li:hover i {
     height: 40vh;
     border: 3px dashed #BBBBBB;
     text-align: center;
+    opacity: 0.7;
 }
 
 p.dropper {
@@ -549,3 +673,4 @@ input[type=button] {
         width: 100%;
     }
 }
+
