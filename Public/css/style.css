@@ -1,7 +1,11 @@
 @import url(http://fonts.googleapis.com/css?family=Quicksand:300,400,700);
 
+html {
+    background-image: url(http://thorelrobin.fr/small_steps.png);
+    background-repeat: repeat;
+}
+
 body {
-    background: #455A64;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -159,11 +163,15 @@ label.right-content {
     padding: 15px;
 }
 
-table {
+.form-group table {
     width: 100%;
     background: #E0E0E0;
 }
 
+table {
+    width: 100%;
+    background: #E0E0E0;
+}
 .table_container {
     overflow-x:auto;
 }
@@ -230,6 +238,53 @@ ul li:hover i {
     margin-left:45%;
 }
 
+.img_media {
+    height:150px;
+}
+
+.table_media {
+    height:200px;
+    width: 100%;
+    background-color: transparent !important;
+}
+
+.image-hover * {
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box
+}
+
+.image-hover a {
+    text-decoration:none
+}
+
+.image-hover {
+    height:150px;
+    overflow:hidden;
+    box-shadow:0px 2px 3px rgba(0, 0, 0, 0.3);
+    -moz-box-shadow:0px 2px 3px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow:0px 2px 3px rgba(0, 0, 0, 0.3)
+}
+
+.image-hover:hover {
+    opacity: 0.5;
+    color: #0f0f10;
+    background-repeat: no-repeat;
+    background-position: center center
+}
+
+.image-hover {
+    transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+}
+
+#response_media {
+    display: none;
+    border: 2px solid red;
+}
 
 /* Style formulaire class="form-group" */
 

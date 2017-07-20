@@ -1,6 +1,6 @@
     <div class="container">
         <div class="row"> <!-- exemple - ligne 1 -->
-            <div class="col-10 title">
+            <div class="col-10 col-offset-1 title">
                 <h2>Créer une page</h2>
             </div>
             <div class="row"> <!-- exemple - ligne 2 -->

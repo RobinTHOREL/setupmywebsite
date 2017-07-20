@@ -43,17 +43,16 @@ $(document).on('drop', '#dropfile', function (e) {
 function upload(files) {
     var f = files[0];
 
-    if (!f.type.match('image/png')) {
-        alert('image doesn\'t match');
+    if (!f.type.match('image/png') && !f.type.match('image/jpg') && !f.type.match('image/jpeg')) {
+        $("#response_media").append("<span> L'extension n'est pas acceptée</span>").css('display', 'block');
         return false;
+    } else {
+            $("#response_media").append("<span> Le fichier a été ajouté à la <a href='view'>bibliothèque</a></span>").css('display', 'block');
     }
     var reader = new FileReader();
 
-    // When the image is loaded,
-    // run handleReaderLoad function
     reader.onload = handleReaderLoad;
 
-    // Read in the image file as a data URL.
     reader.readAsDataURL(f);
 }
 

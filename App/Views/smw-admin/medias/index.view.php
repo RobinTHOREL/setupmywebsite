@@ -1,52 +1,37 @@
     <div class="container">
-        <div class="row"> <!-- exemple - ligne 1 -->
-            <?php         echo"<center><pre>";
-    print_r($files);
-    echo"</pre>";
-    echo "</center>"; ?>
-            <div class="col-10 title">
+        <div class="row">
+            <div class="col-10 col-offset-1 title">
                 <h2>Bibliothèque des médias</h2>
             </div>
         </div>
         <div class="row"> <!-- exemple - ligne 2 -->
             <div class="col-10 col-offset-1">
-                <table class="form-group">
+                <table class="table_media">
                     <tr>
-                        <th></th>
-                        <th><img src="<?= UPLOAD_PATH.$files[2]; ?>"</th>
-                        <th><img src="Public/upload/17522624_1382378265117747_2550493256950947184_n.jpg"</th>
-                        <th>img</th>
-                        <th>img</th>
-                    </tr>
-                    <tr>
-                        <td>img</td>
-                        <td>img</td>
-                        <td>img</td>
-                        <td>img</td>
-                        <td>img</td>
-                    </tr>
-                    <tr>
-                        <th>img</th>
-                        <th>img</th>
-                        <th>img</th>
-                        <th>img</th>
-                        <th>img</th>
-                    </tr>
-                    <tr>
-                        <td>img</td>
-                        <td>img</td>
-                        <td>img</td>
-                        <td>img</td>
-                        <td>img</td>
-                    </tr>
-                    <tr>
-                        <th>img</th>
-                        <th>img</th>
-                        <th>img</th>
-                        <th>img</th>
-                        <th>img</th>
+                    <?php
+                        $i = 0;
+                        foreach ($files as &$value) {
+
+                            $path_info = pathinfo($files[$i]);
+                            $path_info['extension'];
+
+                            if($i%3 == 0) {
+                                echo "</tr><tr>";
+                            }
+                                ?>
+                                <td>
+                                    <div class="image-hover">
+                                        <a href="edit/<?php echo $i ?>"><img class="img_media"
+                                                        src="<?php echo ABSOLUTE_PATH_FRONT . UPLOAD_PATH . $files[$i] ?>" alt=""></a>
+                                        <div class="layer"></div>
+                                    </div>
+                                </td>
+                                <?php
+                                $i++;
+                        }
+                    ?>
                     </tr>
                 </table>
-            </div> <!-- exemple - ligne 2 -->
+            </div>
         </div>
     </div>

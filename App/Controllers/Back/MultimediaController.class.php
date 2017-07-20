@@ -30,7 +30,17 @@ class MultimediaController{
         $dir    = 'C:\wamp64\www\setupmywebsite\Public\upload';
         $files1 = scandir($dir);
 
-        $view->assign("files", $files1);
+        $i = 0;
+        $j = 0;
+        foreach ($files1 as $value) {
+            if($files1[$i] != "." && $files1[$i] != ".."){
+                $filesClean[$j] = $files1[$i];
+                $j++;
+            }
+            $i++;
+        }
+
+        $view->assign("files", $filesClean);
     }
 
     public function editAction($params){

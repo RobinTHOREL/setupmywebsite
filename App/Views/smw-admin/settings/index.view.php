@@ -1,9 +1,9 @@
     <div class="container">
         <div class="row"> <!-- exemple - ligne 1 -->
-            <div class="col-10 title">
+            <div class="col-10 col-offset-1 title">
                 <h2>Modifier les réglages SMW</h2>
             </div>
-            <div class="col-10 title">
+            <div class="col-10 col-offset-1 title">
                 <h3>Réglages du site</h3>
             </div>
             <div class="row"> <!-- exemple - ligne 2 -->
@@ -14,7 +14,7 @@
                     <label for="horsligne">Mode hors ligne</label><br>
                 </div>
             </div>
-            <div class="col-10 title">
+            <div class="col-10 col-offset-1 title">
                 <h3>Configuration mailing</h3>
             </div>
             <div class="row"> <!-- exemple - ligne 2 -->
@@ -25,7 +25,7 @@
                     <label for="mail">Activer le mailing</label><br>
                 </div>
             </div>
-            <div class="col-10 title">
+            <div class="col-10 col-offset-1 title">
                 <h3>Configuration des paramètres de sécurité</h3>
             </div>
             <div class="row"> <!-- exemple - ligne 2 -->

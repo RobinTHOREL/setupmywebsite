@@ -1,6 +1,6 @@
     <div class="container">
-        <div class="row">
-            <div class="col-10 title">
+        <div class="row"> <!-- exemple - ligne 1 -->
+            <div class="col-10 col-offset-1 title">
                 <h2>Editer un article</h2>
             </div>
         </div>
@@ -35,4 +35,3 @@
             </div>
         <?php } ?>
     </div>
->>>>>>> ce05a1d473ce3f9f361fefc4b99626c6a9769115
