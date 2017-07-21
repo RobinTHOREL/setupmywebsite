@@ -1,0 +1,36 @@
+{
+    "name": "esgiiw/setupmywebsite",
+    "description": "setupmywebite esgi annual project",
+    "keywords": ["esgi", "setupmywebsite"],
+    "homepage": "https://github.com/RobinTHOREL/setupmywebsite",
+    "license": "MIT",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Younes Diouri",
+            "email": "younesdiouri@gmail.com",
+            "role": "Developer backend"
+        },
+        {
+            "name": "Robin Thorel",
+            "email": "thorelrobin@yahoo.fr",
+            "role": "Developer frontend"
+        },
+        {
+            "name": "Sinicha Radosavljevic",
+            "role": "Developer backend"
+        },
+        {
+            "name": "Nana Onesie",
+            "role": "Styles"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
+    }
+}
