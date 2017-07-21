@@ -1,11 +1,29 @@
 ﻿<?php
+/* Chargement dynamique des bases */
+$docRootExp = explode("/", $_SERVER['DOCUMENT_ROOT']);
+$baseDocuments = "";
+foreach($docRootExp as $str)  {
+	$baseDocuments .= $str.DIRECTORY_SEPARATOR;
+}
+
+$phpSelfExp = explode("/",  $_SERVER['PHP_SELF']);
+$base = "/";
+$basePattern = "\/";
+foreach($phpSelfExp as $str)  {
+	if($str != "" && strtolower($str) != "index.php") {
+		$base .= $str."/";
+		$basePattern .= $str."\/";
+		$baseDocuments .= $str.DIRECTORY_SEPARATOR;
+	}
+}
+define("BASE_DOCUMENTS", $baseDocuments);
+define("BASE_ABSOLUTE_PATTERN", $base);
+define("BASE_PATH_PATTERN", $basePattern);
 
 /* Constante de l'application */
 define("DS", DIRECTORY_SEPARATOR);
-define("BASE_PATH_PATTERN", "\/setupmywebsite\/");
 
-//Absolute Paths Constants
-define("BASE_ABSOLUTE_PATTERN", "/setupmywebsite/");
+/* Absolute Paths Constants */
 define("BASE_ABSOLUTE_BACKOFFICE", "smw-admin/");
 define("ABSOLUTE_PATH_BACK", "http://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN.BASE_ABSOLUTE_BACKOFFICE);
 define("ABSOLUTE_PATH_FRONT", "http://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN);

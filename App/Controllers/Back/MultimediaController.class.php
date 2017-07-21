@@ -27,7 +27,7 @@ class MultimediaController{
         $view->assign("page_description", "Page listant les contenus multimedia");
 
         // Mettre le bon PATH si dessous pour récupérer les fichiers contenu dans le dossier App/Public/upload
-        $dir    = 'C:\wamp64\www\setupmywebsite\Public\upload';
+        $dir    = BASE_DOCUMENTS.UPLOAD_PATH;
         $files1 = scandir($dir);
 
         $i = 0;
@@ -46,7 +46,7 @@ class MultimediaController{
     public function pluginTinyAction($params)
     {
         // Mettre le bon PATH si dessous pour récupérer les fichiers contenu dans le dossier App/Public/upload
-        $dir = 'C:\wamp64\www\setupmywebsite\Public\upload';
+        $dir = BASE_DOCUMENTS.UPLOAD_PATH;
         $files1 = scandir($dir);
         
         $i = 0;

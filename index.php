@@ -1,7 +1,9 @@
 <?php
 	session_start();
+	// On charge les constantes
 	require "config/config_inc.php";
-
+	
+	// Charge les classes du Core
 	spl_autoload_register(function ($class){
 		if(file_exists(CORE_PATH.$class.".class.php")){
 			include CORE_PATH.$class.".class.php";
@@ -10,12 +12,12 @@
 		}
 
 	});
-
+	
+	// On lance le routage ou l'installation si la configuration personnalisé n'existe pas
 	if(file_exists("config/config_perso_inc.php")) {
         require CONFIG_PERSO_FILE;
         $route = new Routing();
     } else {
-        // Lancement de l'installation si la configuration personnalisé n'existe pas
         $uriInstall = preg_replace("#".BASE_PATH_PATTERN."#i", "", $_SERVER["REQUEST_URI"], 1);
         $uriInstallExp = explode("/",  trim($uriInstall, "/")   );
 
@@ -25,5 +27,3 @@
             header('Location: '.ABSOLUTE_PATH_BACK.'install/');
         }
     }
-
-
