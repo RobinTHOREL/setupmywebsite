@@ -20,7 +20,20 @@
         }
     ?>
     
-    <script>tinymce.init({ selector:'textarea' });</script>
+    <script>tinymce.init({
+    	  selector: "textarea",  // change this value according to your HTML
+    	  plugins: [
+    		    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+    		    'searchreplace wordcount visualblocks visualchars code fullscreen',
+    		    'insertdatetime media nonbreaking save table contextmenu directionality',
+    		    'emoticons paste textcolor colorpicker textpattern imagetools codesample toc importImageSMW'
+    		  ],
+    		  toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link importImageSMW',
+    		  toolbar2: 'print preview media | forecolor backcolor emoticons | code',
+    		  image_advtab: true,
+    	});
+	</script>
+    	<script src="<?php echo ABSOLUTE_PATH_FRONT.PUBLIC_PATH."/js/tinymce/plugins/example/"; ?>plugin.js"></script>
 </head>
 <body>
     <nav>
