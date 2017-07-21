@@ -30,7 +30,7 @@
 				$sqlKey = null;
 				foreach ($this->columns as $column => $value) {
 					$data[$column] = $this->$column;
-					$sqlCol .= "," . $column;
+					$sqlCol .= "," . "`".$column."`";
 					$sqlKey .= ",:" . $column;
 				}
 				$sqlCol = ltrim($sqlCol, ",");
@@ -39,24 +39,25 @@
 					"INSERT INTO " . $this->table . " (" . $sqlCol . ")
 						VALUES (" . $sqlKey . ") ;"
 				);
-				$query->execute($data);
+				print_r($query);
+//				$query->execute($data);
 				
 			} else {
 				// Sinon faire un update dynamique
 				$sqlSet = null;
 				foreach ($this->columns as $column => $value) {
 					$data[$column] = $this->$column;
-					$sqlSet[] .= $column . "=:" . $column;
+					$sqlSet[] .= "`".$column."`" . "=:" . $column;
 				}
 
 				$query = $this->db->prepare(
 					"UPDATE " . $this->table . "
-						SET date_updated = sysdate(), 
+						SET `date_updated` = sysdate(), 
 						" . implode(",", $sqlSet) . "
-						WHERE id=:id;"
+						WHERE `id`=:id;"
 				);
-
-				$query->execute($data);
+                print_r($query);
+//				$query->execute($data);
 			}
 		}
 

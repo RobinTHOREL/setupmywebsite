@@ -3352,7 +3352,7 @@ class PHPMailer
      * $name value can be overloaded to contain
      * both header name and value (name:value)
      * @access public
-     * @param string $name Custom header name
+     * @param string $name SweetEighteen header name
      * @param string $value Header value
      * @return void
      */

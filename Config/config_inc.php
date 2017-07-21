@@ -31,3 +31,6 @@ define("INSTALL_DATABASE_FILE", "Install".DS."setupmywebsite.sql");
 
 /* Lien du fichier de configuration personnalisé */
 define("CONFIG_PERSO_FILE", "config".DS."config_perso_inc.php");
+
+/* Default template */
+define("CHOSEN_TEMPLATE", "SweetEighteen");
