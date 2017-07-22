@@ -1,0 +1,25 @@
+.selected {
+	box-shadow: 0 2px 4px 4px rgba(0, 0, 0, 0.20), 0 4px 8px 4px
+		rgba(0, 0, 0, 0.20) !important;
+}
+
+.image-hover {
+	display: inline-block;
+	float: left;
+	width: 180px;
+	height: 120px;
+	margin: 8px 10px;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 4px 8px 0
+		rgba(0, 0, 0, 0.08);
+	overflow: hidden;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+	transform: translate(-50%, -50%);
+	position: relative;
+	left: 50%;
+	top: 50%;
+	cursor: pointer;
+}

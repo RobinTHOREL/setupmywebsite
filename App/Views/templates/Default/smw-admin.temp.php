@@ -8,10 +8,10 @@
     <title><?php echo $page_title; ?></title>
     <meta name="description" content="<?php echo $page_description ?>">
     <!--   Need to change the document root ($server) to a public folder -->
-    <link rel="stylesheet" href="/setupmywebsite/Public/css/style.css">
-    <link rel="stylesheet" href="/setupmywebsite/Public/css/grid.css">
-    <link rel="stylesheet" href="/setupmywebsite/Public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="icon" href="/setupmywebsite/Public/img/favicon.ico" />
+    <link rel="stylesheet" href="<?php echo BASE_ABSOLUTE_PATTERN;?>Public/css/style.css">
+    <link rel="stylesheet" href="<?php echo BASE_ABSOLUTE_PATTERN;?>Public/css/grid.css">
+    <link rel="stylesheet" href="<?php echo BASE_ABSOLUTE_PATTERN;?>Public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="icon" href="<?php echo BASE_ABSOLUTE_PATTERN;?>Public/img/favicon.ico" />
     <?php // Chargement de TinyMCE avec CDN en mode Production
         if(PRODUCTION_MODE === true) {
             echo '<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>';
@@ -20,7 +20,21 @@
         }
     ?>
     
-    <script>tinymce.init({ selector:'textarea' });</script>
+    <script>tinymce.init({
+    	  selector: "textarea",  // change this value according to your HTML
+    	  plugins: [
+    		    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+    		    'searchreplace wordcount visualblocks visualchars code fullscreen',
+    		    'insertdatetime media nonbreaking save table contextmenu directionality',
+    		    'emoticons paste textcolor colorpicker textpattern imagetools codesample toc importImageSMW'
+    		  ],
+    		  toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link importImageSMW',
+    		  toolbar2: 'print preview media | forecolor backcolor emoticons | code',
+    		  image_advtab: true,
+    	});
+	</script>
+	<script>$urlImageAction = "<?php echo ABSOLUTE_PATH_BACK."multimedia/pluginTiny"; ?>";</script>
+    <script src="<?php echo ABSOLUTE_PATH_FRONT.PUBLIC_PATH."/js/tinymce/plugins/customimport/"; ?>plugin.js"></script>
 </head>
 <body>
     <nav>
@@ -123,6 +137,6 @@
     ?>
     
     
-    <script src="/setupmywebsite/Public/js/index.js"></script>
+    <script src="<?php echo BASE_ABSOLUTE_PATTERN;?>Public/js/index.js"></script>
 </body>
 </html>

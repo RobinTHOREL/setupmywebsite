@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<title><?php echo $page_title ?></title>
 		<meta name="description" content="<?php echo $page_description ?>">
-        <link rel="stylesheet" href="/setupmywebsite/Public/css/style_front.css">
+        <link rel="stylesheet" href="<?php echo BASE_ABSOLUTE_PATTERN;?>Public/css/style_front.css">
 	</head>
 	<body>
         <header></header>
@@ -91,6 +91,6 @@
         <footer>
             
         </footer>
-        <script src="/setupmywebsite/Public/js/index_front.js"></script>
+        <script src="<?php echo BASE_ABSOLUTE_PATTERN;?>Public/js/index_front.js"></script>
 	</body>
 </html>
