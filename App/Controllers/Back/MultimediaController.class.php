@@ -82,22 +82,10 @@ class MultimediaController{
         $view = new View(BASE_BACK_OFFICE."medias/index", "smw-admin");
         $view->assign("page_title", "Voir les contenus multimedia");
         $view->assign("page_description", "Page listant les contenus multimedia");
-
-        // Mettre le bon PATH si dessous pour récupérer les fichiers contenu dans le dossier App/Public/upload
-        $dir    = BASE_DOCUMENTS.UPLOAD_PATH;
-        $files1 = scandir($dir);
-
-        $i = 0;
-        $j = 0;
-        foreach ($files1 as $value) {
-            if($files1[$i] != "." && $files1[$i] != ".."){
-                $filesClean[$j] = $files1[$i];
-                $j++;
-            }
-            $i++;
-        }
-
-        $view->assign("files", $filesClean);
+        // On récupère un ensemble d'image
+        $media = new Medias();
+        $result = $media->getAllBy([[]], 20, 0);
+        $view->assign("files", $result);
     }
 
     public function pluginTinyAction($params)
@@ -124,11 +112,59 @@ class MultimediaController{
         $view = new View(BASE_BACK_OFFICE."medias/edit", "smw-admin");
         $view->assign("page_title", "Editer un contenu multimedia");
         $view->assign("page_description", "Page d'édition d'un contenu multimedia");
+        
+        if(isset($params[0])) {
+            $media = new Medias();
+            $mediaExist = $media->populate(["id"=>$params[0]]);
+            if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title']) && isset($_POST['description'])) {
+                if($mediaExist) {
+                    $title = trim($_POST['title']);
+                    $description = trim($_POST['description']);
+                    $errors = [];
+                    
+                    if(strlen($title)<1 || strlen($title)>60) {
+                        array_push($errors, "Le titre saisie est trop grand!");
+                    }
+                    
+                    if(strlen($description)>120) {
+                        array_push($errors, "La description saisie est trop grande!");
+                    }
+                    
+                    if(count($errors)<=0) {
+                        $media->setName($title);
+                        $media->setDescription($description);
+                        $media->Save();
+                        $view->assign("success", "Le média a été mise à jour.");
+                    } else {
+                        $view->assign("errors", $errors);
+                    }
+                }
+            }
+            $view->assign("media", $media);
+            $view->assign("mediaExist", $mediaExist);
+        }        
+        //$view->assign("post", $post);
     }
 
     public function deleteAction($params){
         $view = new View(BASE_BACK_OFFICE."medias/delete", "smw-admin");
-        $view->assign("page_title", "Supprimer un contenu multimedia");
-        $view->assign("page_description", "Page de suppression d'un contenu multimedia");
+        
+        // Get and verify if the media exist
+        $media = new Medias();
+        $mediaExist = $media->populate(["id"=>$params[0]]);
+        
+        if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirm']) && $_POST['confirm'] == "true") {
+            
+            if($mediaExist !== false) {
+                $view->assign("delete", $media->deleteById());
+            }
+            if(file_exists(BASE_DOCUMENTS.$media->getLink())) {
+                unlink(BASE_DOCUMENTS.$media->getLink());
+            }
+        }
+        
+        $view->assign("mediaExist", $mediaExist);
+        $view->assign("page_title", "Suppression d'un article");
+        $view->assign("page_description", "Page de suppression d'un article");
     }
 }
