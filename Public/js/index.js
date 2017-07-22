@@ -38,7 +38,13 @@ function onDrop(e) {
             $(this).css('border', '3px dashed green');
             // On récupère les différentes variable pour les informations à afficher
             fileName = e.originalEvent.dataTransfer.files[0].name;
-            fileSize = e.originalEvent.dataTransfer.files[0].size;
+            var calcSize = parseInt(e.originalEvent.dataTransfer.files[0].size);
+            calcSize = (isNaN(calcSize)) ? 0 : e.originalEvent.dataTransfer.files[0].size;
+            if(calcSize >= 1048576) {
+            	fileSize = (calcSize / (1024*1024)).toFixed(2) + ' Mo';
+            } else {
+            	fileSize = (calcSize / 1024).toFixed(2) + ' Ko';
+            }
             fileType = e.originalEvent.dataTransfer.files[0].type;
             uploadConfig(e.originalEvent.dataTransfer.files);
         }
@@ -71,7 +77,7 @@ function uploadConfig(files) {
 
     // Vérifie le type de l'image
     if (!file.type.match('image/png') && !file.type.match('image/jpg') && !file.type.match('image/jpeg')) {
-    	$("#response_media").append("<span>L'extension n'est pas acceptée. </span>").css('display', 'block');
+    	$("#response_media").html("<span>L'extension n'est pas acceptée. </span>").css('display', 'block');
         return false;
     }
     
@@ -102,8 +108,6 @@ function handleReaderLoad(evt) {
     pic.fileName = fileName;
     pic.fileTitle = document.getElementById("df_cfg_title").value;
     pic.fileDesc = document.getElementById("df_cfg_desc").value;
-    pic.fileSize = fileSize;
-    pic.fileType = fileType;
     pic.file = evt.target.result.split(',')[1];
     var str = jQuery.param(pic);
 
@@ -112,16 +116,17 @@ function handleReaderLoad(evt) {
         url: 'upload',
         data: str,
         success: function (data) {
-        	if(data == "OK") {
-        		$("#response_media").append("<span>Le fichier a été ajouté à la <a href='view'>bibliothèque</a></span><br>").css('display', 'block');
-        	} else {
-        		$("#response_media").append("<span>Erreur lors de l'envoie du fichier.</a></span><br>").css('display', 'block');
-        		console.log("Erreur lors de l'envoie.");
+        	console.log(data);
+        	if(data.status == "success") {
+        		$("#response_media").html("<span>Le fichier a été ajouté à la <a href='view'>bibliothèque</a></span><br>").css('display', 'block');
+        	} else if(data.status == "error"){
+        		$("#response_media").html("<span>Erreur lors de l'envoie du fichier.</span><br>").css('display', 'block');
         	}
             
             quit();
         },
         error : function(result, status, error){
+        	$("#response_media").html("<span>Erreur lors de l'envoie du fichier.</span><br>").css('display', 'block');
         	console.log(result);
         	console.log(status);
         	console.log(error);

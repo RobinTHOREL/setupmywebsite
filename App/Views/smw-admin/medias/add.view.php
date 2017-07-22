@@ -19,8 +19,8 @@
                             	<img id="df_cfg_img" src="#" alt="" width="120px" height="120px"/>
                             </div>
                             <div class="div-2-3">
-                                <label>Nom : <input type="text" name="filetitle" id="df_cfg_title" value="1"></label><br>
-                                <label>Description : <input type="text" name="filedesc" id="df_cfg_desc"></label><br>
+                                <label>Nom : <input type="text" name="filetitle" id="df_cfg_title" value="" maxlength="60"></label><br>
+                                <label>Description : <input type="text" name="filedesc" id="df_cfg_desc" maxlength="120"></label><br>
                                 <label>Taille : </label><label id="df_cfg_size"></label><br>
                                 <label>Type : </label><label id="df_cfg_type"></label>
                             </div>
