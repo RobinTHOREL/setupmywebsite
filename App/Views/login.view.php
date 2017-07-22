@@ -1,6 +1,8 @@
-	<header>
-    </header>
-	<section>
+ <div class="col-12">
+            <div class="logo">
+                <i class="fa fa-cog"></i>
+            </div>
+        </div>
         <div class="back_glob">
             <div class="back_header">
                 <h1>LOGIN</h1>
@@ -27,6 +29,3 @@
                 ?>
             </form>
         </div>
-	</section>
-    <footer>
-    </footer>
