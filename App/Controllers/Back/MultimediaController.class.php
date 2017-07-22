@@ -73,6 +73,9 @@ class MultimediaController{
     	        $media->Save();
     	        $response["status"] = "success";
 	        } else {
+	            if(file_exists($file)) {
+	                unlink($file);
+	            }
 	            $response["status"] = "error";
 	        }
 	    } else {
@@ -94,22 +97,11 @@ class MultimediaController{
 
     public function pluginTinyAction($params)
     {
-        // Mettre le bon PATH si dessous pour récupérer les fichiers contenu dans le dossier App/Public/upload
-        $dir = BASE_DOCUMENTS.UPLOAD_PATH;
-        $files1 = scandir($dir);
-        
-        $i = 0;
-        $j = 0;
-        foreach ($files1 as $value) {
-            if ($files1[$i] != "." && $files1[$i] != "..") {
-                $filesClean[$j] = $files1[$i];
-                $j ++;
-            }
-            $i ++;
-        }
-      
         $view = new View(BASE_BACK_OFFICE."medias/TinyMCE", "ajax");
-        $view->assign("files", $filesClean);
+        // On récupère un ensemble d'image
+        $media = new Medias();
+        $result = $media->getAllBy([[]], 20, 0);
+        $view->assign("files", $result);
     }
 
     public function editAction($params){

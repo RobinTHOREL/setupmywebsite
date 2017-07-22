@@ -1,8 +1,7 @@
+/* DEBUT - FONCTIONNALITE D'UPLOAD DES MEDIAS */
 /**
- * Created by Kush on 13/06/2017.
+ * Created by Kush on 13/06/2017
  */
-
-
 /* Drag and drop */
 var file = null;
 var fileName = null;
@@ -28,9 +27,33 @@ $(document).on('dragleave', '#dropfile', function (e) {
     return false;
 });
 
+// Permet d'utiliser un bouton pour les périphérique tactile,
+//  le click sur le bouton appelle le 'input file'
+$("#dropfile_btn_upload").click(function (e) { 
+	$("#dropfile_hidden_upload").click();
+});
+$("#dropfile_hidden_upload").change(function (e) { 
+	onInput(document.getElementById('dropfile_hidden_upload').files);
+});
+function onInput(files) {
+	if (files.length>0) {
+        // On récupère les différentes variable pour les informations à afficher
+        fileName = files[0].name;
+        var calcSize = parseInt(files[0].size);
+        calcSize = (isNaN(calcSize)) ? 0 : files[0].size;
+        if(calcSize >= 1048576) {
+        	fileSize = (calcSize / (1024*1024)).toFixed(2) + ' Mo';
+        } else {
+        	fileSize = (calcSize / 1024).toFixed(2) + ' Ko';
+        }
+        fileType = files[0].type;
+        uploadConfig(files);
+	}
+}
+
 $(document).on('drop', '#dropfile', onDrop);
 function onDrop(e) {
-    if (e.originalEvent.dataTransfer) {
+	if (e.originalEvent.dataTransfer) {
         if (e.originalEvent.dataTransfer.files.length) {
             // Stop the propagation of the event
             e.preventDefault();
@@ -60,7 +83,9 @@ function send(e) {
     reader.readAsDataURL(file);
 }
 
+// Réinitialisation des paramètres
 function quit() {
+	document.getElementById("cover").style.display = "none";
 	document.getElementById("dropfile_config").style.display = "none";
 	file = fileName = fileSize = fileType = null;
 	$('#df_cfg_img').attr("src", "");
@@ -82,6 +107,7 @@ function uploadConfig(files) {
     }
     
 	// On affiche la fenêtre de configuration
+    document.getElementById("cover").style.display = "block";
     document.getElementById("dropfile_config").style.display = "block";
     
     // Charge l'image sur la fenêtre d'informations
@@ -135,6 +161,7 @@ function handleReaderLoad(evt) {
         }
     });
 }
+/* FIN - FONCTIONNALITE D'UPLOAD DES MEDIAS */
 
 /* Chart on dashboard page */
 new Chart(document.getElementById("bar-chart").getContext("2d"), {

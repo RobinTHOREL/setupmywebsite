@@ -7,11 +7,13 @@
                 <div class="col-10 col-offset-1">
                     <div id="dropfile">
                         <div id="dropper" class="col-8 col-offset-2">
-                            <i class="fa fa-cloud-upload logo-upload" aria-hidden="true"></i>
+                            <button id="dropfile_btn_upload" class="fa fa-cloud-upload logo-upload" aria-hidden="true"></button>
+                            <input type="file" id="dropfile_hidden_upload">
                             <p>Glissez un média dans cette zone pour l'uploader</p>
                             <p>Formats acceptés : (png, jpg, jpeg)</p>
                         </div>
                     </div>
+                    <div id="cover"></div>
                     <div id="dropfile_config">
       					<div id="df_cfg_header">Informations de l'image</div>
       					<div id="df_cfg_body">
