@@ -116,20 +116,22 @@ function handleReaderLoad(evt) {
         url: 'upload',
         data: str,
         success: function (data) {
-        	console.log(data);
         	if(data.status == "success") {
         		$("#response_media").html("<span>Le fichier a été ajouté à la <a href='view'>bibliothèque</a></span><br>").css('display', 'block');
+        		quit();
         	} else if(data.status == "error"){
-        		$("#response_media").html("<span>Erreur lors de l'envoie du fichier.</span><br>").css('display', 'block');
+        		var msgError = "<span>Erreur lors de l'envoie du fichier :</span><br><ul>";
+        		if (typeof data.message != "undefined" && data.message != null) {
+        			for (var i=0; i<data.message.length; i++) {
+        				msgError += "<li>"+data.message[i]+"</li>";
+        			}
+        		}
+        		msgError += "</ul>";
+        		$("#response_media").html(msgError).css('display', 'block');
         	}
-            
-            quit();
         },
         error : function(result, status, error){
         	$("#response_media").html("<span>Erreur lors de l'envoie du fichier.</span><br>").css('display', 'block');
-        	console.log(result);
-        	console.log(status);
-        	console.log(error);
         }
     });
 }

@@ -17,7 +17,7 @@ class MultimediaController{
 	    // On vérifie qu'un fichier est reçu
 	    if(isset($_POST['file']) && isset($_POST['fileName'])  
 	        && isset($_POST['fileTitle']) && isset($_POST['fileDesc'])) {
-	        
+	        $media = new Medias();
 	        $title = trim($_POST['fileTitle']);
 	        $desc = trim($_POST['fileDesc']);
 	        
@@ -29,12 +29,17 @@ class MultimediaController{
 	            array_push ( $response["message"] , "Le nom du fichier est trop long." );
 	        }
 	        
+	        $checkExist = $media->getAllBy(["OR" => ["name"=>$title]]);
+	        if($checkExist) {
+	            array_push( $response["message"], "Le titre existe déjà.");
+	        }
+	        
 	        if(strlen($title)<1 || strlen($title)>60) {
-	            array_push ( $response["message"] , "Le nom du titre est trop long." );
+	            array_push ( $response["message"], "Le nom du titre est trop long." );
 	        }
 	        
 	        if(strlen($desc)>120) {
-	            array_push ( $response["message"] , "La description est trop longue." );
+	            array_push ( $response["message"], "La description est trop longue." );
 	        }
 	        
 	        
@@ -44,7 +49,7 @@ class MultimediaController{
 	        
 	        // Écrit le résultat dans le fichier
 	        if( file_put_contents($file, $current) == false ) {
-	            array_push ( $response["message"] , "Un erreur est survenu sur le serveur." );
+	            array_push ( $response["message"], "Un erreur est survenu sur le serveur." );
 	        }
 	        
 	        // TODO: Vérifier l'autheur
@@ -55,12 +60,11 @@ class MultimediaController{
 	        finfo_close($finfo);
 
 	        if( !in_array($typeMime, $typeAccept) ) {
-	            array_push ( $response["message"] , "Le type du fichier envoyé n'est pas accepté." );
+	            array_push ( $response["message"], "Le type du fichier envoyé n'est pas accepté." );
 	        }
 	        
 	        if(count($response["message"]) <= 0) {
     	        // On ajoute le fichier en base
-    	        $media = new Medias();
     	        $media->setName($title);
     	        $media->setDescription($desc);
     	        $media->setAuthor("0");
@@ -121,6 +125,11 @@ class MultimediaController{
                     $title = trim($_POST['title']);
                     $description = trim($_POST['description']);
                     $errors = [];
+                    
+                    $checkExist = $media->getAllBy(["OR" => ["name"=>$title]]);
+                    if($checkExist) {
+                        array_push($errors, "Le titre existe déjà.");
+                    }
                     
                     if(strlen($title)<1 || strlen($title)>60) {
                         array_push($errors, "Le titre saisie est trop grand!");
