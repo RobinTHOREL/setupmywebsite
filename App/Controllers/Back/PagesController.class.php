@@ -123,4 +123,40 @@ class PagesController{
         $view->assign("page_title", "Supprimer une page");
         $view->assign("page_description", "Page de suppression d'une page");
     }
+    
+    public function previewAction($params){
+        $error = null;
+        $view = new View(BASE_BACK_OFFICE."pages/preview", "frontend");
+        
+        if(isset($params[0])) {
+            $pageExist = null;
+            if(is_numeric($params[0])) {
+                $page = new Pages();
+                $pageExist = $page->populate(["id"=>$params[0]]);
+            }
+            // On vérifie que la page existe
+            if($pageExist) {
+                $view->assign("page_title", "Prévisualisation - ".$page->getTitle());
+                $view->assign("page_description", "Prévisualisation de la page ".$page->getTitle());
+                $view->assign("pageExist", $pageExist);
+                $view->assign("page", $page);
+                
+                // On vérifie qu'un article est rattaché a cette page
+                $post = new Posts();
+                $postExist = $post->populate(["pages_id"=>$page->getId()]);
+                if($postExist) {
+                    $view->assign("postExist", $postExist);
+                    $view->assign("post", $post);
+                }
+            } else {
+                $error = true;
+            }
+        } else {
+            $error = true;
+        }
+        if($error) {
+            $view->assign("page_title", "Prévisualisation");
+            $view->assign("page_description", "Prévisualisation de la page ");
+        }
+    }
 }

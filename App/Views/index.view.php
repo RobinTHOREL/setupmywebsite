@@ -1,6 +1,6 @@
 
 
-            <div class="ui text container">
+            <div class="ui inverted vertical center aligned segment text masthead">
                 <h1 class="ui inverted header">
                     Imagine-a-Company
                 </h1>
