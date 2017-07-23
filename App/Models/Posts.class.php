@@ -53,8 +53,6 @@
             $this->show_date=$show_date;
         }
 
-
-
         /* Getters */
         public function getId() {
             return $this->id;
@@ -69,7 +67,7 @@
         }
 
         public function getTitle() {
-            return $this->title;
+            return htmlspecialchars($this->title);
         }
         
         public function getContent() {
@@ -81,7 +79,7 @@
             if($contentReplace !== null) {
                 return $contentReplace;
             } 
-            return $this->content;
+            return htmlspecialchars($this->content);
         }
 
         public function getShowDate() {

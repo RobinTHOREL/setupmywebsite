@@ -34,7 +34,7 @@
                         	        if($post->getPagesId() == $page['id']) {
                         	           $option .= $selected;
                         	        }
-                        	        $option .= ">".$page['title']."</option>";
+                        	        $option .= ">".htmlspecialchars($page['title'])."</option>";
                         	        echo $option;
                             	}
                         	}

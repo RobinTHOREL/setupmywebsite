@@ -60,7 +60,7 @@
                                 {
                                     echo ($first)?"<a class=\"active item\">":"<a class=\"item\">";
                                     $first = false;
-                                    echo $menu["title"]."</a>";
+                                    echo htmlspecialchars($menu["title"])."</a>";
                                 }
                             }
 

@@ -37,7 +37,7 @@
                     	<?php 
                     	if(isset($pages)) {
                     	    foreach($pages as $page) { 
-                    	        echo "<option value='".$page['id']."'>".$page['title']."</option>";
+                    	        echo "<option value='".$page['id']."'>".htmlspecialchars($page['title'])."</option>";
                         	}
                     	}
                     	?>

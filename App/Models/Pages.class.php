@@ -38,11 +38,11 @@
         }
 
         public function getTitle() {
-            return $this->title;
+            return htmlspecialchars($this->title);
         }
 
         public function getDescription() {
-            return $this->description;
+            return htmlspecialchars($this->description);
         }
 
         public function getIsPublished() {
