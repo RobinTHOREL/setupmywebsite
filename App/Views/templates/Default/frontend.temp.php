@@ -60,7 +60,7 @@
                                 {
                                     echo ($first)?"<a class=\"active item\">":"<a class=\"item\">";
                                     $first = false;
-                                    echo $menu["name"]."</a>";
+                                    echo $menu["title"]."</a>";
                                 }
                             }
 
@@ -87,6 +87,7 @@
 
 			<?php include $this->view; ?>
                 </div>
+            </div>
         </section>
         <footer>
             

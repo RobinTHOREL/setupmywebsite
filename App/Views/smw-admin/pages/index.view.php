@@ -17,7 +17,7 @@
                                         <i class="fa fa-file-text" aria-hidden="true"></i>
                                     </div>
                                     <div class="page_title">
-                                        <h3><?php echo $page['name']; ?></h3>
+                                        <h3><?php echo $page['title']; ?></h3>
                                     </div>
                                     <div class="page_button">
                                         <div class="row">

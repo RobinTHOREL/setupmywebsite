@@ -6,17 +6,15 @@
         protected $pages_id;
         protected $title;
         protected $content;
-        protected $description;
         protected $show_date;
 
         public function __construct($id=-1, $users_id=0, $pages_id=0, $title=null,
-                                        $content=null, $description=null, $show_date=null) {
+                                        $content=null, $show_date=null) {
 			$this->setId($id);
 			$this->setUsersId($users_id);
 			$this->setPagesId($pages_id);
 			$this->setTitle($title);
 			$this->setContent($content);
-			$this->setDescription($description);
 			$this->setShowDate($show_date);
 
 			parent::__construct();
@@ -43,10 +41,6 @@
             $this->content=$content;
         }
         
-        public function setDescription($description) {
-            $this->description=$description;
-        }
-
         public function setShowDate($show_date) {
             $this->show_date=$show_date;
         }
@@ -72,10 +66,6 @@
         
         public function getContent() {
             return $this->content;
-        }
-
-        public function getDescription() {
-            return $this->description;
         }
 
         public function getShowDate() {

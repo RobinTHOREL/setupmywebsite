@@ -5,14 +5,12 @@
         protected $title;
         protected $description;
         protected $is_published;
-        protected $posts_id;
 
-		public function __construct($id=-1, $title=null, $description=null, $is_published=null, $posts_id=null) {
+		public function __construct($id=-1, $title=null, $description=null, $is_published=null) {
 			$this->setId($id);
 			$this->setTitle($title);
 			$this->setDescription($description);
 			$this->setIsPublished($is_published);
-            $this->setPostsId($posts_id);
 
 			parent::__construct();
 		}
@@ -34,10 +32,6 @@
 			$this->is_published=trim($is_published);
 		}
 
-        public function setPostsId($posts_id) {
-            $this->posts_id=trim($posts_id);
-        }
-
         /* Getters */
         public function getId() {
             return $this->id;
@@ -55,7 +49,4 @@
             return $this->is_published;
         }
 
-        public function gtPostsId() {
-            return $this->posts_id;
-        }
 	}

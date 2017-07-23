@@ -1,16 +1,15 @@
 <?php
 class PagesController{
     public function addAction($params){
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title']) && isset($_POST['content'])) {
+        if ( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title']) ) {
             $title = $_POST['title'];
-            $content = $_POST['content'];
 
             $page = new Pages();
-            $page->setName($title);
-            $page->setDescription($content);
-            $page->setFriendlyUrl("0");
-            $page->setPostsId("0");
+            $page->setTitle($title);
+            $page->setDescription("1");
+            $page->setIsPublished("0");
             $page->Save();
+            
             //header('Location: view');
         }
 
