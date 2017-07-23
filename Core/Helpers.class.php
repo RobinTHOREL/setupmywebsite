@@ -66,10 +66,10 @@
          */
         static function get_menu()
         {
-                $menu = new Pages();
-
-                $menus =$menu->getAllBy($search = [[]]);
-                return $menus;
+            // Update : return only 10 first pages on menu and if is_published is enable
+            $menu = new Pages();
+            $menus = $menu->getAllBy( ["AND" => ["is_published"=>"1"]] , 10);
+            return $menus;
         }
 
         /**
