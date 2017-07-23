@@ -67,7 +67,6 @@ class Routing{
 			return false;
 		}
 		if(  !method_exists($this->controllerName, $this->actionName) ){
-            if(DEBUG_MODE) {  echo "Action ". $this->actionName . "<br>";  }
             $this->error = "L'action n'existe pas";
 			return false;
 		}

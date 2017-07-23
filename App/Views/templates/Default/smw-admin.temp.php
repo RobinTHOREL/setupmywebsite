@@ -26,12 +26,12 @@
     	  remove_script_host: true,
     	  plugins: [
     		    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-    		    'searchreplace wordcount visualblocks visualchars code fullscreen',
+    		    'searchreplace wordcount visualblocks visualchars code ',
     		    'insertdatetime media nonbreaking save table contextmenu directionality',
-    		    'emoticons paste textcolor colorpicker textpattern imagetools codesample toc importImageSMW'
+    		    'emoticons paste textcolor colorpicker textpattern imagetools codesample toc importImageSMW fullscreen'
     		  ],
-    		  toolbar1: 'undo redo | insert | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link importImageSMW',
-    		  toolbar2: 'print preview media | forecolor backcolor emoticons | code',
+    		  toolbar1: 'undo redo | insert | styleselect | bold underline italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link importImageSMW',
+    		  toolbar2: 'forecolor backcolor emoticons | preview code fullscreen',
     		  image_advtab: true,
     	});
 	</script>
@@ -55,8 +55,8 @@
                     <label for="section-2"><i class="fa fa-pencil"></i> <span class="respons_hidden">Articles</span></label>
                     <div class="content">
                         <ul>
-                            <li><i class="fa fa-plus"></i><span class="respons_hidden"><a id="art_add" href="<?php echo ABSOLUTE_PATH_BACK . "articles/add";?>">Ajouter</a></span></li>
-                            <li><i class="fa fa-bars"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH_BACK . "articles/view";?>">Liste des articles</a></span></li>
+                            <li><a id="art_add" href="<?php echo ABSOLUTE_PATH_BACK . "articles/add";?>"><i class="fa fa-plus"></i><span class="respons_hidden">Ajouter</span></a></li>
+                            <li><a href="<?php echo ABSOLUTE_PATH_BACK . "articles/view";?>"><i class="fa fa-bars"></i><span class="respons_hidden">Liste des articles</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -65,8 +65,8 @@
                     <label for="section-3"><i class="fa fa-file-o"></i> <span class="respons_hidden">Pages</span></label>
                     <div class="content">
                         <ul>
-                            <li><i class="fa fa-plus"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH_BACK . "pages/add";?>">Ajouter</a></span></li>
-                            <li><i class="fa fa-bars"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH_BACK . "pages/view";?>">Toutes les pages</a></span></li>
+                            <li><a href="<?php echo ABSOLUTE_PATH_BACK . "pages/add";?>"><i class="fa fa-plus"></i><span class="respons_hidden">Ajouter</span></a></li>
+                            <li><a href="<?php echo ABSOLUTE_PATH_BACK . "pages/view";?>"><i class="fa fa-bars"></i><span class="respons_hidden">Toutes les pages</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -75,8 +75,8 @@
                     <label for="section-4"><i class="fa fa-camera"></i> <span>Bibliothéque</span></label>
                     <div class="content">
                         <ul>
-                            <li><i class="fa fa-plus"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH_BACK . "multimedia/add";?>">Ajouter un média</a></span></li>
-                            <li><i class="fa fa-th"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH_BACK . "multimedia/view";?>">Bibliothéque des médias</a></span></li>
+                            <li><a href="<?php echo ABSOLUTE_PATH_BACK . "multimedia/add";?>"><i class="fa fa-plus"></i><span class="respons_hidden">Ajouter un média</span></a></li>
+                            <li><a href="<?php echo ABSOLUTE_PATH_BACK . "multimedia/view";?>"><i class="fa fa-th"></i><span class="respons_hidden">Bibliothéque des médias</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -85,9 +85,9 @@
                     <label for="section-5"><i class="fa fa-font"></i> <span class="respons_hidden">Apparence</span></label>
                     <div class="content">
                         <ul>
-                            <li><i class="fa fa-desktop"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH_BACK . "themes/view";?>">Thémes</a></span></li>
-                            <li><i class="fa fa-eyedropper"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH_BACK . "themes/view";?>">Personnaliser</a></span></li>
-                            <li><i class="fa fa-level-up"></i><span class="respons_hidden">Widget</span></li>
+                            <li><a href="<?php echo ABSOLUTE_PATH_BACK . "themes/view";?>"><i class="fa fa-desktop"></i><span class="respons_hidden">Thémes</span></a></li>
+                            <li><a href="<?php echo ABSOLUTE_PATH_BACK . "themes/view";?>"><i class="fa fa-eyedropper"></i><span class="respons_hidden">Personnaliser</span></a></li>
+                            <li><a href="#"><i class="fa fa-level-up"></i><span class="respons_hidden">Widget</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -96,31 +96,35 @@
                     <label for="section-6"><i class="fa fa-user-circle"></i> <span class="respons_hidden">Utilisateurs</span></label>
                     <div class="content">
                         <ul>
-                            <li><i class="fa fa-user-plus"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH_BACK . "users/add";?>">Ajouter</a></span></li>
-                            <li><i class="fa fa-users"></i><span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH_BACK . "users/view";?>">Tous les utilisateurs</a></span></li>
-                            <li><i class="fa fa-user-o"></i><span class="respons_hidden">Votre profil</span></li>
+                            <li><a href="<?php echo ABSOLUTE_PATH_BACK . "users/add";?>"><i class="fa fa-user-plus"></i><span class="respons_hidden">Ajouter</span></a></li>
+                            <li><a href="<?php echo ABSOLUTE_PATH_BACK . "users/view";?>"><i class="fa fa-users"></i><span class="respons_hidden">Tous les utilisateurs</span></a></li>
+                            <li><a href="<?php echo ABSOLUTE_PATH_BACK . "users/profile";?>"><i class="fa fa-user-o"></i><span class="respons_hidden">Votre profil</span></a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="section">
                     <input type="radio" name="accordion-1" id="section-7" value="toggle"/>
-                    <label for="section-7"><i class="fa fa-wrench"></i> <span class="respons_hidden">Outils</a></span></label>
+                    <label for="section-7"><i class="fa fa-wrench"></i> <span class="respons_hidden"><a href="">Outils</a></span></label>
                     <!--<div class="content">
                     </div>-->
                 </div>
                 <div class="section">
                     <input type="radio" name="accordion-1" id="section-8" value="toggle"/>
-                    <label for="section-8"><i class="fa fa-gears"></i> <span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH_BACK . "settings/view";?>">Réglages</a></span></label>
+                    <a href="<?php echo ABSOLUTE_PATH_BACK . "settings/view";?>">
+                    	<label for=""><i class="fa fa-gears"></i> <span class="respons_hidden">Réglages</span></label>
+                    </a>
                     <!--  <div class="content">
                       </div> -->
                 </div>
                 <div class="section">
-                    <label for="section-8"><i class="fa  fa-paper-plane-o"></i> <span class="respons_hidden"><a href="<?php echo ABSOLUTE_PATH_FRONT . "index";?>">Visionner le site</a></span></label>
-
+                    <a href="<?php echo ABSOLUTE_PATH_FRONT . "index";?>">
+                    	<label for=""><i class="fa  fa-paper-plane-o"></i> <span class="respons_hidden">Visionner le site</span></label>
+                    </a>
                 </div>
                 <div class="section">
-                    <label for="section-8"><i class="fa fa-sign-out"></i> <span class="respons_hidden"><a onclick="<?php ?>" href="<?php echo ABSOLUTE_PATH_FRONT . "logout";?>">Logout</a></span></label>
-
+                	<a onclick="<?php ?>" href="<?php echo ABSOLUTE_PATH_FRONT . "logout";?>">
+                    	<label for=""><i class="fa fa-sign-out"></i> <span class="respons_hidden">Logout</span></label>
+                    </a>
                 </div>
             </div>
         </div>
