@@ -27,10 +27,10 @@ class ArticlesController{
             if(isset($_POST['pages_id'])) {
                 $page = new Pages();
                 $pageExist = $page->populate( [ "id"=>$_POST['pages_id'] ] );
-                if($_POST['pages_id'] != "0" && !$pageExist) {
-                    array_push($listOfErrors, "La page n'existe pas.");
+                if($_POST['pages_id'] != 0 && !$pageExist) {
+                    array_push($listOfErrors, "La page parente n'existe pas.");
                 } else {
-                    $usersId = $_POST['pages_id'];
+                    $pagesId = $_POST['pages_id'];
                 }
             }
             
@@ -43,7 +43,7 @@ class ArticlesController{
                 $usersId = $user->getId();
             }
             
-            if(isset($_POST['show_date']) && $_POST['show_date'] == "on") {
+            if(isset($_POST['show_date']) && $_POST['show_date'] == "1") {
                 $showDate = "1";
             }
             
@@ -55,7 +55,7 @@ class ArticlesController{
                 $post->setPagesId($pagesId);
                 $post->setShowDate($showDate);
                 $post->Save();
-                //header('Location: view');
+
                 $view->assign("success", "Votre article a bien été créé.");
             } else {
                 // On envoie la liste d'erreur ainsi que les données qui ont été envoyé
@@ -117,10 +117,10 @@ class ArticlesController{
                 if(isset($_POST['pages_id'])) {
                     $page = new Pages();
                     $pageExist = $page->populate( [ "id"=>$_POST['pages_id'] ] );
-                    if($_POST['pages_id'] != "0" && !$pageExist) {
-                        array_push($listOfErrors, "La page n'existe pas.");
+                    if($_POST['pages_id'] != 0 && !$pageExist) {
+                        array_push($listOfErrors, "La page parente n'existe pas.");
                     } else {
-                        $usersId = $_POST['pages_id'];
+                        $pagesId = $_POST['pages_id'];
                     }
                 }
                 

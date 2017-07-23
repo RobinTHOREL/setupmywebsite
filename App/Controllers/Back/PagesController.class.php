@@ -1,21 +1,55 @@
 <?php
 class PagesController{
     public function addAction($params){
-        if ( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title']) ) {
-            $title = $_POST['title'];
-
-            $page = new Pages();
-            $page->setTitle($title);
-            $page->setDescription("1");
-            $page->setIsPublished("0");
-            $page->Save();
-            
-            //header('Location: view');
-        }
-
         $view = new View(BASE_BACK_OFFICE."pages/add", "smw-admin");
         $view->assign("page_title", "Ajouter une nouvelle page");
         $view->assign("page_description", "Page d'ajout de nouvelle page");
+        
+        if ( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title']) 
+            && isset($_POST['description']) ) {
+            $title = trim($_POST['title']);
+            $description = trim($_POST['description']);
+            $isPublished = "0";
+            $listOfErrors = [];
+
+            $pageExist = new Pages();
+            $pageExist->populate(["title"=>$title]);
+            if($pageExist->getId() != "-1") {
+                array_push($listOfErrors, "Une autre pages possède déjà ce titre.");
+            }
+            
+            if(strlen($title)<1) {
+                array_push($listOfErrors, "Le titre saisie est trop court.");
+            }
+            if(strlen($title)>512) {
+                array_push($listOfErrors, "Le titre saisie est trop long.");
+            }
+            
+            if(strlen($description)>255) {
+                array_push($listOfErrors, "La description saisie est trop longue.");
+            }
+            
+            if(isset($_POST['is_published']) && $_POST['is_published'] == "1") {
+                $isPublished = "1";
+            }
+            
+            if(count($listOfErrors)<=0) {
+                $page = new Pages();
+                $page->setTitle($title);
+                $page->setDescription($description);
+                $page->setIsPublished($isPublished);
+                $page->Save();
+                $view->assign("success", "Votre page a bien été créé.");
+            } else {
+                // On envoie la liste d'erreur ainsi que les données qui ont été envoyé
+                $_SESSION["backup"]["title"] = $_POST['title'];
+                $_SESSION["backup"]["description"] = $_POST['description'];
+                if($isPublished=="1"){
+                    $_SESSION["backup"]["is_published"]="checked";
+                }
+                $view->assign("listOfErrors", $listOfErrors);
+            }
+        }
     }
 
     public function viewAction($params){
@@ -29,25 +63,48 @@ class PagesController{
     }
 
     public function editAction($params){
-        $page = new Pages();
-        $pageExist = $page->populate(["id"=>$params[0]]);
-        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title']) && isset($_POST['content'])) {
-            if($pageExist) {
-                $title = $_POST['title'];
-                $content = $_POST['content'];
-                $page->setName($title);
-                $page->setDescription($content);
-                $page->setFriendlyUrl("0");
-                $page->setPostsId("0");
-                $page->Save();
-            }
-        }
-        
         $view = new View(BASE_BACK_OFFICE."pages/edit", "smw-admin");
-        $view->assign("page", $page);
-        $view->assign("pageExist", $pageExist);
         $view->assign("page_title", "Editer une page");
         $view->assign("page_description", "Page d'édition d'une page");
+        
+        if(isset($params[0])) {
+            $page = new Pages();
+            $pageExist = $page->populate(["id"=>$params[0]]);
+            $view->assign("page", $page);
+            $view->assign("pageExist", $pageExist);
+            if ( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title'])
+                && isset($_POST['description']) ) {
+                $title = trim($_POST['title']);
+                $description = trim($_POST['description']);
+                $isPublished = "0";
+                $listOfErrors = [];
+                             
+                if(strlen($title)<1) {
+                    array_push($listOfErrors, "Le titre saisie est trop court.");
+                }
+                if(strlen($title)>512) {
+                    array_push($listOfErrors, "Le titre saisie est trop long.");
+                }
+                
+                if(strlen($description)>255) {
+                    array_push($listOfErrors, "La description saisie est trop longue.");
+                }
+                
+                if(isset($_POST['is_published']) && $_POST['is_published'] == "1") {
+                    $isPublished = "1";
+                }
+                
+                if(count($listOfErrors)<=0) {
+                    $page->setTitle($title);
+                    $page->setDescription($description);
+                    $page->setIsPublished($isPublished);
+                    $page->Save();
+                    $view->assign("success", "Votre page a bien été mise à jour.");
+                } else {
+                    $view->assign("listOfErrors", $listOfErrors);
+                }
+            }
+        }
     }
 
     public function deleteAction($params){

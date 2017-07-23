@@ -29,7 +29,13 @@
                         	<?php 
                         	if(isset($pages)) {
                         	    foreach($pages as $page) { 
-                        	        echo "<option value='".$page['id']."'>".$page['title']."</option>";
+                        	        $selected = "selected='selected'";
+                        	        $option = "<option value='".$page['id']."' ";
+                        	        if($post->getPagesId() == $page['id']) {
+                        	           $option .= $selected;
+                        	        }
+                        	        $option .= ">".$page['title']."</option>";
+                        	        echo $option;
                             	}
                         	}
                         	?>
@@ -38,7 +44,12 @@
                 </div>
                 <div class="col-4 col-offset-1 right-content">
                     <h2>Option de l'article</h2>
-                    <input type="checkbox" id="cb1" name="show_date" class="form-group" checked="checked">
+                    <input type="checkbox" 
+                        id="cb1" 
+                        name="show_date" 
+                        class="form-group" 
+                        <?php echo ($post->getShowDate()=="1")?"checked='checked'":""; ?>
+                        >
                     <label for="cb1">Afficher l'heure de publication</label><br><br>
                 </div>
                 <div class="col-4 col-offset-1 right-content">

@@ -25,7 +25,7 @@
             </div> <!-- exemple - ligne 2 -->
             <div class="col-7">
                 <textarea name="content" class="form-group">
-                	<?php echo (isset($_SESSION["backup"]["title"]))? $_SESSION["backup"]["content"] : "";?>
+                	<?php echo (isset($_SESSION["backup"]["content"]))? $_SESSION["backup"]["content"] : "";?>
                 </textarea>
             </div>
             <div class="col-4 col-offset-1 right-content">
@@ -46,7 +46,7 @@
             </div>
             <div class="col-4 col-offset-1 right-content">
                 <h2>Option de l'article</h2>
-                <input type="checkbox" id="cb1" name="show_date" class="form-group" checked="checked">
+                <input type="checkbox" id="cb1" name="show_date" value="1" class="form-group" checked="checked">
                 <label for="cb1">Afficher l'heure de publication</label><br><br>
             </div>
             <div class="col-4 col-offset-1 right-content">
@@ -66,5 +66,3 @@
         unset($_SESSION["backup"]);
     }
 ?>
-
-}
