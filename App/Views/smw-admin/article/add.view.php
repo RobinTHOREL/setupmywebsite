@@ -2,22 +2,31 @@
     <div class="row"> <!-- exemple - ligne 1 -->
         <div class="col-10 col-offset-1 title">
             <h2>Ajouter un article</h2>
-            <?php if (isset($listOfErrors)) { ?>
-        		<?php foreach($listOfErrors as $error) { ?>
-            		<div class="col-10">
-            			<h3><?php echo $error ?></h3>
-            		</div>
-        		<?php } ?>
-        	<?php } ?>
+            <?php if (isset($listOfErrors)) {
+        		foreach($listOfErrors as $error) {
+            		echo "<div class='col-10'><h3>".$error."</h3></div>";
+        		}
+        	} ?>
+        	<?php if (isset($success)) {
+        	    echo "<div class='col-10'><h3>".$success."</h3></div>";
+        	} ?>
         </div>
     </div>
     <div class="row"> <!-- exemple - ligne 2 -->
         <form action="" method="post">
             <div class="col-7">
-                <input type="text" name="title" class="form-group col-4 col-offset-1" placeholder="Titre de l'article" maxlength="255">
+                <input type="text" 
+                    name="title" 
+                    class="form-group col-4 col-offset-1" 
+                    placeholder="Titre de l'article" 
+                    maxlength="255"
+                    value="<?php echo (isset($_SESSION["backup"]["title"]))? $_SESSION["backup"]["title"] : "";?>"
+                    >
             </div> <!-- exemple - ligne 2 -->
             <div class="col-7">
-                <textarea name="content" class="form-group"></textarea>
+                <textarea name="content" class="form-group">
+                	<?php echo (isset($_SESSION["backup"]["title"]))? $_SESSION["backup"]["content"] : "";?>
+                </textarea>
             </div>
             <div class="col-4 col-offset-1 right-content">
                 <h2>Sélection d'une page parent</h2>
@@ -42,9 +51,20 @@
             </div>
             <div class="col-4 col-offset-1 right-content">
                 <h2>Actions sur l'article</h2>
-                <input type="submit" class="form-group" value="Editer">
-                <input type="reset" class="form-group" value="Annuler">
+                <div class="center-text">
+                    <input type="submit" value="Editer">
+                    <input type="reset" value="Annuler">
+                </div>
             </div>
         </form>
     </div>
 </div>
+
+<?php 
+    // On supprime les informtions du post en session après les avoir affichés
+    if (isset($_SESSION["backup"])) {
+        unset($_SESSION["backup"]);
+    }
+?>
+
+}

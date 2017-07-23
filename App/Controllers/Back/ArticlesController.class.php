@@ -2,10 +2,7 @@
 class ArticlesController{
 	public function addAction($params){
 	    $view = new View(BASE_BACK_OFFICE."article/add", "smw-admin");
-	    $view->assign("page_title", "Ajouter un nouvel article");
-	    $view->assign("page_description", "Page d'ajout de nouveaux articles");
-	    
-        if ( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title']) && isset($_POST['content']) 
+	    if ( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title']) && isset($_POST['content']) 
             && $_SESSION['login']) {
             $title = $_POST['title'];
             $content = $_POST['content'];
@@ -58,10 +55,17 @@ class ArticlesController{
                 $post->setPagesId($pagesId);
                 $post->setShowDate($showDate);
                 $post->Save();
-                header('Location: view');
+                //header('Location: view');
+                $view->assign("success", "Votre article a bien été créé.");
+            } else {
+                // On envoie la liste d'erreur ainsi que les données qui ont été envoyé
+                $_SESSION["backup"]["title"] = $_POST['title'];
+                $_SESSION["backup"]["content"] = $_POST['content'];
+                $view->assign("listOfErrors", $listOfErrors);
             }
-            $view->assign("listOfErrors", $listOfErrors);
         }
+        $view->assign("page_title", "Ajouter un nouvel article");
+        $view->assign("page_description", "Page d'ajout de nouveaux articles");
         // On liste les pages parentes possibles
         $page = new Pages();
         $pages = $page->getAllBy([[]], 100, 0);
@@ -82,13 +86,14 @@ class ArticlesController{
         $view->assign("page_title", "Edition d'un article");
         $view->assign("page_description", "Page d'édition d'un article");
         
-        $post = new Posts();
-        $postExist = $post->populate(["id"=>$params[0]]);
-        $view->assign("post", $post);
-        $view->assign("postExist", $postExist);
-        if ( $postExist && $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title']) && isset($_POST['content'])
-            && $_SESSION['login']) {
-                $postId = $params[0];
+        
+        if(isset($params[0])) {
+            $post = new Posts();
+            $postExist = $post->populate(["id"=>$params[0]]);
+            $view->assign("post", $post);
+            $view->assign("postExist", $postExist);
+            if ( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title']) && isset($_POST['content'])
+                && $_SESSION['login'] && $postExist) {
                 $title = $_POST['title'];
                 $content = $_POST['content'];
                 $pagesId = "0";
@@ -133,24 +138,25 @@ class ArticlesController{
                 }
                 
                 if(count($listOfErrors)<=0) {
-                    $post = new Posts();
-                    $post->setId($postId);
                     $post->setTitle($title);
                     $post->setContent($content);
                     $post->setUsersId($usersId);
                     $post->setPagesId($pagesId);
                     $post->setShowDate($showDate);
                     $post->Save();
+                    //header('Location: view');
+                    $view->assign("success", "Votre article a bien été créé.");
+                } else {
+                    $view->assign("listOfErrors", $listOfErrors);
                 }
-                $view->assign("listOfErrors", $listOfErrors);
             }
             // On liste les pages parentes possibles
             $page = new Pages();
             $pages = $page->getAllBy([[]], 100, 0);
             $view->assign("pages", $pages);
-
-
-
+        } else {
+            $view->assign("postExist", false);
+        }
     }
 
     public function deleteAction($params){
