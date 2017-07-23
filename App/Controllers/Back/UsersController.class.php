@@ -23,8 +23,8 @@ class UsersController{
             $user = new Users();
             $messages = array();
             $login = trim($_POST['login']);
-            $password = trim($_POST['password']);
-            $passwordConfirm = trim($_POST['passwordConfirm']);
+            $password = $_POST['password'];
+            $passwordConfirm = $_POST['passwordConfirm'];
             $email = trim($_POST["email"]);
             $firstname = trim($_POST["firstname"]);
             $lastname = trim($_POST["lastname"]);
@@ -95,6 +95,107 @@ class UsersController{
         $view->assign("results", $results);
         $view->assign("page_title", "Voir les utilisateurs");
         $view->assign("page_description", "Page listant les utilisateurs");
+    }
+    
+    public function profileAction($params)
+    {     
+        // On renvoi l'utilisateur à l'accueil s'il n'est pas connecté
+        if(!isset($_SESSION['login'])) {
+            header('Location: '.ABSOLUTE_PATH_FRONT);
+        }
+
+        // On recherche l'utilisateur et on remplie les variables
+        $user = new Users();
+        $userExist = $user->populate(["login"=>$_SESSION['login']]);
+        if(!$userExist) {
+            header('Location: '.ABSOLUTE_PATH_FRONT);
+        }
+        
+        // On démarre la vue et on assignes les variables
+        $view = new View(BASE_BACK_OFFICE."users/profile", "smw-admin");
+        $view->assign("page_title", "Votre profil");
+        $view->assign("page_description", "Page d'édition de votre profil");
+        
+        // Contrôle les entrées de mise à jour du profil
+        if( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['email']) 
+            && isset($_POST['firstname']) && isset($_POST['lastname']) )
+        {
+            $messages = array();
+            $email = trim($_POST["email"]);
+            $firstname = trim($_POST["firstname"]);
+            $lastname = trim($_POST["lastname"]);
+            $permission = trim($_POST["permission"]);
+            
+            if($email != $user->getEmail()) {
+                $emailExist = $user->getAllBy(["OR" => ["email"=>$email]]);
+                if($emailExist == true) {
+                    array_push($messages, "L'email est dékà utilisé");
+                }
+            }
+                      
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                array_push($messages, "Le format de l'email saisie est invalide.");
+            }
+
+            if(strlen($email)>320) {
+                array_push($messages, "La longueur de l'email saisie est trop grande.");
+            }
+            
+            if(strlen($firstname)>120) {
+                array_push($messages, "La longueur du prénom saisie est trop grande.");
+            }
+            
+            if(strlen($lastname)>120) {
+                array_push($messages, "La longueur du nom saisie est trop grande.");
+            }
+
+            if( count($messages)<=0 )
+            {
+                $user->setEmail($email);
+                $user->setFirstName($firstname);
+                $user->setLastName($lastname);
+                $user->setStatus(1);
+                //$user->setPermission($permission);
+                $user->setActivationKey("");
+                $user->Save();
+                array_push($messages, "Votre profil a été mise à jour");
+            }
+            
+            $view->assign("messages", $messages);
+            
+            // Contrôles des entrées pour la mise à jour du mot de passe
+        } else if ( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['old_password'])
+            && !empty($_POST['new_password']) && !empty($_POST['new_password_confirm']) ) {
+                // On initialise les variables si les données sont bien réupérés
+                $messages = array();
+                $oldPassword = $_POST['old_password'];
+                $newPassword = $_POST['new_password'];
+                $newPasswordConfirm = $_POST['new_password_confirm'];
+                
+                
+                if(password_verify( $oldPassword, $user->getPassword())) {
+                    array_push($messages, "L'ancien mot de passe est incorrect.");
+                }
+                
+                $validePassword = new Password(true, true, true, false, 4, 64);
+                $validePassword->setPassword($newPassword);
+                if(!$validePassword->validePassword($newPassword)) {
+                    array_push($messages, "Le mot de passe saisie ne respecte pas les critères de sécurités.");
+                }
+                
+                if(strcmp($newPassword, $newPasswordConfirm) != 0) {
+                    array_push($messages, "Les nouveaux mots de passes saisies ne correspondent pas.");
+                }
+                                              
+                if( count($messages)<=0 ) {
+                    $user->setPassword($newPassword);
+                    $user->Save();
+                    array_push($messages, "Le mot de passe a été mise à jour.");
+                }
+                
+                $view->assign("messages", $messages);
+        }
+        $view->assign("user", $user);
     }
 
     public function editAction($params)
