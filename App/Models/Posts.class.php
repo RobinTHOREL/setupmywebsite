@@ -38,6 +38,14 @@
         }
 
         public function setContent($content) {
+            // On met à jour les liens des images de Public pour 
+            //  les rendre relatif à la base
+            $pattern = "/src( )*=( )*['\"](.)*".BASE_PATH_PATTERN.PUBLIC_PATH."/";
+            $replacement = "src=\"/".PUBLIC_PATH;
+            $contentReplace = preg_replace($pattern, $replacement, $content);
+            if($contentReplace !== null) {
+                $this->content=$contentReplace;
+            }
             $this->content=$content;
         }
         
@@ -65,6 +73,14 @@
         }
         
         public function getContent() {
+            // On met à jour les liens des images de Public pour
+            //  les rendre relatif à la base
+            $pattern = "/src( )*=( )*['\"](.)*".PUBLIC_PATH."/";
+            $replacement = "src=\"".BASE_ABSOLUTE_PATTERN.PUBLIC_PATH;
+            $contentReplace = preg_replace($pattern, $replacement, $this->content);
+            if($contentReplace !== null) {
+                return $contentReplace;
+            } 
             return $this->content;
         }
 

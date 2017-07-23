@@ -22,6 +22,8 @@
     
     <script>tinymce.init({
     	  selector: "textarea",  // change this value according to your HTML
+    	  relative_urls: false,
+    	  remove_script_host: true,
     	  plugins: [
     		    'advlist autolink lists link image charmap print preview hr anchor pagebreak',
     		    'searchreplace wordcount visualblocks visualchars code fullscreen',

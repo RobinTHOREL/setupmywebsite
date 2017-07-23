@@ -7,7 +7,7 @@
                     for ($i = 0; $i < count($files); $i ++) {
                         ?>
                         <div class="image-hover" id="<?php echo "image-".$i; ?>">
-                            <img class="img_media" src="<?php echo ABSOLUTE_PATH_FRONT.$files[$i]['link'] ?>" 
+                            <img class="img_media" src="<?php echo BASE_ABSOLUTE_PATTERN.$files[$i]['link'] ?>" 
                             	alt="<?php echo $files[$i]['description'] ?>">
                         </div>
                         <?php
