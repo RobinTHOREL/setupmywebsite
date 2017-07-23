@@ -2,16 +2,16 @@
 	class Pages extends BaseSql{
 
 		protected $id;
-        protected $name;
+        protected $title;
         protected $description;
-        protected $friendly_url;
+        protected $is_published;
         protected $posts_id;
 
-		public function __construct($id=-1, $name=null, $description=null, $friendly_url=null, $posts_id=null) {
+		public function __construct($id=-1, $title=null, $description=null, $is_published=null, $posts_id=null) {
 			$this->setId($id);
-			$this->setName($name);
+			$this->setTitle($title);
 			$this->setDescription($description);
-			$this->setFriendlyUrl($friendly_url);
+			$this->setIsPublished($is_published);
             $this->setPostsId($posts_id);
 
 			parent::__construct();
@@ -22,16 +22,16 @@
 			$this->id=$id;
 		}
 
-        public function setName($name) {
-            $this->name=trim($name);
+        public function setTitle($title) {
+            $this->title=trim($title);
         }
 
         public function setDescription($description) {
             $this->description=trim($description);
         }
 
-		public function setFriendlyUrl($friendly_url) {
-			$this->friendly_url=trim($friendly_url);
+		public function setIsPublished($is_published) {
+			$this->is_published=trim($is_published);
 		}
 
         public function setPostsId($posts_id) {
@@ -43,16 +43,16 @@
             return $this->id;
         }
 
-        public function getName() {
-            return $this->name;
+        public function getTitle() {
+            return $this->title;
         }
 
         public function getDescription() {
             return $this->description;
         }
 
-        public function getFriendly_url() {
-            return $this->friendly_url;
+        public function getIsPublished() {
+            return $this->is_published;
         }
 
         public function gtPostsId() {
