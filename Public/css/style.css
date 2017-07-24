@@ -235,7 +235,7 @@ label.right-content {
     max-height: 300px;
     opacity: 1;
     z-index: 10;
-    /* Empêche le défaut de scroll pendant l'ouverture d'un menu */
+    /* Empï¿½che le dï¿½faut de scroll pendant l'ouverture d'un menu */
     overflow-y: none;
     overflow-x: none;
 }
@@ -378,6 +378,7 @@ ul li:hover i {
     font-size: 6em;
     background-color: transparent;
     border: none;
+    box-shadow: 10px 5px 5px black;
 }
 .logo i {
     font-size: 70px;
@@ -737,7 +738,7 @@ input[type=button] {
     .left-menu {
         height: 100%;
         width: 70px;
-        /* Permet le défilement vertical en tablette du leftmenu */
+        /* Permet le dï¿½filement vertical en tablette du leftmenu */
         overflow-y: auto;
     }
 
@@ -745,9 +746,14 @@ input[type=button] {
 		text-align: center;
 	}
 
+    p{
+        font-size: larger;
+    }
+
     .fa.logo-upload{
-        font-size: 0.60em;
-        display: none;
+        font-size: 10.6em;
+        box-shadow:  10px 5px 5px black;
+        /*display: none;*/
     }
 
     .logo {
@@ -802,7 +808,7 @@ input[type=button] {
         width: 70px;
         height: 100%;
         text-align: center;
-        /* Permet le défilement vertical en mobile du leftmenu */
+        /* Permet le dï¿½filement vertical en mobile du leftmenu */
         overflow-y: auto;
     }
     
@@ -811,8 +817,9 @@ input[type=button] {
     }	
 
     .fa.logo-upload {
-        font-size: 0.60em;
-        display: none;
+        font-size: 5.6em;
+        box-shadow:  10px 5px 5px black;
+        /*display: none;*/
     }
 
     #dropfile {
