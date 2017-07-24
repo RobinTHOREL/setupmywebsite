@@ -28,7 +28,7 @@ class SettingsController{
                     $optionHost->setName($optionName);
                 }
                 $error = false;
-                $host = $_POST['host'];
+                $host = trim($_POST['host']);
                 
                 /*if(!ctype_alnum ( $host )) {
                     array_push($messages, "L'hôte saisie contient des caractères invalides.");
@@ -105,7 +105,7 @@ class SettingsController{
                     $optionSmtpUsername->setName($optionName);
                 }
                 $error = false;
-                $smtpUserName = $_POST['smtp-username'];
+                $smtpUserName = trim($_POST['smtp-username']);
                
                 
                 if( !$error ) {
@@ -117,7 +117,7 @@ class SettingsController{
                 }
             }
             
-            if(isset($_POST['smtp-password'])) {
+            if(isset($_POST['smtp-password']) && !empty($_POST['smtp-password'])) {
                 $optionName = "MAIL_SMTP_PASSWORD";
                 $optionSmtpPassword = new Options();
                 $optionSmtpPassword->populate(["name"=>$optionName]);
@@ -127,6 +127,7 @@ class SettingsController{
                 $error = false;
                 $smtpPassword = $_POST['smtp-password'];
                 
+                //TODO:Autoriser password vide
                 
                 if( !$error ) {
                     $optionSmtpPassword->setValue($smtpPassword);
@@ -145,7 +146,16 @@ class SettingsController{
                     $optionFromEmail->setName($optionName);
                 }
                 $error = false;
-                $fromEmail = $_POST['from-email'];
+                $fromEmail = trim($_POST['from-email']);
+                
+                
+                if(!filter_var($fromEmail, FILTER_VALIDATE_EMAIL)) {
+                    array_push($messages, "Le format de l'email saisie est invalide.");
+                }
+                
+                if(strlen($fromEmail)>320) {
+                    array_push($messages, "La longueur de l'email saisie est trop grande.");
+                }
                 
                 if( !$error ) {
                     $optionFromEmail->setValue($fromEmail);
@@ -164,7 +174,7 @@ class SettingsController{
                     $optionFromUserName->setName($optionName);
                 }
                 $error = false;
-                $fromUserName = $_POST['from-username'];
+                $fromUserName = trim($_POST['from-username']);
                 
                 if( !$error ) {
                     $optionFromUserName->setValue($fromUserName);

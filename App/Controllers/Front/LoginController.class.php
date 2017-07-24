@@ -84,7 +84,7 @@ class LoginController {
                 $mail->SMTPSecure = 'tls';
                 $mail->SMTPAuth = true;
                 $mail->Username = MAIL_SMTP_USERNAME;
-                $mail->Password = MAIL_STMP_PASSWORD;
+                $mail->Password = MAIL_SMTP_PASSWORD;
                 $mail->setFrom(MAIL_FROM_EMAIL, MAIL_FROM_USERNAME);
                 $mail->addAddress($userEmail);
                 $mail->Subject = 'Setup My Website - Nouveau mot de passe';
