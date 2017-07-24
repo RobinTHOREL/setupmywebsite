@@ -2,13 +2,12 @@
 
             <div class="ui inverted vertical center aligned segment text masthead">
                 <h1 class="ui inverted header">
-                    Imagine-a-Company
+                    Setup-My Website
                 </h1>
                 <h2>Do whatever you want when you want to.</h2>
                 <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
             </div>
 
-        </div>
 
         <div class="ui vertical stripe segment">
             <div class="ui middle aligned stackable grid container">
@@ -60,35 +59,5 @@
                 <h3 class="ui header">Did We Tell You About Our Bananas?</h3>
                 <p>Yes I know you probably disregarded the earlier boasts as non-sequitor filler content, but its really true. It took years of gene splicing and combinatory DNA research, but our bananas can really dance.</p>
                 <a class="ui large button">I'm Still Quite Interested</a>
-            </div>
-        </div>
-
-
-        <div class="ui inverted vertical footer segment">
-            <div class="ui container">
-                <div class="ui stackable inverted divided equal height stackable grid">
-                    <div class="three wide column">
-                        <h4 class="ui inverted header">About</h4>
-                        <div class="ui inverted link list">
-                            <a href="#" class="item">Sitemap</a>
-                            <a href="#" class="item">Contact Us</a>
-                            <a href="#" class="item">Religious Ceremonies</a>
-                            <a href="#" class="item">Gazebo Plans</a>
-                        </div>
-                    </div>
-                    <div class="three wide column">
-                        <h4 class="ui inverted header">Services</h4>
-                        <div class="ui inverted link list">
-                            <a href="#" class="item">Banana Pre-Order</a>
-                            <a href="#" class="item">DNA FAQ</a>
-                            <a href="#" class="item">How To Access</a>
-                            <a href="#" class="item">Favorite X-Men</a>
-                        </div>
-                    </div>
-                    <div class="seven wide column">
-                        <h4 class="ui inverted header">Footer Header</h4>
-                        <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
-                    </div>
-                </div>
             </div>
         </div>

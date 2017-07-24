@@ -14,7 +14,7 @@
 	});
 	
 	// On lance le routage ou l'installation si la configuration personnalisé n'existe pas
-	if(file_exists("config/config_perso_inc.php")) {
+	if(file_exists("Config/config_perso_inc.php")) {
         require CONFIG_PERSO_FILE;
         Helpers::loadOptionsFromDatabase();
         $route = new Routing();
