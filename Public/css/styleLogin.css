@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-
-@import url(http://fonts.googleapis.com/css?family=Quicksand:300,400,700);
-
-html {
-    background-image: url(http://thorelrobin.fr/small_steps.png);
-    background-repeat: repeat;
-}
-
-=======
 @import url(http://fonts.googleapis.com/css?family=Quicksand:300,400,700);
 
 html {
@@ -19,8 +9,6 @@ html {
     padding: 0px;
     margin: 0px;
 }
-
->>>>>>> login
 div.back_glob{
 
     width: 400px;
@@ -44,10 +32,6 @@ input{
 
 div.back_header h1{
     color: #000000;
-<<<<<<< HEAD
-    /*text-shadow: 0 0 10px rgba(0,0,0,0.3);*/
-=======
->>>>>>> login
     letter-spacing:2px;
     text-align:center;
 
@@ -56,7 +40,6 @@ a{
     display: block;
     text-align: center;
     color: #000000;
-<<<<<<< HEAD
 }
 .logo i {
     font-size: 70px;
@@ -107,8 +90,6 @@ input.form-group{
     text-align: center;
 
 }
-
-<<<<<<< HEAD
 /* Responsive de width : 480 a 900px */
 @media(max-width: 900px) /** Optimisation iPad **/
 {
@@ -170,5 +151,3 @@ input.form-group{
 
 
 }
-=======
->>>>>>> login
