@@ -1,4 +1,4 @@
-<div class="row"> <!-- exemple - ligne 1 -->
+<div class="row">
     <div class="col-12 title">
         <header>
             <?php
@@ -16,28 +16,24 @@
         <div class="logo">
             <i class="fa fa-cog"></i>
         </div>
-        <p class="smw">SMW-ADMIN</p>
     </div>
     <div class="col-12">
-        <h1>Création du compte Admin</h1>
+        <h1>Création du compte Administrateur</h1>
     </div>
-    <div class="row"> <!-- exemple - ligne 2 -->
+    <div class="row">
         <div class="col-6 col-offset-3">
             <form action="" method="POST">
-                <label for="utilisateur"> Utilisateur :<br>
-                    <input type="text" class="form-group" name="user" value="" required="required">
-                </label>
-                <label for="password"> Password :<br>
-                    <input type="text" class="form-group" name="password" value="" required="required">
-                </label>
-                <label for="email">Email :<br>
-                    <input type="text" class="form-group" name="email" value="" required="required">
-                </label>
+                        <label>Login<input type="text" class="form-group" name="login" placeholder="Login" required="required" maxlength="64"></label>
+                        <label>Mot de passe<input type="password" class="form-group" name="password" placeholder="Mot de passe" required="required" maxlength="64"></label>
+                        <label>Confirmation du mot de passe<input type="password" class="form-group" name="passwordConfirm" placeholder="Confirmation du mot de passe" required="required" maxlength="64"></label>
+                        <label>Nom<input type="text" class="form-group" name="lastname" placeholder="Nom" maxlength="120"></label>
+                        <label>Prénom<input type="text" class="form-group" name="firstname" placeholder="Prénom" maxlength="120"></label>
+                        <label>Email<input type="email" class="form-group" name="email" placeholder="setup@my.website" required="required" maxlength="320"></label>
                 <div class="col-12">
                     <input type="submit" value="Envoyer">
                 </div>
 
             </form>
-        </div> <!-- exemple - ligne 2 -->
+        </div>
     </div>
 </div>

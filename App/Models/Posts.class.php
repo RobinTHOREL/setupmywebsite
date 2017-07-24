@@ -4,22 +4,18 @@
         protected $id;
         protected $users_id;
         protected $pages_id;
-        //protected $id_parent;
-        protected $name;
-        protected $description;
         protected $title;
         protected $content;
+        protected $show_date;
 
-		public function __construct($id=-1, $id_pages=0, /*$id_parent=0,*/ $id_author=0, $name=null,
-                                        $description=null, $title=null, $content=null) {
+        public function __construct($id=-1, $users_id=0, $pages_id=0, $title=null,
+                                        $content=null, $show_date=null) {
 			$this->setId($id);
-			$this->setPagesId($id_pages);
-            //$this->setIdParent($id_parent);
-            $this->setUsersId($id_author);
-            $this->setName($name);
-			$this->setDescription($description);
-            $this->setTitle($title);
-            $this->setContent($content);
+			$this->setUsersId($users_id);
+			$this->setPagesId($pages_id);
+			$this->setTitle($title);
+			$this->setContent($content);
+			$this->setShowDate($show_date);
 
 			parent::__construct();
 		}
@@ -33,28 +29,28 @@
             $this->pages_id=$pages_id;
         }
 
-        public function setIdParent($id_parent) {
-            $this->id_parent=$id_parent;
-        }
-
         public function setUsersId($users_id) {
             $this->users_id=$users_id;
         }
 
-        public function setName($name) {
-            $this->name=trim($name);
+        public function setTitle($title) {
+            $this->title=trim($title);
         }
-
-        public function setDescription($description) {
-            $this->description=$description;
-        }
-
-		public function setTitle($title) {
-			$this->title=trim($title);
-		}
 
         public function setContent($content) {
+            // On met à jour les liens des images de Public pour 
+            //  les rendre relatif à la base
+            $pattern = "/src( )*=( )*['\"](.)*".BASE_PATH_PATTERN.PUBLIC_PATH."/";
+            $replacement = "src=\"/".PUBLIC_PATH;
+            $contentReplace = preg_replace($pattern, $replacement, $content);
+            if($contentReplace !== null) {
+                $this->content=$contentReplace;
+            }
             $this->content=$content;
+        }
+        
+        public function setShowDate($show_date) {
+            $this->show_date=$show_date;
         }
 
         /* Getters */
@@ -66,28 +62,27 @@
             return $this->pages_id;
         }
 
-        public function getIdParent() {
-            return $this->id_parent;
-        }
-
         public function getUsersId() {
             return $this->users_id;
         }
 
-        public function getName() {
-            return $this->name;
-        }
-
-        public function getDescription() {
-            return $this->description;
-        }
-
         public function getTitle() {
-            return $this->title;
+            return htmlspecialchars($this->title);
         }
-
+        
         public function getContent() {
-            return $this->content;
+            // On met à jour les liens des images de Public pour
+            //  les rendre relatif à la base
+            $pattern = "/src( )*=( )*['\"](.)*".PUBLIC_PATH."/";
+            $replacement = "src=\"".BASE_ABSOLUTE_PATTERN.PUBLIC_PATH;
+            $contentReplace = preg_replace($pattern, $replacement, $this->content);
+            if($contentReplace !== null) {
+                return $contentReplace;
+            } 
+            return htmlspecialchars($this->content);
         }
 
-	}
+        public function getShowDate() {
+            return $this->show_date;
+        }
+    }

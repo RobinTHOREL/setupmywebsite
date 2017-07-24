@@ -1,4 +1,4 @@
-²   <?php
+<?php
 class ThemesController{
     public function addAction($params)
     {

@@ -6,6 +6,7 @@ html {
 }
 
 body {
+	margin: 0;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -33,6 +34,41 @@ h2 {
     background-color: #607D8B;
     transition: all .2s ease;
 }
+
+/* Gestion du menu */
+.menuTab {
+    overflow: hidden;
+    border: 1px solid white;
+    background-color: white;
+}
+
+.menuTab a {
+    width: 120px;
+    float: left;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 12px 16px;
+    font-size: 1.0em;
+    font-weight: bold;
+    color: black;
+    transition: 0.5s;
+}
+
+.menuTab a:hover {
+    background-color: #ccc;
+}
+
+.menuTab a.active {
+    background-color: #222;
+    color: white;
+}
+
+.tabContent {
+    padding: 4px 10px;
+    border: 1px solid white;
+    border-top: none;
+}
+
 
 /* Pages */
 
@@ -199,7 +235,9 @@ label.right-content {
     max-height: 300px;
     opacity: 1;
     z-index: 10;
-    overflow-y: auto;
+    /* Empêche le défaut de scroll pendant l'ouverture d'un menu */
+    overflow-y: none;
+    overflow-x: none;
 }
 .accordion .section label {
     position: relative;
@@ -260,12 +298,22 @@ label.right-content {
     position: fixed;
     top: 0;
     bottom: 0;
-    /*height: 100%;*/
+    overflow-x: hidden;
 }
 
 .left-menu  a{
+
     text-decoration: none;
     color: white;
+}
+
+.left-menu li a {
+	display: block;
+	padding: 10px;
+}
+
+.left-menu li {
+	padding: 0px;
 }
 
 .accordion {
@@ -687,10 +735,15 @@ input[type=button] {
 @media(max-width: 900px) /** Optimisation iPad **/
 {
     .left-menu {
-        height: 160%;
+        height: 100%;
         width: 70px;
+        /* Permet le défilement vertical en tablette du leftmenu */
+        overflow-y: auto;
     }
 
+	.accordion .section label {
+		text-align: center;
+	}
 
     .fa.logo-upload{
         font-size: 0.60em;
@@ -747,8 +800,15 @@ input[type=button] {
 
     .left-menu {
         width: 70px;
-        height: 199%;
+        height: 100%;
+        text-align: center;
+        /* Permet le défilement vertical en mobile du leftmenu */
+        overflow-y: auto;
     }
+    
+    .accordion .section label {
+    	font-size: 14px;
+    }	
 
     .fa.logo-upload {
         font-size: 0.60em;

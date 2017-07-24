@@ -2,17 +2,15 @@
 	class Pages extends BaseSql{
 
 		protected $id;
-        protected $name;
+        protected $title;
         protected $description;
-        protected $friendly_url;
-        protected $posts_id;
+        protected $is_published;
 
-		public function __construct($id=-1, $name=null, $description=null, $friendly_url=null, $posts_id=null) {
+		public function __construct($id=-1, $title=null, $description=null, $is_published=null) {
 			$this->setId($id);
-			$this->setName($name);
+			$this->setTitle($title);
 			$this->setDescription($description);
-			$this->setFriendlyUrl($friendly_url);
-            $this->setPostsId($posts_id);
+			$this->setIsPublished($is_published);
 
 			parent::__construct();
 		}
@@ -22,40 +20,33 @@
 			$this->id=$id;
 		}
 
-        public function setName($name) {
-            $this->name=trim($name);
+        public function setTitle($title) {
+            $this->title=trim($title);
         }
 
         public function setDescription($description) {
             $this->description=trim($description);
         }
 
-		public function setFriendlyUrl($friendly_url) {
-			$this->friendly_url=trim($friendly_url);
+		public function setIsPublished($is_published) {
+			$this->is_published=trim($is_published);
 		}
-
-        public function setPostsId($posts_id) {
-            $this->posts_id=trim($posts_id);
-        }
 
         /* Getters */
         public function getId() {
             return $this->id;
         }
 
-        public function getName() {
-            return $this->name;
+        public function getTitle() {
+            return htmlspecialchars($this->title);
         }
 
         public function getDescription() {
-            return $this->description;
+            return htmlspecialchars($this->description);
         }
 
-        public function getFriendly_url() {
-            return $this->friendly_url;
+        public function getIsPublished() {
+            return $this->is_published;
         }
 
-        public function gtPostsId() {
-            return $this->posts_id;
-        }
 	}

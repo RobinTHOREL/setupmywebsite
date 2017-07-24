@@ -115,14 +115,12 @@ class InstallController{
             header('Location: '.ABSOLUTE_PATH_FRONT);
         } else {
             // On charge les classes
-            if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['user'])
-                && !empty($_POST['password']) && !empty($_POST['email'])
-            ) {
+            if( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['login']) && !empty($_POST['password']) 
+                && !empty($_POST['passwordConfirm']) && !empty($_POST['email']) && !empty($_POST['firstname'])
+                && !empty($_POST['lastname']) ) {
 
-                $error = false;
                 $listOfErrors = [];
 
-                session_start();
                 if (isset($_SESSION["error_form"])) {
                     unset($_SESSION["error_form"]);
                 }
@@ -141,38 +139,54 @@ class InstallController{
                 }
 
                 // On récupère les données dans des variables
-                $adminLogin = $_POST['user'];
+                $adminLogin = trim($_POST['login']);
                 $adminPassword = $_POST['password'];
-                $adminEmail = $_POST['email'];
+                $adminPasswordConfirm = $_POST['passwordConfirm'];
+                $adminEmail = trim($_POST["email"]);
+                $adminFirstname = trim($_POST["firstname"]);
+                $adminLastname = trim($_POST["lastname"]);
 
-                // Vérification du user
-                if (strlen($adminLogin) > 32) {
-                    array_push($listOfErrors, "Le user saisie n'est pas valide.");
-                    $error = true;
+                if(strlen($adminLogin)<4 || strlen($adminLogin)>64) {
+                    array_push($listOfErrors, "Le login saisie est incorrect. Il doit faire en 4 et 64 caractères.");
                 }
-
-                // Vérification du mot de passe
-                if (strlen($adminPassword) > 64) {
-                    array_push($listOfErrors, "Le mot de passe saisie n'est pas valide.");
-                    $error = true;
+                
+                if(strlen($adminPassword)<4) {
+                    array_push($listOfErrors, "Le mot de passe saisie est trop court.");
                 }
-
-                // Vérification de l'email
-                if (filter_var($adminEmail, FILTER_VALIDATE_EMAIL) == false) {
-                    array_push($listOfErrors, "L'email saisie n'est pas valide.");
-                    $error = true;
+                
+                if(strlen($adminPassword)>64) {
+                    array_push($listOfErrors, "Le mot de passe saisie est trop long.");
+                }
+                
+                if(strcmp($adminPassword, $adminPasswordConfirm) != 0) {
+                    array_push($listOfErrors, "Les mots de passe saisies ne correspondent pas.");
+                }
+                
+                if(!filter_var($adminEmail, FILTER_VALIDATE_EMAIL)) {
+                    array_push($listOfErrors, "Le format de l'email saisie est invalide.");
+                }
+                
+                if(strlen($adminEmail)>320) {
+                    array_push($listOfErrors, "La longueur de l'email saisie est trop grande.");
+                }
+                
+                if(strlen($adminFirstname)>120) {
+                    array_push($listOfErrors, "La longueur du prénom saisie est trop grande.");
+                }
+                
+                if(strlen($adminLastname)>120) {
+                    array_push($listOfErrors, "La longueur du nom saisie est trop grande.");
                 }
 
                 // On essaye de se connecter à la base de données avec les données reçues
-                if ($error == false) {
+                if (count($listOfErrors)<=0) {
                     try {
                         $pdo = new PDO("mysql:host=" . $host . ";dbname=" . $databaseName . ";port=" . $port, $user, $password);
                     } catch (Exception $e) {
                         array_push($listOfErrors, "Erreur de connexion à la base de données. Veuillez vérifier vos paramètres de connexion.");
-                        $error = true;
                     }
                 }
-                if ($error == true) {
+                if (count($listOfErrors)>=1) {
                     $_SESSION["error_form"] = $listOfErrors;
                     header("Location: " . $_SERVER["HTTP_REFERER"]);
                     die();
@@ -187,9 +201,10 @@ class InstallController{
                 $user->setLogin($adminLogin);
                 $user->setPassword($adminPassword);
                 $user->setEmail($adminEmail);
-                $user->setFirstName("Name");
-                $user->setLastName("Name");
+                $user->setFirstName($adminFirstname);
+                $user->setLastName($adminLastname);
                 $user->setActivationKey("");
+                $user->setPermission("1");
                 $user->Save();
 
                 header("Location: installConfiguration");

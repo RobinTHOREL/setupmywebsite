@@ -18,7 +18,7 @@
                                             <i class="fa fa-file-text" aria-hidden="true"></i>
                                         </div>
                                         <div class="article_title">
-                                            <h3><?php echo $posts['title']; ?></h3>
+                                            <h3><?php echo htmlspecialchars($posts['title']); ?></h3>
                                         </div>
                                         <div class="article_button">
                                             <div class="row">

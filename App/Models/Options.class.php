@@ -2,12 +2,12 @@
 	class Options extends BaseSql{
 
         protected $id;
-        protected $option;
+        protected $name;
         protected $value;
 
-        public function __construct($id=-1, $option=null, $value=null) {
+        public function __construct($id=-1, $Name=null, $value=null) {
             $this->setId($id);
-            $this->setOption($option);
+            $this->setName($Name);
             $this->setValue($value);
 
             parent::__construct();
@@ -18,8 +18,8 @@
             $this->id=$id;
         }
 
-        public function setOption($option) {
-            $this->option=$option;
+        public function setName($Name) {
+            $this->name=$Name;
         }
 
         public function setValue($value) {
@@ -31,8 +31,8 @@
             return $this->id;
         }
 
-        public function getOption() {
-            return $this->option;
+        public function getName() {
+            return $this->name;
         }
 
         public function getValue() {

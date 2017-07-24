@@ -51,11 +51,11 @@
         }
 
         public function getName() {
-            return $this->name;
+            return htmlspecialchars($this->name);
         }
 
         public function getDescription() {
-            return $this->description;
+            return htmlspecialchars($this->description);
         }
 
         public function getAuthor() {

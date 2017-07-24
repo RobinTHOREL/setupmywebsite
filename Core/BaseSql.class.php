@@ -49,9 +49,10 @@
 					$sqlSet[] .= $column . "=:" . $column;
 				}
 
+				// Suppression de la mise à jour de la date d'update 
+				//  la mise à jour des dates est maintenant faites en BDD.
 				$query = $this->db->prepare(
-					"UPDATE " . $this->table . "
-						SET date_updated = sysdate(), 
+					"UPDATE " . $this->table . " SET 
 						" . implode(",", $sqlSet) . "
 						WHERE id=:id;"
 				);
