@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
     <div class="container">
         <div class="row"> <!-- exemple - ligne 1 -->
             <div class="col-10 title">
