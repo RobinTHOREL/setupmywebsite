@@ -21,7 +21,7 @@ class Routing{
             // Contrôle si l'utilisateur tente de se connecter directement au back-office sans être connecté
             //  sauf sur le contrôleur 'install'
             if(!Helpers::is_logged() && !empty($this->uriExploded[1]) && $this->uriExploded[1]!="install") {
-                header("Location: http://" . $_SERVER['HTTP_HOST'] . BASE_ABSOLUTE_PATTERN);
+                header("Location: ".ABSOLUTE_PATH_FRONT.login);
             }
             //Search smw-admin, si oui:
             $this->smwAdmin=true;
