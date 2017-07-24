@@ -35,6 +35,41 @@ h2 {
     transition: all .2s ease;
 }
 
+/* Gestion du menu */
+.menuTab {
+    overflow: hidden;
+    border: 1px solid white;
+    background-color: white;
+}
+
+.menuTab a {
+    width: 120px;
+    float: left;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 12px 16px;
+    font-size: 1.0em;
+    font-weight: bold;
+    color: black;
+    transition: 0.5s;
+}
+
+.menuTab a:hover {
+    background-color: #ccc;
+}
+
+.menuTab a.active {
+    background-color: #222;
+    color: white;
+}
+
+.tabContent {
+    padding: 4px 10px;
+    border: 1px solid white;
+    border-top: none;
+}
+
+
 /* Pages */
 
 .page {

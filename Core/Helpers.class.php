@@ -88,4 +88,30 @@
                 return false;
             }
         }
+        
+        /**
+         * loadOptionsFromDatabase function
+         * PHP version 5.6
+         *
+         * load all options in constant
+         * @return bool
+         */
+        static function loadOptionsFromDatabase()
+        {
+            try {
+                $options = new Options();
+                $results = $options->getAllBy();
+                if($results === false) {
+                    return false;
+                }
+                foreach($results as $option) {
+                    if( isset($option["name"]) && isset($option["value"]) ) {
+                        define(strtoupper($option["name"]),$option["value"]);
+                    }
+                }
+            } catch(Exception $e) {
+                return false;
+            }
+            return true;
+        }
     }

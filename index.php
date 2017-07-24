@@ -16,6 +16,7 @@
 	// On lance le routage ou l'installation si la configuration personnalisé n'existe pas
 	if(file_exists("config/config_perso_inc.php")) {
         require CONFIG_PERSO_FILE;
+        Helpers::loadOptionsFromDatabase();
         $route = new Routing();
     } else {
         $uriInstall = preg_replace("#".BASE_PATH_PATTERN."#i", "", $_SERVER["REQUEST_URI"], 1);
