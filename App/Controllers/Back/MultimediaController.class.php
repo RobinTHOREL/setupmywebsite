@@ -1,4 +1,4 @@
-<?php
+    <?php
 class MultimediaController{
 	public function addAction($params){
         $view = new View(BASE_BACK_OFFICE."medias/add", "smw-admin");

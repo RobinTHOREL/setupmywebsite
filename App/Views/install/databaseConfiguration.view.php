@@ -32,7 +32,7 @@
 					<input type="text" class="form-group" name="user" value="root" required="required">
 				</label>
 				<label for="password">Mot de passe : <br>
-					<input type="text" class="form-group" name="password" value="">
+					<input type="password" class="form-group" name="password" value="">
 				</label>
 				<label for="nomBase">Nom de la base de donnée : <br>
 					<input type="text" class="form-group" name="database_name" value="setupmywebsite" required="required">

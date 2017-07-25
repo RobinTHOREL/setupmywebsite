@@ -52,7 +52,7 @@
             <div class="col-4 col-offset-1 right-content">
                 <h2>Actions sur l'article</h2>
                 <div class="center-text">
-                    <input type="submit" value="Editer">
+                    <input type="submit" value="Publier">
                     <input type="reset" value="Annuler">
                 </div>
             </div>

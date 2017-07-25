@@ -73,7 +73,7 @@
                                 <?php
                                     if(Helpers::is_logged())
                                     {
-                                        echo "<a class=\"ui inverted button\" href=\"smw-admin\">Back</a>";
+                                        echo "<a class=\"ui inverted button\" href=\"smw-admin/dashboard\">Back</a>";
                                     }
                                     else{
                                         echo " <a class=\"ui inverted button\" href=\"login\">Log in</a>

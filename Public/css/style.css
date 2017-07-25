@@ -149,6 +149,7 @@ h2 {
 
 .article_title {
     color: white;
+    height: 70px;
 }
 
 .article_title h3 {
@@ -193,18 +194,17 @@ h2 {
     margin-right: auto;
     margin-left: 210px;
     padding: 25px;
-    /*height: 100%;
-      border: 2px solid white;*/
 }
 
 .right-content {
-    background: #607D8B;
+    background: #F0F0F0;
     padding: 15px;
     margin-bottom: 60px;
-    margin-top: -30px;
-    border: 1px solid white;
+    margin-top: -50px;
+    border: 1px solid #BDBDBD;
     box-shadow: #3f5fbf;
     display: inline-block;
+    border-radius: 2px;
 }
 
 label.right-content {

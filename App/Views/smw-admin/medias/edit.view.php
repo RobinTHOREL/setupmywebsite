@@ -46,12 +46,12 @@
             				<div class="col-10 col-offset-1 left-content">
             					<label>Créé par : <?php echo $media->getAuthor() ?></label><br>
             					<label>Type : <?php echo $media->getFormat() ?></label><br>
-								<label>Lien : <input type="text" disabled="disabled" value ="<?php echo ABSOLUTE_PATH_FRONT.$media->getLink() ?>"></label>
+								<label>Lien : <input type="text" class="form-group" disabled="disabled" value ="<?php echo ABSOLUTE_PATH_FRONT.$media->getLink() ?>"></label>
             				</div>
         				</div>
         				<div class="col-12 right-content">
             				<h2>Actions sur le média</h2>
-            				<input type="submit" class="form-group" value="Valider">
+            				<input type="submit" class="form-group" value="Modifier">
             				<a href="<?php echo ABSOLUTE_PATH_BACK.'multimedia/delete/'.$media->getId() ?>">Supprimer</a>
             			</div>
         			</div>
