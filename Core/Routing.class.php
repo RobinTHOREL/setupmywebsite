@@ -26,8 +26,8 @@ class Routing{
             //Search smw-admin, si oui:
             $this->smwAdmin=true;
             unset($this->uriExploded[0]);
-        }
 
+        }
 
 		$this->setController();
 		$this->setAction();

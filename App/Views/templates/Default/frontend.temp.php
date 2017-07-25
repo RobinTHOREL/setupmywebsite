@@ -87,7 +87,7 @@
                 </div>
 			<?php include $this->view; ?>
                 </div>
-            </div>
+           
         </section>
         <footer>
             <div class="ui inverted vertical footer segment">

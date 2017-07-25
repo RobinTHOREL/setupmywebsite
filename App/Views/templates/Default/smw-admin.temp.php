@@ -15,8 +15,10 @@
     <?php // Chargement de TinyMCE avec CDN en mode Production
         if(PRODUCTION_MODE === true) {
             echo '<script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>';
+            echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>';
         } else {
             echo '<script src="'.ABSOLUTE_PATH_FRONT.PUBLIC_PATH.'/js/tinymce/tinymce.min.js"></script>';
+            echo '<script src="'.ABSOLUTE_PATH_FRONT.PUBLIC_PATH.'/js/Chart.min.js"></script>';
         }
     ?>
     
@@ -135,10 +137,8 @@
     <?php // Chargement de JQuery et Charts.JS avec CDN en mode Production
         if(PRODUCTION_MODE === true) {
             echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>';
-            echo '<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>';
         } else {
             echo '<script src="'.ABSOLUTE_PATH_FRONT.PUBLIC_PATH.'/js/jquery-3.2.1.min.js"></script>';
-            echo '<script src="'.ABSOLUTE_PATH_FRONT.PUBLIC_PATH.'/js/Chart.min.js"></script>';
         }
     ?>
     
