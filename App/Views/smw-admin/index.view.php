@@ -17,3 +17,78 @@
         </div>
     </div>
 </div>
+
+<script>
+    /* Chart on dashboard page */ 
+    new Chart(document.getElementById("doughnut-chart").getContext("2d"), {
+        type: 'doughnut',
+        data: {
+            labels: [
+                    <?php 
+                    foreach($statsUserPost as $user) {
+                        echo "'".$user[0]."', ";
+                    }   
+                    ?>
+				],
+            datasets: [{
+                label: "",
+                backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                data: [
+                        <?php 
+                        foreach($statsUserPost as $user) {
+                            echo "'".$user[1]."', ";
+                        }   
+                        ?>],
+                fontColor: 'white'
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'Nombre de publication sur le site (Articles/utilisateurs)',
+                fontColor: 'white'
+            },
+            legend: {
+                    display: false
+            }
+        }
+    });
+
+    new Chart(document.getElementById("bar-chart").getContext("2d"), {
+        type: 'bar',
+        data: {
+            labels: ["Janvier", "Fevrier", "Mars", "Avril", "Mai"],
+            datasets: [
+                {
+                    label: "Nombre de visiteurs",
+                    backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                    data: [200,198,249,299,236],
+                    fontColor: 'white'
+                }
+            ]
+        },
+        options: {
+            legend: {display: false},
+            title: {
+                display: true,
+                text: 'Nombre de connexion mensuel',
+                fontColor: 'white'
+            },
+                scales: {
+                    xAxes: [{
+                        ticks: {
+                            fontColor: "white",
+                            fontSize: 14,
+                            stepSize: 1,
+                            beginAtZero: true
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            fontColor: 'white'
+                        }
+                    }]
+                }
+            }
+    });
+</script>

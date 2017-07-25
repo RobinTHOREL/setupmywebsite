@@ -24,11 +24,16 @@ define("BASE_PATH_PATTERN", $basePattern);
 define("DS", DIRECTORY_SEPARATOR);
 
 /* Protocole */
-if($_SERVER['HTTPS']) {
-    define("HTTP_TYPE", "https");
+if(isset($_SERVER['HTTPS'])) {
+    if($_SERVER['HTTPS']=="on") {
+        define("HTTP_TYPE", "https");
+    } else {
+        define("HTTP_TYPE", "http");
+    }
 } else {
     define("HTTP_TYPE", "http");
 }
+
 /* Absolute Paths Constants */
 define("BASE_ABSOLUTE_BACKOFFICE", "smw-admin/");
 define("ABSOLUTE_PATH_BACK", HTTP_TYPE."://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN.BASE_ABSOLUTE_BACKOFFICE);
