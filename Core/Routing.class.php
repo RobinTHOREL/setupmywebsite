@@ -18,11 +18,16 @@ class Routing{
         $check = preg_match("/smw-admin/i", $uri);
         if($check != false)
         {
-            //Search smw-admin si oui:
+            // Contrôle si l'utilisateur tente de se connecter directement au back-office sans être connecté
+            //  sauf sur le contrôleur 'install'
+            if(!Helpers::is_logged() && !empty($this->uriExploded[1]) && $this->uriExploded[1]!="install") {
+                header("Location: ".ABSOLUTE_PATH_FRONT.login);
+            }
+            //Search smw-admin, si oui:
             $this->smwAdmin=true;
             unset($this->uriExploded[0]);
-        }
 
+        }
 
 		$this->setController();
 		$this->setAction();
@@ -67,7 +72,6 @@ class Routing{
 			return false;
 		}
 		if(  !method_exists($this->controllerName, $this->actionName) ){
-            if(DEBUG_MODE) {  echo "Action ". $this->actionName . "<br>";  }
             $this->error = "L'action n'existe pas";
 			return false;
 		}

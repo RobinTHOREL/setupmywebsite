@@ -4,7 +4,7 @@
         protected $id;
         protected $name;
         protected $description;
-        protected $author;
+        protected $author_id;
         protected $format;
         protected $link;
 
@@ -34,7 +34,7 @@
         }
 
 		public function setAuthor($author) {
-			$this->author=$author;
+			$this->author_id=$author;
 		}
 
         public function setFormat($format) {
@@ -51,15 +51,15 @@
         }
 
         public function getName() {
-            return $this->name;
+            return htmlspecialchars($this->name);
         }
 
         public function getDescription() {
-            return $this->description;
+            return htmlspecialchars($this->description);
         }
 
         public function getAuthor() {
-            return $this->author;
+            return $this->author_id;
         }
 
         public function getFormat() {

@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	// On charge les constantes
-	require "config/config_inc.php";
+	require "Config/config_inc.php";
 	
 	// Charge les classes du Core
 	spl_autoload_register(function ($class){
@@ -14,8 +14,9 @@
 	});
 	
 	// On lance le routage ou l'installation si la configuration personnalisé n'existe pas
-	if(file_exists("config/config_perso_inc.php")) {
+	if(file_exists("Config/config_perso_inc.php")) {
         require CONFIG_PERSO_FILE;
+        Helpers::loadOptionsFromDatabase();
         $route = new Routing();
     } else {
         $uriInstall = preg_replace("#".BASE_PATH_PATTERN."#i", "", $_SERVER["REQUEST_URI"], 1);

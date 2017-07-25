@@ -1,24 +1,20 @@
+@import url(http://fonts.googleapis.com/css?family=Quicksand:300,400,700);
+
+html {
+    background-image: url(http://thorelrobin.fr/small_steps.png);
+    background-repeat: repeat;
+}
+
 *{
     padding: 0px;
     margin: 0px;
 }
-
-body{
-    font-family: 'Open Sans', sans-serif;
-/*background-color: #333333;*/
-    background: -moz-linear-gradient(top, rgba(57,173,219,.25), rgba(42,60,87,.4)), -moz-linear-gradient(-45deg, #670d10, #092756);
-    background: -webkit-linear-gradient(top, rgba(57,173,219,.25), rgba(42,60,87,.4)), -webkit-linear-gradient(-45deg, #670d10, #092756);
-    background: linear-gradient(top, rgba(57,173,219,.25), rgba(42,60,87,.4)), linear-gradient(-45deg, #670d10, #092756);
-
-}
-
 div.back_glob{
 
     width: 400px;
     margin-right: auto;
     margin-left: auto;
-    margin-top: 20%;
-    height: 650px;
+    margin-top: 10%;
     /*border: 1px solid black;
     box-shadow: 1px 0px 15px #25b2d5 ;*/
 
@@ -35,8 +31,7 @@ input{
 }
 
 div.back_header h1{
-    color: white;
-    /*text-shadow: 0 0 10px rgba(0,0,0,0.3);*/
+    color: #000000;
     letter-spacing:2px;
     text-align:center;
 
@@ -44,7 +39,14 @@ div.back_header h1{
 a{
     display: block;
     text-align: center;
-    color: white;
+    color: #000000;
+}
+.logo i {
+    font-size: 70px;
+    color: #21CCFC ;
+    margin-bottom: 20px;
+=======
+>>>>>>> login
 }
 
 
@@ -86,5 +88,66 @@ input.form-group{
     margin-top: 40px;
     padding: 3px;
     text-align: center;
+
+}
+/* Responsive de width : 480 a 900px */
+@media(max-width: 900px) /** Optimisation iPad **/
+{
+    .logo i {
+        font-size: 70px;
+        color: #21CCFC ;
+        margin-bottom: 20px;
+        margin-top: -47px;
+    }
+
+    div.back_glob {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 18%;
+        /* border: 1px solid black;
+        box-shadow: 1px 0px 15px #25b2d5;*/
+    }
+
+
+}
+
+/* Responsive de width : 0 a 480px */
+@media(max-width: 480px) /** Optimisation iPhone 6 **/ {
+
+    .logo i {
+        font-size: 70px;
+        color: #21CCFC ;
+        margin-bottom: 20px;
+        margin-top: -47px;
+    }
+    div.back_glob {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        margin-top: 18%;
+       /* border: 1px solid black;
+        box-shadow: 1px 0px 15px #25b2d5;*/
+    }
+
+    .form-group {
+        height: 70px;
+        margin-top: 40px;
+        padding: 3px;
+        text-align: center;
+    }
+
+    input[type=submit] {
+        filter: none;
+        background-color: #4a77d4;
+        height: 62px;    }
+
+    a {
+        display: block;
+        text-align: center;
+        color: #000000;
+        font-size: 40px;
+    }
+
 
 }

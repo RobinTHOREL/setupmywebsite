@@ -23,10 +23,21 @@ define("BASE_PATH_PATTERN", $basePattern);
 /* Constante de l'application */
 define("DS", DIRECTORY_SEPARATOR);
 
+/* Protocole */
+if(isset($_SERVER['HTTPS'])) {
+    if($_SERVER['HTTPS']=="on") {
+        define("HTTP_TYPE", "https");
+    } else {
+        define("HTTP_TYPE", "http");
+    }
+} else {
+    define("HTTP_TYPE", "http");
+}
+
 /* Absolute Paths Constants */
 define("BASE_ABSOLUTE_BACKOFFICE", "smw-admin/");
-define("ABSOLUTE_PATH_BACK", "http://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN.BASE_ABSOLUTE_BACKOFFICE);
-define("ABSOLUTE_PATH_FRONT", "http://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN);
+define("ABSOLUTE_PATH_BACK", HTTP_TYPE."://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN.BASE_ABSOLUTE_BACKOFFICE);
+define("ABSOLUTE_PATH_FRONT", HTTP_TYPE."://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN);
 
 define("DEBUG_MODE", true);
 define("PRODUCTION_MODE", true);
@@ -48,4 +59,4 @@ define("LOG_PATH", "Logs".DS);
 define("INSTALL_DATABASE_FILE", "Install".DS."setupmywebsite.sql");
 
 /* Lien du fichier de configuration personnalisé */
-define("CONFIG_PERSO_FILE", "config".DS."config_perso_inc.php");
+define("CONFIG_PERSO_FILE", "Config".DS."config_perso_inc.php");

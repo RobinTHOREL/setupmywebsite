@@ -6,6 +6,7 @@ html {
 }
 
 body {
+	margin: 0;
     font-family: 'Quicksand', sans-serif;
 }
 
@@ -33,6 +34,41 @@ h2 {
     background-color: #607D8B;
     transition: all .2s ease;
 }
+
+/* Gestion du menu */
+.menuTab {
+    overflow: hidden;
+    border: 1px solid white;
+    background-color: white;
+}
+
+.menuTab a {
+    width: 120px;
+    float: left;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 12px 16px;
+    font-size: 1.0em;
+    font-weight: bold;
+    color: black;
+    transition: 0.5s;
+}
+
+.menuTab a:hover {
+    background-color: #ccc;
+}
+
+.menuTab a.active {
+    background-color: #222;
+    color: white;
+}
+
+.tabContent {
+    padding: 4px 10px;
+    border: 1px solid white;
+    border-top: none;
+}
+
 
 /* Pages */
 
@@ -199,7 +235,9 @@ label.right-content {
     max-height: 300px;
     opacity: 1;
     z-index: 10;
-    overflow-y: auto;
+    /* Emp�che le d�faut de scroll pendant l'ouverture d'un menu */
+    overflow-y: none;
+    overflow-x: none;
 }
 .accordion .section label {
     position: relative;
@@ -260,12 +298,22 @@ label.right-content {
     position: fixed;
     top: 0;
     bottom: 0;
-    /*height: 100%;*/
+    overflow-x: hidden;
 }
 
 .left-menu  a{
+
     text-decoration: none;
     color: white;
+}
+
+.left-menu li a {
+	display: block;
+	padding: 10px;
+}
+
+.left-menu li {
+	padding: 0px;
 }
 
 .accordion {
@@ -330,6 +378,7 @@ ul li:hover i {
     font-size: 6em;
     background-color: transparent;
     border: none;
+    box-shadow: 10px 5px 5px black;
 }
 .logo i {
     font-size: 70px;
@@ -420,6 +469,7 @@ a #response_media {
 
 /* Style formulaire class="form-group" */
 
+/* Bloc Dropfile et Config Dropfile */
 #dropfile{
     margin-top: 30px;
     height: 40vh;
@@ -431,6 +481,99 @@ a #response_media {
 p.dropper {
     font-size: 14px;
 }
+
+
+#dropfile_btn_upload {
+	outline: none;
+	cursor: pointer;
+}
+
+#dropfile_hidden_upload {
+	display: none;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+
+#cover {
+	display:none;
+	position:fixed;
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:98;
+	background:rgba(0,0,0,0.3);
+}
+
+#dropfile_config {
+	display: none;
+	position: fixed;
+	width: 380px; 
+	height: 240px;
+	top: calc(50% - 120px);
+	left: calc(50% - 70px);
+	z-index: 99;
+
+	background: white;
+	-webkit-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.22);
+	-moz-box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.22);
+	box-shadow: 0px 0px 8px 1px rgba(0,0,0,0.22);
+}
+
+#df_cfg_header {
+	height: 15%;
+	border: 1px solid #ccc;
+    background-color: #f2f2f2;
+	padding: 6px 12px;
+}
+
+#df_cfg_body {
+	height: 70%;
+	width: 100%;
+}
+
+.div-1-3 {
+	display: inline-block;
+	width: 32%;
+}
+
+.div-2-3 {
+	display: inline-block;
+	width: 65%;
+}
+
+#df_cfg_button {
+	height: 15%;
+	border-top: 1px solid #ccc;
+	padding: 4px 8px;
+}
+
+#df_cfg_button button {
+	display: inline-block;
+    border: 1px solid #b1b1b1;
+    border-color: transparent transparent transparent transparent;
+    position: absolute;
+    text-shadow: 0 1px 1px rgba(255,255,255,0.75);
+    background-color: #EEE;
+    padding: 4px 4px;
+    transition: background-color 0.3s;
+}
+
+#df_cfg_button button:hover {
+	background-color: #CCC;
+}
+
+#df_cfg_btn_cancel {
+	right: 80px;
+}
+
+#df_cfg_btn_send {
+	right: 12px;
+}
+/* Fin Dropfile et Config Dropfile */
 
 .form-group table, th, td {
     height: 50px;
@@ -602,14 +745,24 @@ input[type=button] {
 @media(max-width: 900px) /** Optimisation iPad **/
 {
     .left-menu {
-        height: 160%;
+        height: 100%;
         width: 70px;
+        /* Permet le d�filement vertical en tablette du leftmenu */
+        overflow-y: auto;
     }
 
+	.accordion .section label {
+		text-align: center;
+	}
+
+    p{
+        font-size: larger;
+    }
 
     .fa.logo-upload{
-        font-size: 0.60em;
-        display: none;
+        font-size: 10.6em;
+        box-shadow:  10px 5px 5px black;
+        /*display: none;*/
     }
 
     .logo {
@@ -662,12 +815,20 @@ input[type=button] {
 
     .left-menu {
         width: 70px;
-        height: 199%;
+        height: 100%;
+        text-align: center;
+        /* Permet le d�filement vertical en mobile du leftmenu */
+        overflow-y: auto;
     }
+    
+    .accordion .section label {
+    	font-size: 14px;
+    }	
 
     .fa.logo-upload {
-        font-size: 0.60em;
-        display: none;
+        font-size: 5.6em;
+        box-shadow:  10px 5px 5px black;
+        /*display: none;*/
     }
 
     #dropfile {

@@ -1,7 +1,9 @@
-var myId = "";
+var myURL = "";
+var myALT = "";
 
-function selectedItemCallback(newId) {
-    myId = newId;
+function selectedItemCallback(newURL, newALT) {
+	myURL = newURL;
+	myALT = newALT;
 }
 
 tinymce.PluginManager.add('importImageSMW', function(editor, url) {
@@ -21,7 +23,7 @@ tinymce.PluginManager.add('importImageSMW', function(editor, url) {
             }, {
                 text: 'Ok',
                 onclick: function() {
-                    editor.insertContent('<img src="' + myId + '" alt="" width="120px">');
+                    editor.insertContent('<img src="' + myURL + '" alt="'+myALT+'" width="120px">');
                     editor.windowManager.close();
                 }
             }]
