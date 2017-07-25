@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	// On charge les constantes
-	require "config/config_inc.php";
+	require "Config/config_inc.php";
 	
 	// Charge les classes du Core
 	spl_autoload_register(function ($class){
