@@ -95,6 +95,7 @@ h2 {
     text-align: center;
     padding: 10px;
     font-size: 12px;
+
 }
 
 .page_logo {
@@ -378,7 +379,6 @@ ul li:hover i {
     font-size: 6em;
     background-color: transparent;
     border: none;
-    box-shadow: 10px 5px 5px black;
 }
 .logo i {
     font-size: 70px;
@@ -725,12 +725,19 @@ input[type=button] {
     cursor: pointer;
 }
 
+#btn{
+    display: none;
+}
 
 /* Composants pages */
 .title {
     font-size: 2em;
     font-weight: bold;
 }
+#msg2{
+    display: none;
+}
+
 
 /* Responsive de width : 480 a 900px */
 @media(max-width: 900px) /** Optimisation iPad **/
@@ -751,9 +758,17 @@ input[type=button] {
     }
 
     .fa.logo-upload{
-        font-size: 10.6em;
-        box-shadow:  10px 5px 5px black;
-        /*display: none;*/
+        display: none;
+        display: block;
+        width:250px;
+        height:150px;
+        background:#21CCFC;
+        box-shadow:2px 2px 8px #aaa;
+        font:bold 13px Arial;
+        border-radius:50%;
+        color:#555;
+        margin: auto;
+        position: relative;
     }
 
     .logo {
@@ -793,6 +808,18 @@ input[type=button] {
     #dropfile{
         border:none;
     }
+    #msg1{
+        display: none;
+    }
+    #msg2{
+        display: block;
+        position: absolute;
+        width: 60%;
+        font-size: 2em;
+        margin-left:15%;
+        margin-top: -20px;
+    }
+
 
 
 }
@@ -817,9 +844,30 @@ input[type=button] {
     }	
 
     .fa.logo-upload {
-        font-size: 5.6em;
-        box-shadow:  10px 5px 5px black;
-        /*display: none;*/
+        display: none;
+        display: block;
+        width:150px;
+        height:85px;
+        background:#21CCFC;
+        box-shadow:2px 2px 8px #aaa;
+        font:bold 13px Arial;
+        border-radius:50%;
+        color:#555;
+        margin: auto;
+
+    }
+
+    #msg1{
+        display: none;
+    }
+
+    #msg2{
+        display: block;
+        position: absolute;
+        width: 60%;
+        font-size: 1.5em;
+        margin-left:15%;
+        margin-top: -20px;
     }
 
     #dropfile {
@@ -833,5 +881,6 @@ input[type=button] {
     input[type=submit] {
         width: 100%;
     }
+
 }
 
