@@ -39,14 +39,14 @@
                             echo "'".$user[1]."', ";
                         }   
                         ?>],
-                fontColor: 'white'
+                fontColor: 'black'
             }]
         },
         options: {
             title: {
                 display: true,
                 text: 'Nombre de publication sur le site (Articles/utilisateurs)',
-                fontColor: 'white'
+                fontColor: 'black'
             },
             legend: {
                     display: false
@@ -63,7 +63,7 @@
                     label: "Nombre de visiteurs",
                     backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
                     data: [200,198,249,299,236],
-                    fontColor: 'white'
+                    fontColor: 'black'
                 }
             ]
         },
@@ -72,12 +72,12 @@
             title: {
                 display: true,
                 text: 'Nombre de connexion mensuel',
-                fontColor: 'white'
+                fontColor: 'black'
             },
                 scales: {
                     xAxes: [{
                         ticks: {
-                            fontColor: "white",
+                            fontColor: "black",
                             fontSize: 14,
                             stepSize: 1,
                             beginAtZero: true
@@ -85,7 +85,7 @@
                     }],
                     yAxes: [{
                         ticks: {
-                            fontColor: 'white'
+                            fontColor: 'black'
                         }
                     }]
                 }

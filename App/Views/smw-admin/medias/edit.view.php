@@ -33,7 +33,7 @@
             				<input type="text" name="description"
             					class="form-group col-4 col-offset-1" value="<?php echo $media->getDescription() ?>" maxlength="120">
         				</div>
-        				<div class="col-10">	
+        				<div class="col-10" >
         					<img src="<?php echo ABSOLUTE_PATH_FRONT.$media->getLink() ?>" alt="<?php echo $media->getDescription() ?>" style="max-width:80%">
         				</div>
         			</div>
