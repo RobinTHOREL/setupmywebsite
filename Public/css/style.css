@@ -793,12 +793,20 @@ input[type=button] {
     #dropfile{
         border:none;
     }
+    h3{
+        font-size: 30px;
+    }
 
 
 }
 
 /* Responsive de width : 0 a 480px */
 @media(max-width: 480px) /** Optimisation iPhone 6 **/ {
+
+    h3{
+        font-size: 18px;
+    }
+
     h2, label {
         font-size: 0.70em;
         text-align: center;
@@ -833,5 +841,6 @@ input[type=button] {
     input[type=submit] {
         width: 100%;
     }
+
 }
 

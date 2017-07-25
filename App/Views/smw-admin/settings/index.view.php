@@ -5,7 +5,7 @@
                 	<a href="mailer" class="">Mailer</a>
             	</div>
             <div class="col-10 col-offset-1 title">
-                <h2>Modifier les réglages SMW</h2>
+                <h3>Modifier les réglages SMW</h3>
             </div>
             <div class="col-10 col-offset-1 title">
                 <h3>Réglages du site</h3>
