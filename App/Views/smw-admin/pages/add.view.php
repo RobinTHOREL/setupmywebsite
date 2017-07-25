@@ -34,24 +34,28 @@
                             value="<?php echo (isset($_SESSION["backup"]["description"]))? $_SESSION["backup"]["description"] : "";?>"
                             ><br>
                     </div>
-                    <div class="col-4 col-offset-1">
-                        <div class="col-12 right-content">
-                            <h2>Propriétés de la page</h2>
-                            <div class="col-10 col-offset-1">
-                            <input type="checkbox" 
-                                id="is_published_label" 
-                                name="is_published" 
-                                value="1" 
-                                class="form-group" 
-                                checked="<?php echo (isset($_SESSION["backup"]["is_published"]))? "checked" : "";?>"
-                            >
-                            <label for="is_published_label">Rendre le contenu public</label><br><br>
-                            </div>
-                        </div>
-                        <div class="col-12 right-content">
-                            <h2>Actions sur l'article</h2>
-                            <input type="submit" class="form-group" value="Publier">
-                            <input type="reset" class="form-group" id="cancel-btn" value="Annuler">
+                    <div class="col-4 col-offset-1 right-content">
+                        <h2>Propriétés de la page</h2>
+                        <div class="col-10 col-offset-1">
+                            <label>Template</label>
+                            <select name="" class="form-group">
+                                <?php
+                                $tempFiles = glob(TEMPLATES_PATH_CUSTOM.'*temp.php');
+                                $patterns = array();
+                                $patterns[0] = "/(.)*\\".DS."/";
+                                $patterns[1] = "/.temp.php/";
+                                foreach ($tempFiles as $tempFile)
+                                {
+                                    $valueTemplate = preg_replace($patterns, '', $tempFile);
+                                    echo '<option value="'.$valueTemplate.'">'.ucfirst($valueTemplate).'</option>';
+                                }
+                                ?>
+
+                            </select><br>
+                            <label>Style</label>
+                            <select name="" class="form-group">
+                                <option>Style par défaut</option>
+                            </select>
                         </div>
                     </div>
                 </form>
