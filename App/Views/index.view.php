@@ -4,7 +4,7 @@
                 <h1 class="ui inverted header">
                     <?php echo (!empty($main_title))?$main_title:"Setup Your Website"; ?>
                 </h1>
-                <h2>Do whatever you want when you want to.</h2>
+                <h2><?php echo (!empty($test))?$test:"Setup Your Website"; ?>.</h2>
                 <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
             </div>
 

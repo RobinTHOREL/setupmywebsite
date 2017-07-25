@@ -23,12 +23,15 @@
                             </a>
 <!--                            Insert Menu from Page titles. If is empty, show HomePage as default-->
                             <?php $listMenu = Helpers::get_menu();
+
                             $first = true;
+                            $isUrl = false;
+
                             if ($listMenu != 0)
                             {
                                 foreach ($listMenu as $menu)
                                 {
-                                    echo ($first)?"<a class=\"active item\">":"<a class=\"item\">";
+                                    echo ($first)?"<a class=\"active item\" href='".ABSOLUTE_PATH_FRONT . "page/view/".$menu["id"]."'>":"<a class=\"item\" href='".ABSOLUTE_PATH_FRONT . "page/view/".$menu["id"]."'>";
                                     $first = false;
                                     echo $menu["name"]."</a>";
                                 }

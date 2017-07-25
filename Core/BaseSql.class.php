@@ -39,8 +39,8 @@
 					"INSERT INTO " . $this->table . " (" . $sqlCol . ")
 						VALUES (" . $sqlKey . ") ;"
 				);
-				print_r($query);
-//				$query->execute($data);
+//				print_r($query);
+				$query->execute($data);
 				
 			} else {
 				// Sinon faire un update dynamique
@@ -56,8 +56,8 @@
 						" . implode(",", $sqlSet) . "
 						WHERE `id`=:id;"
 				);
-                print_r($query);
-//				$query->execute($data);
+//                print_r($query);
+				$query->execute($data);
 			}
 		}
 

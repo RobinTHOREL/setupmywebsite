@@ -11,7 +11,7 @@ class PagesController{
             $page->setFriendlyUrl("0");
             $page->setPostsId("0");
             $page->Save();
-            //header('Location: view');
+
         }
 
         $view = new View(BASE_BACK_OFFICE."pages/add", "smw-admin");

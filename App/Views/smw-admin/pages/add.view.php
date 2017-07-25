@@ -21,9 +21,20 @@
                     <div class="col-4 col-offset-1 right-content">
                         <h2>Propriétés de la page</h2>
                         <div class="col-10 col-offset-1">
-                            <label>Page parente</label>
+                            <label>Template</label>
                             <select name="" class="form-group">
-                                <option>(pas de parent)</option>
+                                <?php
+                                $tempFiles = glob(TEMPLATES_PATH_CUSTOM.'*temp.php');
+                                $patterns = array();
+                                $patterns[0] = "/(.)*\\".DS."/";
+                                $patterns[1] = "/.temp.php/";
+                                foreach ($tempFiles as $tempFile)
+                                {
+                                    $valueTemplate = preg_replace($patterns, '', $tempFile);
+                                    echo '<option value="'.$valueTemplate.'">'.ucfirst($valueTemplate).'</option>';
+                                }
+                                ?>
+
                             </select><br>
                             <label>Style</label>
                             <select name="" class="form-group">
