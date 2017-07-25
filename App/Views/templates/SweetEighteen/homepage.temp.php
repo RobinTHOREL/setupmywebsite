@@ -57,6 +57,7 @@
                             <?php $listMenu = Helpers::get_menu();
                             $first = true;
                             $isUrl = false;
+//                            print_r($_SERVER);
                             if ($listMenu != 0)
                             {
                                 foreach ($listMenu as $menu)
