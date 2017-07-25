@@ -7,7 +7,7 @@
                 <div class="col-10 col-offset-1">
                     <div id="dropfile">
                         <div id="dropper" class="col-8 col-offset-2">
-                            <button id="dropfile_btn_upload" class="fa fa-cloud-upload logo-upload" aria-hidden="true">
+                            <button id="dropfile_btn_upload" class="fa fa-cloud-upload logo-upload" aria-hidden="hidden">
                                 <p id="msg2">Cliquez ici</p>
                             </button>
                             <input type="file" id="dropfile_hidden_upload">
