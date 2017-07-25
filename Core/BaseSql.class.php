@@ -30,7 +30,7 @@
 				$sqlKey = null;
 				foreach ($this->columns as $column => $value) {
 					$data[$column] = $this->$column;
-					$sqlCol .= "," . $column;
+					$sqlCol .= "," . "`".$column."`";
 					$sqlKey .= ",:" . $column;
 				}
 				$sqlCol = ltrim($sqlCol, ",");
@@ -39,25 +39,31 @@
 					"INSERT INTO " . $this->table . " (" . $sqlCol . ")
 						VALUES (" . $sqlKey . ") ;"
 				);
-				$query->execute($data);
+				print_r($query);
+//				$query->execute($data);
 				
 			} else {
 				// Sinon faire un update dynamique
 				$sqlSet = null;
 				foreach ($this->columns as $column => $value) {
 					$data[$column] = $this->$column;
-					$sqlSet[] .= $column . "=:" . $column;
+					$sqlSet[] .= "`".$column."`" . "=:" . $column;
 				}
 
 				// Suppression de la mise à jour de la date d'update 
 				//  la mise à jour des dates est maintenant faites en BDD.
 				$query = $this->db->prepare(
+<<<<<<< HEAD
 					"UPDATE " . $this->table . " SET 
+=======
+					"UPDATE " . $this->table . "
+						SET `date_updated` = sysdate(), 
+>>>>>>> ec1c4617d20cd1c2f5c8ce841f662ef5761ef7b0
 						" . implode(",", $sqlSet) . "
-						WHERE id=:id;"
+						WHERE `id`=:id;"
 				);
-
-				$query->execute($data);
+                print_r($query);
+//				$query->execute($data);
 			}
 		}
 

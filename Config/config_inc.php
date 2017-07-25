@@ -59,4 +59,11 @@ define("LOG_PATH", "Logs".DS);
 define("INSTALL_DATABASE_FILE", "Install".DS."setupmywebsite.sql");
 
 /* Lien du fichier de configuration personnalisé */
+<<<<<<< HEAD
 define("CONFIG_PERSO_FILE", "Config".DS."config_perso_inc.php");
+=======
+define("CONFIG_PERSO_FILE", "config".DS."config_perso_inc.php");
+
+/* Default template */
+define("CHOSEN_TEMPLATE", "SweetEighteen");
+>>>>>>> ec1c4617d20cd1c2f5c8ce841f662ef5761ef7b0
