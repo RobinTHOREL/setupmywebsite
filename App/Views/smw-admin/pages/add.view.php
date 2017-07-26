@@ -38,7 +38,7 @@
                         <h2>Propriétés de la page</h2>
                         <div class="col-10 col-offset-1">
                             <label>Template</label>
-                            <select name="" class="form-group">
+                            <select name="template" class="form-group">
                                 <?php
                                 $tempFiles = glob(TEMPLATES_PATH_CUSTOM.'*temp.php');
                                 $patterns = array();

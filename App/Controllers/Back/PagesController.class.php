@@ -5,10 +5,12 @@ class PagesController{
         if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title']) && isset($_POST['content'])) {
             $title = $_POST['title'];
             $content = $_POST['content'];
+            $template = $_POST['template'];
 
             $page = new Pages();
             $page->setName($title);
             $page->setDescription($content);
+            $page->setTemplate($template);
             $page->setFriendlyUrl("0");
             $page->setPostsId("0");
             $page->Save();

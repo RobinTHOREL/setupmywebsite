@@ -29,6 +29,8 @@
                         <label>Nom<input type="text" class="form-group" name="lastname" placeholder="Nom" maxlength="120"></label>
                         <label>Prénom<input type="text" class="form-group" name="firstname" placeholder="Prénom" maxlength="120"></label>
                         <label>Email<input type="email" class="form-group" name="email" placeholder="setup@my.website" required="required" maxlength="320"></label>
+                       <label>Titre du site<input type="text" class="form-group" name="main_title" placeholder="Titre de mon site" required="required" maxlength="320"></label>
+
                 <div class="col-12">
                     <input type="submit" value="Envoyer">
                 </div>

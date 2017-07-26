@@ -52,6 +52,7 @@ CREATE TABLE `pages` (
   `id` int(11) NOT NULL,
   `title` varchar(512) NOT NULL,
   `description` longtext NOT NULL,
+  `template` varchar(255) NOT NULL,
   `is_published` int(11) NOT NULL,
   `date_created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `date_updated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP

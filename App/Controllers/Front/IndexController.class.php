@@ -7,9 +7,7 @@ class IndexController
         $view = new View("index", "homepage");
         $view->assign("page_title", "Page d'accueil");
         $view->assign("page_description", "Ceci est la page d'accueil");
-        $option = new Options();
-        $main_title = $option->populate(["id" => 1]);
-        $view->assign("main_title", $option->getTitle());
+        $view->assign("main_title", MAIN_TITLE);
     }
 
 

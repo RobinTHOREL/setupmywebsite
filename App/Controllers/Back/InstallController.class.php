@@ -145,6 +145,7 @@ class InstallController{
                 $adminEmail = trim($_POST["email"]);
                 $adminFirstname = trim($_POST["firstname"]);
                 $adminLastname = trim($_POST["lastname"]);
+                $main_title = trim($_POST["main_title"]);
 
                 if(strlen($adminLogin)<4 || strlen($adminLogin)>64) {
                     array_push($listOfErrors, "Le login saisie est incorrect. Il doit faire en 4 et 64 caractères.");
@@ -245,6 +246,7 @@ class InstallController{
                 $configuration .= "define(\"DB_HOST\", \"" . $host . "\");\n";
                 $configuration .= "define(\"DB_NAME\", \"" . $databaseName . "\");\n";
                 $configuration .= "define(\"DB_PORT\", \"" . $port . "\");\n";
+                $configuration .= "define(\"MAIN_TITLE\", \" Votre titre ici. \");\n";
                 file_put_contents($file, $configuration, FILE_APPEND | LOCK_EX);
                 header("Location: http://" . $_SERVER['HTTP_HOST'] . BASE_ABSOLUTE_PATTERN);
             } else {

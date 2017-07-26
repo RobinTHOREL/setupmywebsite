@@ -87,11 +87,11 @@
             </div>
             <div class="ui inverted vertical center aligned segment text masthead">
                 <h1 class="ui inverted header">
-                    <?php echo (!empty($main_title))?$main_title:"Votre titre ici"; ?>
+                    <?php echo (!empty(MAIN_TITLE))?MAIN_TITLE:"Votre titre ici"; ?>
                 </h1>
                 <h2> <?php echo (!empty($page_description))?$page_description:"Créer le site dont vous 
-                avez toujours rêvé."; ?>n</h2>
-                <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+                avez toujours rêvé."; ?></h2>
+                <div class="ui huge primary button">Commençons</div>
             </div>
 
 
