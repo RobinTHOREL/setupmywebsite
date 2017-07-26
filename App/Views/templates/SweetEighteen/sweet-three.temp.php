@@ -10,11 +10,11 @@
     <section>
         <header>
             <nav>  <!-- Page Contents -->
-                <div class="pusher">
-
+                <div class="row">
+                    <div class="ui inverted vertical masthead center aligned segment">
 
                         <div class="ui container">
-
+                            <div class="ui large secondary inverted pointing menu">
                                 <a class="toc item">
                                     <i class="sidebar icon"></i>
                                 </a>
@@ -23,26 +23,26 @@
                                 $first = true;
                                 $isUrl = false;
                                 //                            print_r($_SERVER);
+                                echo "<a class=\"active item\" href='". ABSOLUTE_PATH_FRONT . "'>Accueil</a>";
                                 if ($listMenu != 0)
                                 {
                                     foreach ($listMenu as $menu)
                                     {
-                                        echo ($first)?"<a class=\"active item\" href='".ABSOLUTE_PATH_FRONT . "page/view/".$menu["id"]."'>":"<a class=\"item\" href='".ABSOLUTE_PATH_FRONT . "page/view/".$menu["id"]."'>";
+                                        echo ($first)?"<a class=\"active item\" href='".ABSOLUTE_PATH_FRONT
+                                            . "page/view/".$menu["id"]."'>":"<a class=\"item\" 
+                                            href='".ABSOLUTE_PATH_FRONT . "page/view/".$menu["id"]."'>";
                                         $first = false;
                                         echo $menu["name"]."</a>";
                                     }
                                 }
 
-                                else
-                                {
-                                    echo "<a class=\"active item\">Accueil</a>";
-                                }
+
                                 ?>
                                 <div class="right item">
                                     <?php
                                     if(Helpers::is_logged())
                                     {
-                                        echo "<a class=\"ui inverted button\" href=\"smw-admin\">Back</a>";
+                                        echo "<a class=\"ui inverted button\" href='". ABSOLUTE_PATH_BACK . "'>Back</a>";
                                     }
                                     else{
                                         echo " <a class=\"ui inverted button\" href='".ABSOLUTE_PATH_FRONT."login'>Log in</a>

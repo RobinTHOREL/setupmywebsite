@@ -57,6 +57,7 @@
                             <?php $listMenu = Helpers::get_menu();
                             $first = true;
                             $isUrl = false;
+                            echo "<a class=\"active item\" href='". ABSOLUTE_PATH_FRONT . "'>Accueil</a>";
                             if ($listMenu != 0)
                             {
                                 foreach ($listMenu as $menu)
@@ -67,16 +68,13 @@
                                 }
                             }
 
-                            else
-                            {
-                                echo "<a class=\"active item\">Accueil</a>";
-                            }
+
                             ?>
                             <div class="right item">
                                 <?php
                                     if(Helpers::is_logged())
                                     {
-                                        echo "<a class=\"ui inverted button\" href=\"smw-admin\">Back</a>";
+                                        echo "<a class=\"ui inverted button\" href='". ABSOLUTE_PATH_BACK . "'>Back</a>";
                                     }
                                     else{
                                         echo " <a class=\"ui inverted button\" href='".ABSOLUTE_PATH_FRONT."login'>Log in</a>
