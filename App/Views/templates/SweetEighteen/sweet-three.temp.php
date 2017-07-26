@@ -11,10 +11,10 @@
         <header>
             <nav>  <!-- Page Contents -->
                 <div class="row">
-                    <div class="ui inverted vertical masthead center aligned segment">
+                    <div class="ui inverted  masthead center aligned ">
 
                         <div class="ui container">
-                            <div class="ui large secondary inverted pointing menu">
+                            <div class="ui large secondary  pointing menu">
                                 <a class="toc item">
                                     <i class="sidebar icon"></i>
                                 </a>
@@ -42,17 +42,18 @@
                                     <?php
                                     if(Helpers::is_logged())
                                     {
-                                        echo "<a class=\"ui inverted button\" href='". ABSOLUTE_PATH_BACK . "'>Back</a>";
+                                        echo "<a class=\"ui  button\" href='". ABSOLUTE_PATH_BACK . "'>Back</a>";
                                     }
                                     else{
-                                        echo " <a class=\"ui inverted button\" href='".ABSOLUTE_PATH_FRONT."login'>Log in</a>
-                                <a class=\"ui inverted button\">Sign Up</a>";
+                                        echo " <a class=\"ui  button\" href='".ABSOLUTE_PATH_FRONT."login'>Log in</a>";
                                     }
                                     ?>
 
                                 </div>
                             </div>
-
+                        </div>
+                    </div>
+                </div>
 
                 </nav>
 
@@ -70,9 +71,9 @@
                         <div class="ui text container">
                             <h3 class="ui header"><?php echo $page_title; ?></h3>
                             <p><?php echo $page_description; ?>.</p>
-                            <a class="ui large button">Read More</a>
+                            <a class="ui large button">En savoir plus...</a>
                             <h4 class="ui horizontal header divider">
-                                <a href="#">Case Studies</a>
+                                <a href="#">Articles/</a>
                             </h4>
                         </div>
                     </div>

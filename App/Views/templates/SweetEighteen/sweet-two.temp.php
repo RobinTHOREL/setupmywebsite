@@ -46,10 +46,10 @@
 
             <!-- Page Contents -->
             <div class="pusher">
-                <div class="ui inverted vertical masthead center aligned segment">
+                <div class="ui inverted vertical masthead center aligned">
 
                     <div class="ui container">
-                        <div class="ui large secondary inverted pointing menu">
+                        <div class="ui large secondary pointing menu">
                             <a class="toc item">
                                 <i class="sidebar icon"></i>
                             </a>
@@ -74,11 +74,10 @@
                                 <?php
                                     if(Helpers::is_logged())
                                     {
-                                        echo "<a class=\"ui inverted button\" href='". ABSOLUTE_PATH_BACK . "'>Back</a>";
+                                        echo "<a class=\"ui  button\" href='". ABSOLUTE_PATH_BACK . "'>Back</a>";
                                     }
                                     else{
-                                        echo " <a class=\"ui inverted button\" href='".ABSOLUTE_PATH_FRONT."login'>Log in</a>
-                                <a class=\"ui inverted button\">Sign Up</a>";
+                                        echo " <a class=\"ui  button\" href='".ABSOLUTE_PATH_FRONT."login'>Log in</a>";
                                     }
                                 ?>
 
