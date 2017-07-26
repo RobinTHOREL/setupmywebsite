@@ -1,22 +1,23 @@
 <?php
-class ThemesController{
+class ThemesController
+{
     public function addAction($params)
     {
-        $view = new View(BASE_BACK_OFFICE."themes/add", "smw-admin");
+        $view = new View(BASE_BACK_OFFICE . "themes/add", "smw-admin");
         $view->assign("page_title", "Ajouter un thème");
         $view->assign("page_description", "Page d'ajout d'un thème");
     }
 
     public function viewAction($params)
     {
-        $view = new View(BASE_BACK_OFFICE."themes/index", "smw-admin");
+        $view = new View(BASE_BACK_OFFICE . "themes/index", "smw-admin");
         $view->assign("page_title", "Voir les thèmes");
         $view->assign("page_description", "Page listant les thèmes");
     }
 
     public function selectAction($params)
     {
-        $view = new View(BASE_BACK_OFFICE."themes/index", "smw-admin");
+        $view = new View(BASE_BACK_OFFICE . "themes/index", "smw-admin");
         $view->assign("page_title", "Sélectionner un thème");
         $view->assign("page_description", "Page de sélection des thèmes");
         //For more fluidity select action could be done with JS .
@@ -24,16 +25,32 @@ class ThemesController{
 
     public function deleteAction($params)
     {
-        $view = new View(BASE_BACK_OFFICE."themes/delete", "smw-admin");
+        $view = new View(BASE_BACK_OFFICE . "themes/delete", "smw-admin");
         $view->assign("page_title", "Supprimer un thèmes");
         $view->assign("page_description", "Page de suppression d'un thème");
     }
 
     public function downloadAction($params)
     {
-        $view = new View(BASE_BACK_OFFICE."themes/index", "smw-admin");
+        $view = new View(BASE_BACK_OFFICE . "themes/index", "smw-admin");
         $view->assign("page_title", "Voir les thèmes");
         $view->assign("page_description", "Page listant les thèmes");
         // Download redirect towards index. DL instructions Here.
+    }
+    public function editAction($params)
+    {
+        if(!empty($_POST) && $_SERVER["REQUEST_METHOD"] == "POST") {
+            $set = new Options();
+            $main_title = $set->populate();
+            $set->setId("1");
+            $set->setName($main_title);
+            $set->Save();
+
+        }
+        $view = new View(BASE_BACK_OFFICE."themes/edit", "smw-admin");
+        $view->assign("theme_actuel", CHOSEN_TEMPLATE);
+        $view->assign("page_title", "Voir les thèmes");
+        $view->assign("page_description", "Page listant les thèmes");
+        $view->assign("error", "Noting to say");
     }
 }

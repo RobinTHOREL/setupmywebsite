@@ -3,6 +3,7 @@
 
 		protected $view;
 		protected $template;
+		private $default = true;
 		protected $data = array();
 
 		public function __construct($view = "index", $template = "frontend") {
@@ -22,7 +23,15 @@
 			if ( file_exists(TEMPLATES_PATH.$template.".temp.php")) {
 				$this->template = $template.".temp.php";
 			} else {
-				die("Le template n'existe pas.");
+			    if ( file_exists(TEMPLATES_PATH_CUSTOM.$template.".temp.php")) {
+                    $this->default = false;
+                    $this->template = $template.".temp.php";
+                }
+                else
+                {
+                    die("Le template n'existe pas.");
+                }
+
 			}
 		}
 
@@ -34,7 +43,15 @@
 		public function __destruct() {
 			extract($this->data);
 			if($this->template != null) {
-			    include TEMPLATES_PATH.$this->template;
+                if($this->default == true)
+                {
+                    include TEMPLATES_PATH.$this->template;
+                }
+			    else
+                {
+                    include TEMPLATES_PATH_CUSTOM.$this->template;
+
+                }
             }
 		}
 	}

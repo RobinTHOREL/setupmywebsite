@@ -1,6 +1,20 @@
 <?php
 class PagesController{
     public function addAction($params){
+
+        if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title']) && isset($_POST['content'])) {
+            $title = $_POST['title'];
+            $content = $_POST['content'];
+
+            $page = new Pages();
+            $page->setName($title);
+            $page->setDescription($content);
+            $page->setFriendlyUrl("0");
+            $page->setPostsId("0");
+            $page->Save();
+
+        }
+
         $view = new View(BASE_BACK_OFFICE."pages/add", "smw-admin");
         $view->assign("page_title", "Ajouter une nouvelle page");
         $view->assign("page_description", "Page d'ajout de nouvelle page");
