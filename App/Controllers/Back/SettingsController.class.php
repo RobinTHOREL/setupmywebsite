@@ -117,7 +117,7 @@ class SettingsController{
                 }
             }
             
-            if(isset($_POST['smtp-password']) && !empty($_POST['smtp-password'])) {
+            if(isset($_POST['smtp-password']) && isset($_POST['smtp-password'])) {
                 $optionName = "MAIL_SMTP_PASSWORD";
                 $optionSmtpPassword = new Options();
                 $optionSmtpPassword->populate(["name"=>$optionName]);

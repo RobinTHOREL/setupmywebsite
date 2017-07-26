@@ -20,7 +20,7 @@
                         value="" 
                         class="form-group"
                         <?php 
-                            if(MODE_PRODUCTION == "true") {
+                            if(PRODUCTION_MODE == "true") {
                                 echo "checked='checked'";
                             }
                         ?>
