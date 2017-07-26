@@ -66,7 +66,7 @@
                                 "page/view/".$menu["id"]."'>":"<a class=\"item\" 
                                 href='".ABSOLUTE_PATH_FRONT . "page/view/".$menu["id"]."'>";
                             $first = false;
-                            echo $menu["name"]."</a>";
+                            echo $menu["title"]."</a>";
                         }
                     }
 
