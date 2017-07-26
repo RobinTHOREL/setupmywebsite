@@ -1,120 +1,111 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title><?php echo $page_title ?></title>
-		<meta name="description" content="<?php echo $page_description ?>">
-        <link rel="stylesheet" href="/setupmywebsite/Public/css/style-front.css">
-        <link rel="stylesheet" href="/setupmywebsite/Public/css/style-front2.css">
-	</head>
-	<body>
-        <header></header>
+<head>
+    <meta charset="UTF-8">
+    <title><?php echo $page_title ?></title>
+    <meta name="description" content="<?php echo $page_description ?>">
+    <link rel="stylesheet" href="/setupmywebsite/Public/css/style-front.css">
+    <link rel="stylesheet" href="/setupmywebsite/Public/css/style-front2.css">
+</head>
+<body>
+<header></header>
+<section>
 
+    <!--Vue front-->
+    <!--<h1>Setup-My.Website</h1><br>-->
 
-            <!--Vue front-->
-            <!--<h1>Setup-My.Website</h1><br>-->
+    <!-- Following Menu -->
+    <div class="ui large top fixed hidden menu">
+        <div class="ui container">
 
-            <!-- Following Menu -->
-        <div class="nav-nav">
-            <div class="ui large top fixed hidden menu">
-                <div class="ui container">
-
-                    <a class="active item">H²omeA</a>
-                    <a class="item">Item nav setbyadmin</a>
-                    <a class="item">Item nav setbyadmin</a>
-                    <a class="item" href="login">Login</a>
-                    <div class="right menu">
-                        <div class="item">
-                            <a class="ui button">Log in</a>
-                        </div>
-                        <div class="item">
-                            <a class="ui primary button">Sign Up</a>
-                        </div>
-                    </div>
+            <a class="active item">HomeA</a>
+            <a class="item">Item nav setbyadmin</a>
+            <a class="item">Item nav setbyadmin</a>
+            <a class="item" href="login">Login</a>
+            <div class="right menu">
+                <div class="item">
+                    <a class="ui button">Log in</a>
+                </div>
+                <div class="item">
+                    <a class="ui primary button">Sign Up</a>
                 </div>
             </div>
+        </div>
+    </div>
 
-            <!-- Sidebar Menu -->
-            <div class="ui vertical inverted sidebar menu">
-                <!--    Faire une boucle sur un getMenu(); dans la fenetre menu. (widget?)-->
-                <a class="active item">HomeOU</a>
-                <a class="item">Item nav setbyadmin</a>
-                <a class="item">Item nav setbyadmin</a>
-                <a class="item" href="login">Login</a>
-            </div>
+    <!-- Sidebar Menu -->
+    <div class="ui vertical inverted sidebar menu">
+        <!--    Faire une boucle sur un getMenu(); dans la fenetre menu. (widget?)-->
+        <a class="active item">HomeOU</a>
+        <a class="item">Item nav setbyadmin</a>
+        <a class="item">Item nav setbyadmin</a>
+        <a class="item" href="login">Login</a>
+    </div>
 
 
-            <!-- Page Contents -->
-            <div class="pusher">
-                <div class="ui inverted vertical masthead center aligned segment">
+    <!-- Page Contents -->
+    <div class="pusher">
+        <div class="ui inverted vertical masthead center aligned segment">
 
-                    <div class="ui container">
-                        <div class="ui large secondary inverted pointing menu">
-                            <a class="toc item">
-                                <i class="sidebar icon"></i>
-                            </a>
-<!--                            Insert Menu from Page titles. If is empty, show HomePage as default-->
-                            <?php $listMenu = Helpers::get_menu();
-                            $first = true;
-                            $isUrl = false;
-//                            print_r($_SERVER);
-                            if ($listMenu != 0)
-                            {
-                                foreach ($listMenu as $menu)
-                                {
-                                    echo ($first)?"<a class=\"active item\" href='".ABSOLUTE_PATH_FRONT . "page/view/".$menu["id"]."'>":"<a class=\"item\" href='".ABSOLUTE_PATH_FRONT . "page/view/".$menu["id"]."'>";
-                                    $first = false;
-                                    echo $menu["name"]."</a>";
-                                }
-                            }
+            <div class="ui container">
+                <div class="ui large secondary inverted pointing menu">
+                    <a class="toc item">
+                        <i class="sidebar icon"></i>
+                    </a>
+                    <!--                            Insert Menu from Page titles. If is empty, show HomePage as default-->
+                    <?php $listMenu = Helpers::get_menu();
+                    $first = true;
+                    $isUrl = false;
+                    echo "<a class=\"active item\" href='". ABSOLUTE_PATH_FRONT . "'>Accueil</a>";
+                    if ($listMenu != 0)
+                    {
+                        foreach ($listMenu as $menu)
+                        {
 
-                            else
-                            {
-                                echo "<a class=\"active item\">Accueil</a>";
-                            }
-                            ?>
-                            <div class="right item">
-                                <?php
-                                    if(Helpers::is_logged())
-                                    {
-                                        echo "<a class=\"ui inverted button\" href=\"smw-admin\">Back</a>";
-                                    }
-                                    else{
-                                        echo " <a class=\"ui inverted button\" href='".ABSOLUTE_PATH_FRONT."login'>Log in</a>
+                            echo ($first)?"<a class=\"active item\" href='".ABSOLUTE_PATH_FRONT .
+                                "page/view/".$menu["id"]."'>":"<a class=\"item\" 
+                                href='".ABSOLUTE_PATH_FRONT . "page/view/".$menu["id"]."'>";
+                            $first = false;
+                            echo $menu["name"]."</a>";
+                        }
+                    }
+
+                    ?>
+                    <div class="right item">
+                        <?php
+                        if(Helpers::is_logged())
+                        {
+                            echo "<a class=\"ui inverted button\" href='". ABSOLUTE_PATH_BACK . "'>Back</a>";
+                        }
+                        else{
+                            echo " <a class=\"ui inverted button\" href=\"login\">Log in</a>
                                 <a class=\"ui inverted button\">Sign Up</a>";
-                                    }
-                                ?>
+                        }
+                        ?>
 
-                            </div>
-                        </div>
-                        <div class="ui middle aligned stackable grid container">
-
-                            <div class="row">
-                                <div class="eight wide column">
-                                    <h3 class="ui header"><?php echo $page_title;?></h3>
-                                    <p><?php echo $page_description;?></p>
-                                </div>
-                            </div>
-
-
-
-                            <div class="row">
-                                <div class="center aligned column">
-                                    <a class="ui huge button">BottonTest</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
-        <section>
+            <div class="ui inverted vertical center aligned segment text masthead">
+                <h1 class="ui inverted header">
+                    <?php echo (!empty($main_title))?$main_title:"Votre titre ici"; ?>
+                </h1>
+                <h2> <?php echo (!empty($page_description))?$page_description:"Créer le site dont vous 
+                avez toujours rêvé."; ?>n</h2>
+                <div class="ui huge primary button">Get Started <i class="right arrow icon"></i></div>
+            </div>
 
 
+            <?php include $this->view; ?>
+        </div>
+</section>
+<footer>
 
+</footer>
+<script src="/setupmywebsite/Public/js/index_front.js"></script>
+</body>
+</html>
 
-
-        </section>
-        <?php include $this->view; ?>
         <footer>
             <div class="ui inverted vertical footer segment">
                 <div class="ui container">
