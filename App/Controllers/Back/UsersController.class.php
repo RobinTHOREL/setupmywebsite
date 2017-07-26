@@ -201,6 +201,63 @@ class UsersController{
     public function editAction($params)
     {
         $view = new View(BASE_BACK_OFFICE."users/edit", "smw-admin");
+        if(isset($params[0])) {
+            $user = new Users();
+            $userExist = $user->populate(["id"=>$params[0]]);
+            $view->assign("user", $user);
+            $view->assign("userExist", $userExist);
+            if($userExist) {
+                if($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['email']) && isset($_POST['firstname'])
+                    && isset($_POST['lastname']) && !empty($_POST['permission']))
+                {
+                    // On initialise les variables si les données sont bien réupérés
+                    $messages = array();
+                    $email = trim($_POST["email"]);
+                    $firstname = trim($_POST["firstname"]);
+                    $lastname = trim($_POST["lastname"]);
+                    //$permission = trim($_POST["permission"]);
+                    
+                    if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                        array_push($messages, "Le format de l'email saisie est invalide.");
+                    }
+                    
+                    if(strlen($firstname)>120) {
+                        array_push($messages, "La longueur du prénom saisie est trop grande.");
+                    }
+                    
+                    if(strlen($lastname)>120) {
+                        array_push($messages, "La longueur du nom saisie est trop grande.");
+                    }
+                    
+                    if(strlen($email)>320) {
+                        array_push($messages, "La longueur de l'email saisie est trop grande.");
+                    }
+                    
+                    $checkExist = $user->getAllBy($search = ["OR" => ["email"=>$email]]);
+                    if($checkExist == true && $email!=$user->getEmail() ) {
+                        array_push($messages, "L'email existe déjà.");
+                    }
+                    
+                    if( count($messages)<=0 )
+                    {
+                        //On peut enregistrer l'utilisateur, mais son compte ne sera actif que quand il sera enregistré par mail
+                        $user->setEmail($email);
+                        $user->setFirstName($firstname);
+                        $user->setLastName($lastname);
+                        //$user->setStatus(0);
+                        //$user->setPermission($permission);
+                        $user->setActivationKey("");
+                        $user->Save();
+                        array_push($messages, "L'utilisateur a été mis à jour.");
+                    }
+                    
+                    $view->assign("messages", $messages);
+                }
+            
+            }
+            
+        }
+
         $view->assign("page_title", "Editer un utilisateur");
         $view->assign("page_description", "Page d'édition d'un utilisateur");
     }

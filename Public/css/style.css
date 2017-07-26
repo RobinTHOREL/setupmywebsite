@@ -461,7 +461,6 @@ ul li:hover i {
     font-size: 6em;
     background-color: transparent;
     border: none;
-    box-shadow: 10px 5px 5px black;
 }
 .logo i {
     font-size: 70px;
@@ -844,7 +843,6 @@ input[type=button] {
 
     .fa.logo-upload{
         font-size: 10.6em;
-        box-shadow:  10px 5px 5px black;
         /*display: none;*/
     }
 
@@ -910,7 +908,6 @@ input[type=button] {
 
     .fa.logo-upload {
         font-size: 5.6em;
-        box-shadow:  10px 5px 5px black;
         /*display: none;*/
     }
 
