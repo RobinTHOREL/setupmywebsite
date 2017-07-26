@@ -20,7 +20,7 @@ h2 {
     text-align: center;
 }
 
-/* Début - Pagination*/
+/* Dï¿½but - Pagination*/
 .pagination li {
     display: inline-block;
     margin: 0 4px;
@@ -461,7 +461,6 @@ ul li:hover i {
     font-size: 6em;
     background-color: transparent;
     border: none;
-    box-shadow: 10px 5px 5px black;
 }
 .logo i {
     font-size: 70px;
@@ -806,7 +805,7 @@ textarea.form-group {
 
 }
 
-/* type=button pas encore testé */
+/* type=button pas encore testï¿½ */
 input[type=button] {
     background-color: #4CAF50;
     border: none;
@@ -844,7 +843,6 @@ input[type=button] {
 
     .fa.logo-upload{
         font-size: 10.6em;
-        box-shadow:  10px 5px 5px black;
         /*display: none;*/
     }
 
@@ -910,7 +908,6 @@ input[type=button] {
 
     .fa.logo-upload {
         font-size: 5.6em;
-        box-shadow:  10px 5px 5px black;
         /*display: none;*/
     }
 
