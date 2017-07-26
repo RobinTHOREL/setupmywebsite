@@ -62,7 +62,7 @@
                 </h1>
                 <h2> <?php echo (!empty($page_description))?$page_description:"Créer le site dont vous 
                 avez toujours rêvé."; ?></h2>
-                <div class="ui huge primary button">Commençons</div>
+                <div class="ui huge primary button">Bienvenue</div>
             </div>
 
 

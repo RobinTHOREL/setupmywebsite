@@ -76,11 +76,15 @@
                             <h4 class="ui horizontal header divider">
                                 <a href="#" id="anchor">Articles</a>
                             </h4>
-                            <?php foreach ($posts as $post)
-                            {?>
-                            <h3 class="ui header"><?php echo $post["title"]; ?></h3>
-                            <p><?php echo $post["content"]; ?></p>
-                            <?php }?>
+                            <?php
+                            if(!empty($posts))
+                            {
+                                foreach ($posts as $post) {
+                                    echo '<h3 class="ui header">'.$post["title"].'</h3>';
+                                    echo '<p>'.$post["content"].'</p>';
+                                }
+                            }
+                            ?>
                         </div>
                     </div>
 

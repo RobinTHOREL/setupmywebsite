@@ -10,7 +10,7 @@
 	<body>
         <header></header>
 
-
+        <section>
 
 
             <!-- Page Contents -->
@@ -65,23 +65,21 @@
 
                             <div class="row">
                                 <div class="center aligned column">
-
-                                    <?php foreach ($posts as $post)
-                                    {?>
-                                        <h3 class="ui header"><?php echo $post["title"]; ?></h3>
-                                        <p><?php echo $post["content"]; ?>.</p>
-                                    <?php }?>
+                                    <?php
+                                    if(!empty($posts))
+                                    {
+                                        foreach ($posts as $post) {
+                                            echo '<h3 class="ui header">'.$post["title"].'</h3>';
+                                            echo '<p>'.$post["content"].'</p>';
+                                        }
+                                    }
+                                    ?>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        <section>
-
-
-
-
 
         </section>
             <?php include $this->view; ?>
@@ -104,7 +102,6 @@
                         </div>
                     </div>
                 </div>
-
             </footer>
             <script src="<?php echo BASE_ABSOLUTE_PATTERN;?>Public/js/index_front.js"></script>
     </body>
