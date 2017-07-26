@@ -52,7 +52,7 @@
         				<div class="col-12 right-content">
             				<h2>Actions sur le média</h2>
             				<input type="submit" class="form-group" value="Modifier">
-            				<a href="<?php echo ABSOLUTE_PATH_BACK.'multimedia/delete/'.$media->getId() ?>">Supprimer</a>
+            				<a href="<?php echo ABSOLUTE_PATH_BACK.'multimedia/delete/'.$media->getId() ?>" class="reset form-group">Supprimer</a>
             			</div>
         			</div>
         

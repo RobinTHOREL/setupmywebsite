@@ -188,6 +188,29 @@
 			
 			return $results;
 		}
+		
+		/**
+		 * getCount
+		 *
+		 * get the count on a table
+		 * PHP version 5.6
+		 *
+		 * return an array with the count or 0 if nothing found
+		 */
+		public function getCount ( ) {
+		    // Requete SQL
+		    $req = "SELECT COUNT(*) AS count FROM " .$this->table;    
+		    $query = $this->db->prepare($req);
+		    $query->execute();
+		    $count = $query->fetch(PDO::FETCH_ASSOC);
+		    
+		    // Vérification
+		    if (count($count) <= 0) {
+		        return false;
+		    }
+
+		    return $count['count'];
+		}
 
         /**
          * delete

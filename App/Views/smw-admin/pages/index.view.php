@@ -4,6 +4,24 @@
             <h2>Toutes les pages</h2>
         </div>
     </div>
+    <!-- Pagination -->
+    <div class="row">
+    	<div class="col-12 title">
+        	<?php 
+                if($nbPages>1) {
+                    echo '<ul class="pagination center-text ">';
+                    for($i=1; $i<=$nbPages; $i++) {
+                        if($i==$pageActuel) {
+                            echo "<li><label class='pagi-pages'>".$i."</label></li>";
+                        } else {
+                            echo "<li><a href='".ABSOLUTE_PATH_BACK."pages/view/".$i."'>".$i."</a></li>";
+                        }
+                    }
+                    echo '</ul>';
+                }
+            ?>
+    	</div>
+    </div>
     <div class="row"> <!-- exemple - ligne 2 -->
         <div class="col-12">
                     <?php

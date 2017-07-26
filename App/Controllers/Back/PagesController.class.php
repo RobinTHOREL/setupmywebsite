@@ -53,10 +53,30 @@ class PagesController{
     }
 
     public function viewAction($params){
+        // Génération de la pagination
+        $pageActuel = 1;
+        $pagesShow = 20;
+        if(isset($params[0])) {
+            $pageActuel = intval($params[0]);
+        }
+        
+        $page = new Pages();
+        $countPost=$page->getCount();
+        $nbPages = ceil($countPost/$pagesShow);
+        if($pageActuel<1) {
+            $pageActuel = 1;
+        }
+        if($pageActuel>$nbPages) {
+            $pageActuel = $nbPages;
+        }
+       
         $pages = new Pages();
-        $results = $pages->getAllBy([[]], 20, 0);
-
+        $results = $pages->getAllBy([[]], $pagesShow, $pagesShow*($pageActuel-1));
+        
+        // Affichage de la vue
         $view = new View(BASE_BACK_OFFICE."pages/index", "smw-admin");
+        $view->assign("pageActuel", $pageActuel);
+        $view->assign("nbPages", $nbPages);
         $view->assign("results", $results);
         $view->assign("page_title", "Voir les pages");
         $view->assign("page_description", "Page listant les pages");

@@ -1,3 +1,22 @@
+html, body {
+	margin: 0;
+	padding: 0;
+}
+
+.row {
+	display: inline-block;
+	width: 98%
+}
+
+.main {
+	margin-left: 2%;
+}
+
+.footer{
+    position: absolute;
+    bottom: 12px;
+}
+
 .selected {
 	box-shadow: 0 2px 4px 4px rgba(0, 0, 0, 0.20), 0 4px 8px 4px
 		rgba(0, 0, 0, 0.20) !important;
@@ -23,3 +42,51 @@ img {
 	top: 50%;
 	cursor: pointer;
 }
+
+/* Début - Pagination*/
+ul.pagination.center-text {
+    list-style-type: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.pagination {
+	text-align: center; 
+}
+.pagination li {
+    display: inline-block;
+    margin: 0 4px;
+    padding: 0;
+	border-radius: 4px;
+}
+
+.pagination li a {
+    padding: 0 16px;
+    text-decoration: none;
+    list-style-type: none;
+    background-color: transparent;
+    color: #607D8B;
+    border-radius: 4px;
+}
+
+.pagination li a:hover {
+    padding: 0 16px;
+    text-decoration: none;
+    list-style-type: none;
+    background-color: transparent;
+    color: #21CCFC;
+    transition: color 0.5s;
+}
+
+.pagination li label {
+    padding: 4px 12px;
+    color: white;
+    text-decoration: none;
+    list-style-type: none;
+    border-radius: 4px;
+    background-color: #009688;
+}
+
+/* Fin - pagination*/

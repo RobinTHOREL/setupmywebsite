@@ -86,22 +86,62 @@ class MultimediaController{
 	}
 
     public function viewAction($params){
+        // Génération de la pagination
+        $pageActuel = 1;
+        if(isset($params[0])) {
+            $pageActuel = intval($params[0]);
+        }
+        $pagesShow = 15;
+        $media = new Medias();
+        $countMedias=$media->getCount();
+        $nbPages = ceil($countMedias/$pagesShow);
+        if($pageActuel<1) {
+            $pageActuel = 1;
+        }
+        if($pageActuel>$nbPages) {
+            $pageActuel = $nbPages;
+        }
+        
+        $medias = new Medias();
+        $results = $medias->getAllBy([[]], $pagesShow, $pagesShow*($pageActuel-1));
+        
+        // Affichage de la vue
         $view = new View(BASE_BACK_OFFICE."medias/index", "smw-admin");
         $view->assign("page_title", "Voir les contenus multimedia");
         $view->assign("page_description", "Page listant les contenus multimedia");
+        $view->assign("pageActuel", $pageActuel);
+        $view->assign("nbPages", $nbPages);
         // On récupère un ensemble d'image
-        $media = new Medias();
-        $result = $media->getAllBy([[]], 20, 0);
-        $view->assign("files", $result);
+        $view->assign("files", $results);
     }
 
     public function pluginTinyAction($params)
     {
-        $view = new View(BASE_BACK_OFFICE."medias/TinyMCE", "ajax");
-        // On récupère un ensemble d'image
+        // Génération de la pagination
+        $pageActuel = 1;
+        if(isset($params[0])) {
+            $pageActuel = intval($params[0]);
+        }
+        $pagesShow = 9;
         $media = new Medias();
-        $result = $media->getAllBy([[]], 20, 0);
-        $view->assign("files", $result);
+        $countMedias=$media->getCount();
+        $nbPages = ceil($countMedias/$pagesShow);
+        if($pageActuel<1) {
+            $pageActuel = 1;
+        }
+        if($pageActuel>$nbPages) {
+            $pageActuel = $nbPages;
+        }
+        
+        $medias = new Medias();
+        $results = $medias->getAllBy([[]], $pagesShow, $pagesShow*($pageActuel-1));
+        
+        // Affichage de la vue
+        $view = new View(BASE_BACK_OFFICE."medias/TinyMCE", "ajax");
+        $view->assign("pageActuel", $pageActuel);
+        $view->assign("nbPages", $nbPages);
+        // On récupère un ensemble d'image
+        $view->assign("files", $results);
     }
 
     public function editAction($params){

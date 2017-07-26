@@ -73,9 +73,29 @@ class ArticlesController{
 	}
 
     public function viewAction($params){
+		// Génération de la pagination
+		$pageActuel = 1;
+		if(isset($params[0])) {
+		    $pageActuel = intval($params[0]);
+		}
+		$pagesShow = 20;
+		$post = new Posts();
+		$countPost=$post->getCount();
+		$nbPages = ceil($countPost/$pagesShow);
+		if($pageActuel<1) {
+		    $pageActuel = 1;
+		}
+		if($pageActuel>$nbPages) {
+		    $pageActuel = $nbPages;
+		}
+		
 		$posts = new Posts();
-		$results = $posts->getAllBy([[]], 20, 0);
+		$results = $posts->getAllBy([[]], $pagesShow, $pagesShow*($pageActuel-1));
+		
+		// Affichage de la vue
         $view = new View(BASE_BACK_OFFICE."article/index", "smw-admin");
+        $view->assign("pageActuel", $pageActuel);
+        $view->assign("nbPages", $nbPages);
         $view->assign("results", $results);
         $view->assign("page_title", "Voir les articles");
         $view->assign("page_description", "Page listant les articles");
@@ -144,7 +164,6 @@ class ArticlesController{
                     $post->setPagesId($pagesId);
                     $post->setShowDate($showDate);
                     $post->Save();
-                    //header('Location: view');
                     $view->assign("success", "Votre article a bien été créé.");
                 } else {
                     $view->assign("listOfErrors", $listOfErrors);
