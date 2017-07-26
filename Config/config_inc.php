@@ -40,7 +40,6 @@ define("ABSOLUTE_PATH_BACK", HTTP_TYPE."://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE
 define("ABSOLUTE_PATH_FRONT", HTTP_TYPE."://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN);
 
 define("DEBUG_MODE", false);
-define("PRODUCTION_MODE", true);
 define("BASE_BACK_OFFICE", "smw-admin".DS);
 
 

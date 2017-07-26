@@ -58,7 +58,7 @@ INSERT INTO `options` (`id`, `name`, `value`) VALUES
 (7, 'MAIL_SMTP_USERNAME', ''),
 (8, 'MAIL_SMTP_PASSWORD', ''),
 (9, 'MAIL_FROM_EMAIL', ''),
-(10, 'MAIL_FROM_USERNAME', '');
+(10, 'MAIL_FROM_USERNAME', ''),
 (11, 'PRODUCTION_MODE', 'false');
 
 CREATE TABLE `pages` (
