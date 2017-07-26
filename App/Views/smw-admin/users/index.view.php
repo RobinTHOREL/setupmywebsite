@@ -1,96 +1,45 @@
-    <div class="container">
-        <div class="row"> <!-- exemple - ligne 1 -->
-            <div class="col-10 col-offset-1 title">
-                <h2>Utilisteurs inscrits</h2>
-            </div>
-        </div>
-        <div class="row"> <!-- exemple - ligne 2 -->
-            <div class="col-10 col-offset-1" id="table_container">
-                <table class="form-group">
-                    <tr>
-                        <th>id</th>
-                        <th>Nom</th>
-                        <th>Prénom</th>
-                        <th>Login</th>
-                        <th>E-mail</th>
-                        <th>Rôle</th>
-                        <th>Inscris le</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                    </tr>
-
-                    <?php
-                    if(isset($results) && $results!==false) {
-                        foreach($results as $user) {
-                            $row = "<tr><td>".$user['id']."</td>";
-                            $row .= "<td>".$user['lastname']."</td>";
-                            $row .= "<td>".$user['firstname']."</td>";
-                            $row .= "<td>".$user['login']."</td>";
-                            $row .= "<td>".$user['email']."</td>";
-                            $row .= "<td>".$user['permission']."</td>";
-                            $row .= "<td>".$user['date_inserted']."</td>";
-                            $row .= "<td>".$user['status']."</td>";
-                            $row .= "<td>	<a href='".ABSOLUTE_PATH_BACK."users/edit/".$user['id']."' class='edit' title='Editer l'article'><i class='fa fa-pencil-square-o' aria-hidden='true'></i></a>
-												<a href='".ABSOLUTE_PATH_BACK."users/delete/".$user['id']."' class='delete' title='Supprimer l'article'><i class='fa fa-trash-o' aria-hidden='true'></i></a>
-										</td></tr>";
-                            echo $row;
-                        }
-                    }
-                    ?>
-                    <!--<tr>
-                        <td>1</td>
-                        <td>THOREL</td>
-                        <td>Robin</td>
-                        <td>Brixton</td>
-                        <td>thorelrobin@yahoo.fr</td>
-                        <td>Administrateur</td>
-                        <td>22/05/2017</td>
-                        <td title="active"><div id="user_active"></div></td>
-                        <td><a class="edit" title="Edition de l'utilisateur"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            <a class="delete" title="Bannir l'utilisateur"><i class="fa fa-times" aria-hidden="true"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>DIOURI</td>
-                        <td>Younes</td>
-                        <td>jumk</td>
-                        <td>younesdiouri@yahoo.fr</td>
-                        <td>Administrateur</td>
-                        <td>22/05/2017</td>
-                        <td><div id="user_inactive"></div></td>
-                        <td><a class="edit" title="Edition de l'utilisateur"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            <a class="delete" title="Bannir l'utilisateur"><i class="fa fa-times" aria-hidden="true"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>NANA</td>
-                        <td>Onésie</td>
-                        <td>onesie</td>
-                        <td>nanaonesie@yahoo.fr</td>
-                        <td>Administrateur</td>
-                        <td>22/05/2017</td>
-                        <td><div id="user_inactive"></div></td>
-                        <td><a class="edit" title="Edition de l'utilisateur"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            <a class="delete" title="Bannir l'utilisateur"><i class="fa fa-times" aria-hidden="true"></i></a>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>RADOSAVLJEVIC </td>
-                        <td>Sinicha</td>
-                        <td>sinicha</td>
-                        <td>sinicharadosav@yahoo.fr</td>
-                        <td>Administrateur</td>
-                        <td>22/05/2017</td>
-                        <td><div id="user_active"></div></td>
-                        <td><a class="edit" title="Edition de l'utilisateur"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                            <a class="delete" title="Bannir l'utilisateur"><i class="fa fa-times" aria-hidden="true"></i></a>
-                        </td>
-                    </tr>-->
-
-                </table>
-            </div> <!-- exemple - ligne 2 -->
+<div class="container">
+    <div class="row"> <!-- exemple - ligne 1 -->
+        <div class="col-10 col-offset-1 title">
+            <h2>Utilisteurs inscrits</h2>
         </div>
     </div>
+    <div class="row"> <!-- exemple - ligne 2 -->            <div class="col-12">
+            <?php
+            if(isset($results) && $results!==false) {
+                $i = 0;
+                foreach ($results as $user) {
+                    ?>
+
+                    <a href="<?php echo ABSOLUTE_PATH_BACK . "users/edit/" . $user['id'] ?>">
+                        <div class="<?php echo ($i % 4 == 0) ? 'col-2' : 'col-2 col-offset-1'; ?> user">
+                            <div class="article_logo"> <!-- TODO : Mettre un href sur la vue front -->
+                                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                            </div>
+                            <div class="article_title">
+                                <h3><?php echo $user['lastname']." ".$user['firstname']."<br>".$user['login']; ?></h3>
+                            </div>
+                            <div class="article_button">
+                                <div class="row">
+                                    <div class="col-6 user_action">
+                                        <a href="<?php echo ABSOLUTE_PATH_BACK . "users/edit/" . $user['id'] ?>">
+                                            <i class="fa fa-pencil-square-o i_action"
+                                               aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                    <div class="col-6 user_action">
+                                        <a href="<?php echo ABSOLUTE_PATH_BACK . "users/delete/" . $user['id'] ?>">
+                                            <i class="fa fa-trash-o i_action" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    <?php
+                }
+            }
+            ?>
+        </div>
+    </div>
+</div>
