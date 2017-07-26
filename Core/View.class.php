@@ -23,7 +23,7 @@
 			if ( file_exists(TEMPLATES_PATH.$template.".temp.php")) {
 				$this->template = $template.".temp.php";
 			} else {
-			    if ( file_exists(TEMPLATES_PATH_CUSTOM.$template.".temp.php")) {
+			    if ( file_exists(TEMPLATES_PATH_CUSTOM.CHOSEN_TEMPLATE.DS.$template.".temp.php")) {
                     $this->default = false;
                     $this->template = $template.".temp.php";
                 }
@@ -49,7 +49,7 @@
                 }
 			    else
                 {
-                    include TEMPLATES_PATH_CUSTOM.$this->template;
+                    include TEMPLATES_PATH_CUSTOM.CHOSEN_TEMPLATE.DS.$this->template;
 
                 }
             }

@@ -116,8 +116,8 @@ class InstallController{
         } else {
             // On charge les classes
             if( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['login']) && !empty($_POST['password']) 
-                && !empty($_POST['passwordConfirm']) && !empty($_POST['email']) && !empty($_POST['firstname'])
-                && !empty($_POST['lastname']) ) {
+                && !empty($_POST['passwordConfirm']) && !empty($_POST['email']) && isset($_POST['firstname'])
+                && isset($_POST['lastname']) && !empty($_POST["main_title"]) ) {
 
                 $listOfErrors = [];
 
@@ -126,8 +126,8 @@ class InstallController{
                 }
 
                 // On vérifie que les informations de connexion à la base de données sont bien présentent
-                if (!isset($_SESSION["user"]) || !isset($_SESSION["password"]) || !isset($_SESSION["port"])
-                    || !isset($_SESSION["port"]) || !isset($_SESSION["port"])
+                if (!isset($_SESSION["host"]) || !isset($_SESSION["port"]) || !isset($_SESSION["user"])
+                    || !isset($_SESSION["password"]) || !isset($_SESSION["database_name"])
                 ) {
                     array_push($listOfErrors, "Des informations de connexion sont manquantes");
                 } else {
@@ -136,6 +136,11 @@ class InstallController{
                     $user = $_SESSION["user"];
                     $password = $_SESSION["password"];
                     $databaseName = $_SESSION["database_name"];
+                    define("DB_HOST", $host);
+                    define("DB_NAME", $databaseName);
+                    define("DB_PORT", $port);
+                    define("DB_USER", $user);
+                    define("DB_PWD", $password);
                 }
 
                 // On récupère les données dans des variables
@@ -147,11 +152,23 @@ class InstallController{
                 $adminLastname = trim($_POST["lastname"]);
                 $main_title = trim($_POST["main_title"]);
 
+                $userExist = new Users();
+                $checkExist = $userExist->getAllBy($search = ["OR" => ["login"=>$adminLogin, "email"=>$adminEmail]]);
+                if($checkExist == true) {
+                    array_push($listOfErrors, "L'utilisateur existe déjà.");
+                }
+                
                 if(strlen($adminLogin)<4 || strlen($adminLogin)>64) {
                     array_push($listOfErrors, "Le login saisie est incorrect. Il doit faire en 4 et 64 caractères.");
                 }
                 
-                if(strlen($adminPassword)<4) {
+                $validePassword = new Password(true, true, true, false, 4, 64); // Minimum 1 chiffre + 1 Min + 1 Maj
+                $validePassword->setPassword($adminPassword);
+                if(!$validePassword->validePassword($adminPassword)) {
+                    array_push($listOfErrors, "Le mot de passe saisie ne respecte pas les critères de sécurités.");
+                }
+                
+                if(strlen($adminPassword)<8) {
                     array_push($listOfErrors, "Le mot de passe saisie est trop court.");
                 }
                 
@@ -178,7 +195,19 @@ class InstallController{
                 if(strlen($adminLastname)>120) {
                     array_push($listOfErrors, "La longueur du nom saisie est trop grande.");
                 }
-
+                
+                // Option
+                $optionName = "MAIN_TITLE";
+                $optionMaintTitle = new Options();
+                $optionMaintTitle->populate(["name"=>$optionName]);
+                if($optionMaintTitle->getId()=="-1") {
+                    $optionMaintTitle->setName($optionName);
+                } 
+                
+                if(strlen($main_title)>320) {
+                    array_push($listOfErrors, "Le titre du site saisie est trop grand.");
+                }
+                
                 // On essaye de se connecter à la base de données avec les données reçues
                 if (count($listOfErrors)<=0) {
                     try {
@@ -187,17 +216,15 @@ class InstallController{
                         array_push($listOfErrors, "Erreur de connexion à la base de données. Veuillez vérifier vos paramètres de connexion.");
                     }
                 }
+                
+                // En cas d'erreur, on renvoie l'utilisateur
                 if (count($listOfErrors)>=1) {
                     $_SESSION["error_form"] = $listOfErrors;
                     header("Location: " . $_SERVER["HTTP_REFERER"]);
                     die();
                 }
-
-                define("DB_HOST", $host);
-                define("DB_NAME", $databaseName);
-                define("DB_PORT", $port);
-                define("DB_USER", $user);
-                define("DB_PWD", $password);
+                
+                // User
                 $user = new Users();
                 $user->setLogin($adminLogin);
                 $user->setPassword($adminPassword);
@@ -205,11 +232,16 @@ class InstallController{
                 $user->setFirstName($adminFirstname);
                 $user->setLastName($adminLastname);
                 $user->setActivationKey("");
-                $user->setPermission("1");
+                $user->setPermission("3"); // Administrateur
+                $user->setStatus("1");
                 $user->Save();
+                
+                // Option
+                $optionMaintTitle->setValue($main_title);
+                $optionMaintTitle->Save();
 
                 header("Location: installConfiguration");
-                die();
+
             } else {
                 $view = new View("install/administratorConfiguration", "install");
                 $view->assign("page_title", "Configuration du compte administrateur Setup My Website");
@@ -246,7 +278,6 @@ class InstallController{
                 $configuration .= "define(\"DB_HOST\", \"" . $host . "\");\n";
                 $configuration .= "define(\"DB_NAME\", \"" . $databaseName . "\");\n";
                 $configuration .= "define(\"DB_PORT\", \"" . $port . "\");\n";
-                $configuration .= "define(\"MAIN_TITLE\", \" Votre titre ici. \");\n";
                 file_put_contents($file, $configuration, FILE_APPEND | LOCK_EX);
                 header("Location: http://" . $_SERVER['HTTP_HOST'] . BASE_ABSOLUTE_PATTERN);
             } else {

@@ -90,7 +90,7 @@ class LoginController {
                 $mail->Subject = 'Setup My Website - Nouveau mot de passe';
                 $mail->msgHTML("Votre nouveau mot de passe est <b>" .$newPassword. "</b>");
                 if (! $mail->send()) {
-                    $message = "Un erreur s'est produite lors de l'envoyé. Veuillez contacter les administrateurs." ;
+                    $message = "Un erreur s'est produite lors de l'envoie. Veuillez contacter les administrateurs." ;
                 } else {
                     $message = "Un e-mail vous a été envoyé.";
                     $user->Save();

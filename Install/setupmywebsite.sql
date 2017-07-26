@@ -48,6 +48,19 @@ CREATE TABLE `options` (
   `value` text NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
+INSERT INTO `options` (`id`, `name`, `value`) VALUES
+(1, 'MAIN_TITLE', ''),
+(2, 'CHOSEN_TEMPLATE', 'SweetEighteen'),
+(3, 'WEBSITE_METADATA', ''),
+(4, 'MAIL_HOST', ''),
+(5, 'MAIL_PORT', ''),
+(6, 'MAIL_SMTP_SECURE', ''),
+(7, 'MAIL_SMTP_USERNAME', ''),
+(8, 'MAIL_SMTP_PASSWORD', ''),
+(9, 'MAIL_FROM_EMAIL', ''),
+(10, 'MAIL_FROM_USERNAME', '');
+(11, 'PRODUCTION_MODE', 'false');
+
 CREATE TABLE `pages` (
   `id` int(11) NOT NULL,
   `title` varchar(512) NOT NULL,
@@ -118,7 +131,7 @@ ALTER TABLE `comments`
 ALTER TABLE `medias`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `options`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 ALTER TABLE `pages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE `posts`

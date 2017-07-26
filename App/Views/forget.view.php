@@ -12,7 +12,7 @@
             <form action="" method="post">
                 <div class="trois-colonnes">
                     <div class="colonne2">
-                        <input type="email" name="email" value="" class="form-group">
+                        <input type="email" name="email" placeholder="Votre.Email@Email.web" value="" class="form-group">
                     </div>
 
                     <div class="colonne2">

@@ -39,7 +39,7 @@ define("BASE_ABSOLUTE_BACKOFFICE", "smw-admin/");
 define("ABSOLUTE_PATH_BACK", HTTP_TYPE."://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN.BASE_ABSOLUTE_BACKOFFICE);
 define("ABSOLUTE_PATH_FRONT", HTTP_TYPE."://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN);
 
-define("DEBUG_MODE", true);
+define("DEBUG_MODE", false);
 define("PRODUCTION_MODE", true);
 define("BASE_BACK_OFFICE", "smw-admin".DS);
 
@@ -63,9 +63,5 @@ define("INSTALL_DATABASE_FILE", "Install".DS."setupmywebsite.sql");
 
 define("CONFIG_PERSO_FILE", "Config".DS."config_perso_inc.php");
 
-/* Default template */
-define("CHOSEN_TEMPLATE", "SweetEighteen");
-
-
 /* Dynamic template path for custom themes. */
-define("TEMPLATES_PATH_CUSTOM", APP_PATH.DS."Views".DS."templates".DS.CHOSEN_TEMPLATE.DS);
+define("TEMPLATES_PATH_CUSTOM", APP_PATH.DS."Views".DS."templates".DS);

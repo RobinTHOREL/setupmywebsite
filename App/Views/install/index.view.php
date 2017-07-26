@@ -15,7 +15,7 @@
 	<div class="col-12">
 		<button class="btn btn-default has-spinner" id="one">
 			<?php "http://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN."install/databaseConfiguration" ?>
-			<a href=<?php echo "http://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN."smw-admin/install/databaseConfiguration" ?>>Commencer l'installation<a/>
+			<a href=<?php echo "http://".$_SERVER["HTTP_HOST"].BASE_ABSOLUTE_PATTERN."smw-admin/install/databaseConfiguration" ?>>Commencer l'installation</a>
 		</button>
 		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 		<script src="jquery.buttonLoader.js"></script>

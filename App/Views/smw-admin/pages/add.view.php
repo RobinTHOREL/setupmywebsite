@@ -40,7 +40,7 @@
                             <label>Template</label>
                             <select name="template" class="form-group">
                                 <?php
-                                $tempFiles = glob(TEMPLATES_PATH_CUSTOM.'*temp.php');
+                                $tempFiles = glob(TEMPLATES_PATH_CUSTOM.CHOSEN_TEMPLATE.DS.'*temp.php');
                                 $patterns = array();
                                 $patterns[0] = "/(.)*\\".DS."/";
                                 $patterns[1] = "/.temp.php/";
