@@ -4,7 +4,8 @@
 		<meta charset="UTF-8">
 		<title><?php echo $page_title ?></title>
 		<meta name="description" content="<?php echo $page_description ?>">
-        <link rel="stylesheet" href="/setupmywebsite/Public/css/style-front.css">
+        <link rel="stylesheet" href="<?php echo BASE_ABSOLUTE_PATTERN;?>Public/css/style-front.css">
+        <link rel="stylesheet" href="<?php echo BASE_ABSOLUTE_PATTERN;?>Public/css/style-front2.css">
 	</head>
 	<body>
     <section>
@@ -68,13 +69,18 @@
 
 
                     <div class="ui vertical stripe segment">
-                        <div class="ui text container">
+                        <div class="ui text container ">
                             <h3 class="ui header"><?php echo $page_title; ?></h3>
                             <p><?php echo $page_description; ?>.</p>
-                            <a class="ui large button">En savoir plus...</a>
+                            <a class="ui large button" href="#anchor">En savoir plus...</a>
                             <h4 class="ui horizontal header divider">
-                                <a href="#">Articles/</a>
+                                <a href="#" id="anchor">Articles</a>
                             </h4>
+                            <?php foreach ($posts as $post)
+                            {?>
+                            <h3 class="ui header"><?php echo $post["title"]; ?></h3>
+                            <p><?php echo $post["content"]; ?></p>
+                            <?php }?>
                         </div>
                     </div>
 
@@ -82,37 +88,27 @@
         </div>
         </div>
         <?php include $this->view; ?>
+    </section>
         <footer>
+            <div>
             <div class="ui inverted vertical footer segment">
                 <div class="ui container">
                     <div class="ui stackable inverted divided equal height stackable grid">
                         <div class="three wide column">
                             <h4 class="ui inverted header">About</h4>
-                            <div class="ui inverted link list">
-                                <a href="#" class="item">Sitemap</a>
-                                <a href="#" class="item">Contact Us</a>
-                                <a href="#" class="item">Religious Ceremonies</a>
-                                <a href="#" class="item">Gazebo Plans</a>
+                            Edit your footer
                             </div>
                         </div>
-                        <div class="three wide column">
-                            <h4 class="ui inverted header">Services</h4>
-                            <div class="ui inverted link list">
-                                <a href="#" class="item">Banana Pre-Order</a>
-                                <a href="#" class="item">DNA FAQ</a>
-                                <a href="#" class="item">How To Access</a>
-                                <a href="#" class="item">Favorite X-Men</a>
-                            </div>
-                        </div>
+
                         <div class="seven wide column">
-                            <h4 class="ui inverted header">Footer Header</h4>
-                            <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+                            <h4 class="ui inverted header">Setup my website</h4>
+                            <p>projet annuel ESGI IW .</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+
         </footer>
-        <script src="/setupmywebsite/Public/js/index_front.js"></script>
+    <script src="<?php echo BASE_ABSOLUTE_PATTERN;?>Public/js/index_front.js"></script>
 	</body>
 </html>

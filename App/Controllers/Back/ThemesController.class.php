@@ -12,6 +12,7 @@ class ThemesController
     {
         $view = new View(BASE_BACK_OFFICE . "themes/index", "smw-admin");
         $view->assign("page_title", "Voir les thèmes");
+        $view->assign("theme_actuel", CHOSEN_TEMPLATE);
         $view->assign("page_description", "Page listant les thèmes");
     }
 
@@ -40,11 +41,7 @@ class ThemesController
     public function editAction($params)
     {
         if(!empty($_POST) && $_SERVER["REQUEST_METHOD"] == "POST") {
-            $set = new Options();
-            $main_title = $set->populate();
-            $set->setId("1");
-            $set->setName($main_title);
-            $set->Save();
+           // titre du site en define <==> pas possible
 
         }
         $view = new View(BASE_BACK_OFFICE."themes/edit", "smw-admin");
