@@ -6,7 +6,6 @@ class PagesController{
             $title = $_POST['title'];
             $content = $_POST['content'];
             $template = $_POST['template'];
-
             $page = new Pages();
             $page->setName($title);
             $page->setDescription($content);
@@ -24,6 +23,7 @@ class PagesController{
         if ( $_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['title']) 
             && isset($_POST['description']) ) {
             $title = trim($_POST['title']);
+            $template = trim($_POST['template']);
             $description = trim($_POST['description']);
             $isPublished = "0";
             $listOfErrors = [];
@@ -54,6 +54,7 @@ class PagesController{
                 $page->setTitle($title);
                 $page->setDescription($description);
                 $page->setIsPublished($isPublished);
+                $page->setTemplate($template);
                 $page->Save();
                 $view->assign("success", "Votre page a bien été créé.");
             } else {
